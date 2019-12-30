@@ -1,0 +1,23 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}당신의 결정{% endblock %}
+
+{% block content %}
+
+<p>
+{#    You are <strong>Participant 1</strong>.#}
+{#    Please decide how much of the {{ Constants.endowment }}#}
+{#    you will keep for yourself.#}
+    {{ Constants.endowment }}중 상대에게 얼마를 줄 것인지 결정해주세요
+</p>
+
+<div class="container">
+    {% formfield group.give label="나는 상대에게 아래와 같은 금액을 줄 것입니다." %}
+</div>
+
+
+
+    {% include Constants.instructions_template %}
+
+{% endblock %}

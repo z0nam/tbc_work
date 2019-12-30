@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    질문입니다
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="alert border h5">
+            <p>현재 대한민국 교육의 문제점을 극복하고자 뜻을 같이하는 일부 학부모들이 협동조합을 만들고 교사를 초빙하여 대안학교를 설립하고 운영하고 있습니다.</p>
+            <p>하지만 혁신학교 등을 통해 제도권에서도 유사한 제도가 운영되고 있으며, 교육부의 인가를 받지 않았기 때문에 진학을 위해서는 검정고시를 봐야 하는 등 대안학교에 대한 비판의 목소리도 있습니다.</p>
+            <p>귀하께서는 이러한 형태의 소위 "부모협동형 대안학교"에 대해 어떻게 생각하십니까? 자신의 생각에 가까운 점수에 슬라이더를 위치해주시고 다음 버튼을 눌러주세요.</p>
+        </div>
+        {% formfield player.altedu %}
+    </div>
+    {% next_button %}
+
+{% endblock %}

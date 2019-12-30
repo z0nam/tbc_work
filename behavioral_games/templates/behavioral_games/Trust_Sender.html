@@ -1,0 +1,50 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    포인트 분배 게임 Type 2 (보내는쪽)
+{% endblock %}
+
+{% block app_scripts %}
+    <script>
+        $(document).ready(function(){
+            $(".hidden").hide();
+
+            $('select').change(
+                function(){
+                    {#alert("select input changed!");#}
+                    $("#received").text(this.value * {{ Constants.multiplier }});
+                    $("#remaining").text({{ endowment }} - this.value);
+                    $(".calculated").show();
+                }
+            )
+        })
+    </script>
+{% endblock %}
+
+{% block content %}
+    {% include Constants.trust_instruction_template %}
+    <div class="container">
+        {% formfield player.trust_give label="나는 상대방에게 아래와 같은 금액을 줄 것입니다. " %}
+        <div class="alert-info calculated hidden">
+            <ul>
+                <li>이 금액은 {{ Constants.multiplier }} 배인 <span class="alert-danger" id="received"></span> 포인트가 되어 상대에게 전달됩니다.</li>
+                <li>상대에게 주고 남은 <span class="alert-danger" id="remaining"></span> 포인트는 나의 소유가 됩니다.</li>
+                <li>또한 다른 참가자들 중 본인에 대해 보내게 될 미지의 포인트 역시 3배가 되어 본인의 소유가 됩니다. </li>
+                <li>한편, 상대는 이 금액에 대해서 상대가 가지고 있는 {{ Constants.endowment }} 중 얼마를 나에게 보낼지 정하게 됩니다.</li>
+                <li>그 금액은 마찬가지로 {{ Constants.multiplier }} 배가 되어 나의 소유가 됩니다.</li>
+            </ul>
+          </div>
+    </div>
+
+    <div class="container">
+        <button class="btn btn-primary btn-large active">
+            금액 보내기
+        </button>
+    </div>
+    <div class="container">
+        다음 화면에서 당신 역시 당신이 얼마를 받으면 얼마를 보낼지 정하게 될 것입니다.
+    </div>
+{% endblock %}
+
+

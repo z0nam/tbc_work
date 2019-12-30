@@ -1,0 +1,99 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    게임 설명
+{% endblock %}
+
+{% block content %}
+    <div class="alert alert-info">
+        {% include Constants.instructions_template %}
+    </div>
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>선택하세요</th>
+                <th>상태</th>
+                <th>확률</th>
+                <th>보상</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td rowspan="2"> <div class="text-center">{{ form.risk_choice.0 }}</div> </td>
+                    <td>낮음</td>
+                    <td>50&#37;</td>
+                    <td>8 포인트</td>
+                </tr>
+                <tr>
+                    <td>높음</td>
+                    <td>50&#37;</td>
+                    <td>8 포인트</td>
+                </tr>
+
+                <tr>
+                    <td rowspan="2"> <div class="text-center">{{ form.risk_choice.1 }}</div> </td>
+                    <td>낮음</td>
+                    <td>50&#37;</td>
+                    <td>7 포인트</td>
+                </tr>
+                <tr>
+                    <td>높음</td>
+                    <td>50&#37;</td>
+                    <td>10 포인트</td>
+                </tr>
+
+                <tr>
+                    <td rowspan="2"> <div class="text-center">{{ form.risk_choice.2 }}</div> </td>
+                    <td>낮음</td>
+                    <td>50&#37;</td>
+                    <td>6 포인트</td>
+                </tr>
+                <tr>
+                    <td>높음</td>
+                    <td>50&#37;</td>
+                    <td>12 포인트</td>
+                </tr>
+
+                <tr>
+                    <td rowspan="2"> <div class="text-center">{{ form.risk_choice.3 }}</div> </td>
+                    <td>낮음</td>
+                    <td>50&#37;</td>
+                    <td>5 포인트</td>
+                </tr>
+                <tr>
+                    <td>높음</td>
+                    <td>50&#37;</td>
+                    <td>14 포인트</td>
+                </tr>
+
+                <tr>
+                    <td rowspan="2"> <div class="text-center">{{ form.risk_choice.4 }}</div> </td>
+                    <td>낮음</td>
+                    <td>50&#37;</td>
+                    <td>4 포인트</td>
+                </tr>
+                <tr>
+                    <td>높음</td>
+                    <td>50&#37;</td>
+                    <td>16 포인트</td>
+                </tr>
+
+                <tr>
+                    <td rowspan="2"> <div class="text-center">{{ form.risk_choice.5 }}</div> </td>
+                    <td>낮음</td>
+                    <td>50&#37;</td>
+                    <td>1 포인트</td>
+                </tr>
+                <tr>
+                    <td>높음</td>
+                    <td>50&#37;</td>
+                    <td>19 포인트</td>
+                </tr>
+        </tbody>
+    </table>
+
+    {% next_button %}
+
+{% endblock %}

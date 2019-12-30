@@ -1,0 +1,37 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    포인트 분배 게임 Type 3
+{% endblock %}
+
+{% block app_scripts %}
+    <script>
+        $(document).ready(function(){
+            $(".hidden").hide();
+            {#alert("hide");#}
+
+            $('select').change(
+                function(){
+                    {#alert("select input changed!");#}
+                    $("#remaining").text({{ endowment }} - this.value);
+                    $(".hidden").show();
+                }
+            )
+        })
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="alert border">
+    <img src="{% static "global/pgg.jpg" %}" alt="게임설명그림" width="70%">
+    </div>
+    {% include Constants.pgg_instruction_template %}
+    {% formfield player.pgg_contribution label="얼마를 기여하시겠습니까?" %}
+    <div class="alert alert-info hidden">
+        당신은 기여후 남은 <span class="alert-danger" id="remaining"> </span> 포인트와 함께 총 기여금으로부터 균등분배받을 포인트를 보상으로 받게 될 것입니다.
+    </div>
+    <button class="btn btn-primary active btn-large">기여하기</button>
+{% endblock %}
+
+

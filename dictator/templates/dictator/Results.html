@@ -1,0 +1,22 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}게임 결과{% endblock %}
+
+{% block content %}
+
+<p>
+
+    {% if player.id_in_group == 1 %}
+        당신은 상대에게 다음과 같은 보상을 주었습니다: <strong>{{ group.give }}</strong>, <br>
+        따라서 당신은 다음과 같은 보상을 받게 됩니다: <strong>{{ p1payoff }}</strong>
+    {% else %}
+        당신의 상대는 당신에게 다음과 같은 보상을 주기로 결정했습니다: <strong>{{ group.give }}</strong>, <br>
+        따라서 당신은 다음과 같은 보상을 받았습니다: <strong>{{ offer }}</strong>.
+    {% endif %}
+
+    {% next_button %}
+</p>
+{% include Constants.instructions_template %}
+
+{% endblock %}

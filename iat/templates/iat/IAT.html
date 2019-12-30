@@ -1,0 +1,123 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block title %}
+
+{% endblock %}
+
+{% block app_scripts %}
+    <script>
+    /*
+    All variables which take their values from django tag should be placed here
+    with ES5 format. I.e., use var rather than let or const.
+
+     */
+        var round_number = {{ subsession.round_number }};
+        var iat_items = {{ iat_items|json }};
+
+        var correct_sides = {{ correct_sides|json }};
+        var side = {
+            'left': {{ Constants.LEFT }},
+            'right': {{ Constants.RIGHT }},
+        };
+        var left_keycode = {{ Constants.LEFT_KEYCODE }};
+        var right_keycode = {{ Constants.RIGHT_KEYCODE }};
+
+        var category = {
+            'main': {
+                'left': {{ left_main_category|json }},
+                'right': {{ right_main_category|json }},
+            },
+            'sub': {
+                'left': {{ left_sub_category|json }},
+                'right': {{ right_sub_category|json }},
+            }
+        };
+        var main_items = {{ main_items|json }}
+        var sub_items = {{ sub_items|json }}
+        var META_KEYCODE = {{ Constants.META_KEYCODE }}
+        var left_category_name = {{ left_category_name|json }};
+        var right_category_name = {{ right_category_name|json }};
+        var current_item;
+    </script>
+    <script src="{% static 'iat/lib/iat.js' %}?{{ seed_for_refresh_js_cache }}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+{#        <div class="row" id="progress"> 로딩중.. </div>#}
+        <div class="row" id="mainbox">
+             <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6"
+                  style="" id="left_panel">
+                <h2 id = "left_key">
+                    {{ Constants.LEFT_KEY_NAME }}키
+                </h2>
+                <div id = "left_category">
+                    {% if left_main_category %}
+                        <h1 class="keyword main">
+                            {{ left_main_category|safe|escape }}
+                        </h1>
+                        {% if left_sub_category %}
+                            <h4>또는</h4>
+                        <h1 class="keyword sub">
+                            {{ left_sub_category|safe|escape }}
+                        </h1>
+                        {% endif %}
+                    {% elif left_sub_category %}
+                        <h1 class="keyword sub">
+                            {{ left_sub_category|safe|escape }}
+                        </h1>
+                    {% endif %}
+                </div>
+            </div>
+            <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6" id="right_panel">
+                <h2 id = "right_key">
+                    {{ Constants.RIGHT_KEY_NAME }}키
+                </h2>
+                <h1 id = "right_category">
+                    {% if right_main_category %}
+                        <h1 class="keyword main">
+                            {{ right_main_category|safe|escape }}
+                        </h1>
+                        {% if right_sub_category %}
+                            <h4>또는</h4>
+                        <h1 class="keyword sub">
+                            {{ right_sub_category|safe|escape }}
+                        </h1>
+                        {% endif %}
+                    {% elif right_sub_category %}
+                        <h1 class="keyword sub">
+                            {{ right_sub_category|safe|escape }}
+                        </h1>
+                    {% endif %}
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="wrong_key_box col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    오류! 잘못된 키를 입력하셨습니다! <br>
+                    왼쪽은 <span class="emph">{{ Constants.LEFT_KEY_NAME }}</span>,
+                    오른쪽은 <span class='emph'>{{ Constants.RIGHT_KEY_NAME }}</span> 키를 입력해주세요!
+            </div>
+        </div>
+        <div class="row_keyword">
+            <div id="keyword">
+                로딩중... 잠시 기다려 주시기 바랍니다
+            </div>
+        </div>
+        <div class="next_block_box">
+            수고하셨습니다! <span class="emph">{{ Constants.META_KEY_NAME }}</span>를 눌러 다음으로 넘어가 주세요
+        </div>
+    </div>
+    <div class="wrong_answer_mark">×</div>
+
+    <form id="form">
+        <input type="hidden" name="category_table" id="category_table">
+        <input type="hidden" name="item_table" id="item_table">
+        <input type="hidden" name="keypress_table" id="keypress_table">
+        <input type="hidden" name="iat_table" id="iat_table">
+    </form>
+{% endblock %}
+
+

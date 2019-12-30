@@ -1,0 +1,29 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}게임 결과{% endblock %}
+
+{% block content %}
+
+{% if player.id_in_group == 1 %}
+    <p>
+        참가자1인 당신은 상대인 참가자2에게 다음과 같은 금액을 보냈습니다: {{ group.sent_amount }}. <br>
+        상대는 당신에게 다음과 같은 금액을 보냈습니다: {{group.sent_back_amount}}.  <br>
+        그 결과 당신은 상대에게 보내지 않고 남은 금액 {{ p1base }}와 상대에게 받은 금액 {{ p1receive }}를 얻었습니다.
+    </p>
+    {% else %}
+    <p>
+        참가자1인 상대는 당신에게 다음과 같은 금액을 보냈습니다: {{ group.sent_amount }}. <br>
+        참가자2인 당신은 상대에게 다음과 같은 금액을 보냈습니다 {{group.sent_back_amount}}. <br>
+        그 결과 당신은 상대에게 보내지 않고 남은 금액 {{ p2base }}와 상대에게 받은 금액 {{ p2receive }}를 얻었습니다.
+    </p>
+
+{% endif %}
+
+    <p>
+    따라서 당신의 총 보상은 {{player.payoff}} 입니다.
+    </p>
+
+    {% include Constants.instructions_template %}
+
+{% endblock %}

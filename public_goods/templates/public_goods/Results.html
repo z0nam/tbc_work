@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}결과{% endblock %}
+
+{% block content %}
+
+<p>
+    당신은 처음에 <span class="alert-info">{{ Constants.endowment }}</span>를 가지고 있었습니다.<br>
+    당신은 이 중 <span class="alert-info">{{ player.contribution }}</span>를 공공 사업에 기여했습니다. <br>
+    당신이 속한 그룹의 총 기여액은 <span class="alert-info">{{ group.total_contribution }}</span>였습니다 <br>,
+    따라서 당신의 그룹은 공공 사업으로 인해 <span class="alert-info">{{ totalvalue }}</span>를 얻었습니다 <br>
+    그 결과 각 그룹원들은 <span class="alert-info">{{ group.individual_share }}</span>를 받았습니다. <br>
+    따라서 당신의 최종 보상은 <span class="alert-danger">{{ player.payoff }}</span> 입니다.
+</p>
+
+{% next_button %}
+
+{% endblock %}
