@@ -1,0 +1,23 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    설문조사
+{% endblock %}
+
+{% block content %}
+    <h2>아래의 질문들에 답해주시기 바랍니다.</h2>
+    <div class="container">
+        <div class="row">
+            <p class="emph">전부 답해주셔야 다음으로 넘어갈 수 있습니다.</p>
+{#            <p>이 페이지부터는  타이머가 작동하지 않으므로 충분히 시간을 들여서 답변하셔도 상관없습니다.</p>#}
+        </div>
+        {% for field in form %}
+            <div class="alert border">{% formfield field %}</div>
+        {% endfor %}
+
+
+        <button class="btn btn-primary btn-large active">모든 질문에 답하셨으면 이 버튼을 클릭하여 다음 페이지로 진행해주시기 바랍니다</button>
+    </div>
+
+{% endblock %}
