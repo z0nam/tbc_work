@@ -1,0 +1,257 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    설문조사
+{% endblock %}
+
+{% block content %}
+    <h2>아래의 질문들에 답해주시기 바랍니다.</h2>
+    <div class="container">
+        <div class="row">
+            <p class="emph">전부 답해주셔야 다음으로 넘어갈 수 있습니다.</p>
+{#            <p>이 페이지부터는  타이머가 작동하지 않으므로 충분히 시간을 들여서 답변하셔도 상관없습니다.</p>#}
+        </div>
+
+        <div class="row alert border">
+            <p>다음은 질환력(과거력, 가족력)에 대한 문항입니다. 자신의 현재 상태에 해당되는 내용을 선택해주십시오.</p>
+
+            <div class="row alert border">
+                <div class="alert">다음과 같은 질병으로 진단을 받았거나, 현재 약물 치료 중이십니까? (진단, 약물치료쪽 모두에 답해야 합니다)
+
+                    <table class="table-bordered">
+                        <tr>
+                            <th></th>
+                            <th>진단</th>
+                            <th>약물치료</th>
+                        </tr>
+                        <tr>
+                            <td>뇌졸증 (중풍)</td>
+                            <td>{% formfield player.hq1_1_1 %}</td>
+                            <td>{% formfield player.hqnow1_1_1 %}</td>
+                        </tr>
+                        <tr>
+                            <td>심근경색/협심증</td>
+                            <td>{% formfield player.hq1_1_2 %}</td>
+                            <td>{% formfield player.hqnow1_1_2 %}</td>
+                        </tr>
+                        <tr>
+                            <td>고혈압</td>
+                            <td>{% formfield player.hq1_1_3 %}</td>
+                            <td>{% formfield player.hqnow1_1_3 %}</td>
+                        </tr>
+                        <tr>
+                            <td>당뇨병</td>
+                            <td>{% formfield player.hq1_1_4 %}</td>
+                            <td>{% formfield player.hqnow1_1_4 %}</td>
+                        </tr>
+                        <tr>
+                            <td>이상지질혈증</td>
+                            <td>{% formfield player.hq1_1_5 %}</td>
+                            <td>{% formfield player.hqnow1_1_5 %}</td>
+                        </tr>
+                        <tr>
+                            <td>폐결핵</td>
+                            <td>{% formfield player.hq1_1_6 %}</td>
+                            <td>{% formfield player.hqnow1_1_6 %}</td>
+                        </tr>
+                        <tr>
+                            <td>기타(암 포함)</td>
+                            <td>{% formfield player.hq1_1_7 %}</td>
+                            <td>{% formfield player.hqnow1_1_7 %}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row alert border">
+                <div class="alert">부모, 형제, 자매 중에 다음 질환을 앓았거나 해당 질환으로 사망한 경우가 있으십니까?
+                    <div>
+                        <div class="alert">{% formfield player.hq1_2_1 %}</div>
+                        <div class="alert">{% formfield player.hq1_2_2 %}</div>
+                        <div class="alert">{% formfield player.hq1_2_3 %}</div>
+                        <div class="alert">{% formfield player.hq1_2_4 %}</div>
+                        <div class="alert">{% formfield player.hq1_2_5 %}</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row alert border">
+            <div class="alert">
+                {% formfield player.hepatitis_b %}
+            </div>
+        </div>
+        <div class="row alert border">
+            <div class="alert">다음은 음주에 대한 문항입니다. 자신의 현재 상태에 해당되는 내용을 선택해 주십시오.
+                <div class="border">
+                    지난 1년간 술을 마신 횟수는 어느 정도입니까? (1개만 선택해서 적어주세요)
+                    <div>{% formfield player.num_drink_not %}</div>
+
+                </div>
+                <div class="row border alert">
+                    지난 1년간 술을 마신 적이 있다면, 술을 마시는 날은 보통 어느 정도 마십니까? (원하는 단위에 따라 작성해주세요, 숫자만 입력가능)
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th class="align-content-center">잔</th>
+                            <th>병</th>
+                            <th>캔</th>
+                            <th>cc</th>
+                        </tr>
+                        <tr>
+                            <td>소주</td>
+                            <td>{% formfield player.alc_avg_1_jan %} </td>
+                            <td>{% formfield player.alc_avg_1_bot %} </td>
+                            <td>{% formfield player.alc_avg_1_can %} </td>
+                            <td>{% formfield player.alc_avg_1_cc %} </td>
+                        </tr>
+                        <tr>
+                            <td>맥주</td>
+                            <td>{% formfield player.alc_avg_2_jan %} </td>
+                            <td>{% formfield player.alc_avg_2_bot %} </td>
+                            <td>{% formfield player.alc_avg_2_can %} </td>
+                            <td>{% formfield player.alc_avg_2_cc %} </td>
+                        </tr>
+                        <tr>
+                            <td>양주</td>
+                            <td>{% formfield player.alc_avg_3_jan %} </td>
+                            <td>{% formfield player.alc_avg_3_bot %} </td>
+                            <td>{% formfield player.alc_avg_3_can %} </td>
+                            <td>{% formfield player.alc_avg_3_cc %} </td>
+                        </tr>
+                        <tr>
+                            <td>막걸리</td>
+                            <td>{% formfield player.alc_avg_4_jan %} </td>
+                            <td>{% formfield player.alc_avg_4_bot %} </td>
+                            <td>{% formfield player.alc_avg_4_can %} </td>
+                            <td>{% formfield player.alc_avg_4_cc %} </td>
+                        </tr>
+                        <tr>
+                            <td>와인</td>
+                            <td>{% formfield player.alc_avg_5_jan %} </td>
+                            <td>{% formfield player.alc_avg_5_bot %} </td>
+                            <td>{% formfield player.alc_avg_5_can %} </td>
+                            <td>{% formfield player.alc_avg_5_cc %} </td>
+
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="row border alert">
+                    지난 1년간 가장 많이 마셨던 하루 음주량은 어느 정도입니까? (원하는 단위만 작성해주시면 됩니다)
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th class="align-content-center">잔</th>
+                            <th>병</th>
+                            <th>캔</th>
+                            <th>cc</th>
+                        </tr>
+                        <tr>
+                            <td>소주</td>
+                            <td>{% formfield player.alc_max_1_jan %} </td>
+                            <td>{% formfield player.alc_max_1_bot %} </td>
+                            <td>{% formfield player.alc_max_1_can %} </td>
+                            <td>{% formfield player.alc_max_1_cc %} </td>
+                        </tr>
+                        <tr>
+                            <td>맥주</td>
+                            <td>{% formfield player.alc_max_2_jan %} </td>
+                            <td>{% formfield player.alc_max_2_bot %} </td>
+                            <td>{% formfield player.alc_max_2_can %} </td>
+                            <td>{% formfield player.alc_max_2_cc %} </td>
+                        </tr>
+                        <tr>
+                            <td>양주</td>
+                            <td>{% formfield player.alc_max_3_jan %} </td>
+                            <td>{% formfield player.alc_max_3_bot %} </td>
+                            <td>{% formfield player.alc_max_3_can %} </td>
+                            <td>{% formfield player.alc_max_3_cc %} </td>
+                        </tr>
+                        <tr>
+                            <td>막걸리</td>
+                            <td>{% formfield player.alc_max_4_jan %} </td>
+                            <td>{% formfield player.alc_max_4_bot %} </td>
+                            <td>{% formfield player.alc_max_4_can %} </td>
+                            <td>{% formfield player.alc_max_4_cc %} </td>
+                        </tr>
+                        <tr>
+                            <td>와인</td>
+                            <td>{% formfield player.alc_max_5_jan %} </td>
+                            <td>{% formfield player.alc_max_5_bot %} </td>
+                            <td>{% formfield player.alc_max_5_can %} </td>
+                            <td>{% formfield player.alc_max_5_cc %} </td>
+
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row alert border">
+            다음은 신체활동(운동)에 대한 문항입니다. 자신의 현재 상태에 해당되는 내용을 선택해주십시오.
+
+            <div class="row alert border">
+                <div class="d-block">
+                    평소 1주일간, 숨이 많이 차게 만드는 고강도 신체활동을 며칠 하십니까? 주당 <div class="d-inline-block">{% formfield player.high_act_day %}</div> 일
+                </div>
+                <p class="alert-info">
+                    ※고강도 신체활동의 예: 달리기, 에어로빅, 빠른 속도로 자전거 타기, 건설 현장 노동, 계단으로 물건 나르기 등
+                </p>
+            </div>
+
+            <div class="row alert border">
+                <div class="d-block">
+                    평소 하루에 숨이 많이 차게 만드는 고강도 신체활동을 몇 시간 하십니까? 하루에 <div class="d-inline-block">{% formfield player.high_act_hour %}</div>시간 <div class="d-inline-block">{% formfield player.high_act_min %}</div>분
+                </div>
+            </div>
+
+            <div class="row alert border">
+                <div class="d-block">간
+                    평소 1주일간, 숨이 약간 차게 만드는 중강도 신체활동을 며칠 하십니까? 주당 <div class="d-inline-block">{% formfield player.mid_act_day %}</div> 일
+                </div>
+                <p class="alert-info">
+                    ※ 앞에서 답하신 고강도 문항에 관련한 신체활동은 제외하고 답해주십시오
+                </p>
+                <p class="alert-info">
+                    ※ 중강도 신체활동의 예: 빠르게 걷기, 복식 테니스, 보통 속도로 자전거 타기, 가벼운 물건 나르기, 청소 등
+                </p>
+            </div>
+
+            <div class="row alert border">
+                <div class="d-block">
+                    평소 하루에 숨이 약간 차게 만드는 중강도 신체활동을 몇 시간 하십니까? 하루에 <div class="d-inline-block">{% formfield player.mid_act_hour %}</div>시간 <div class="d-inline-block">{% formfield player.mid_act_min %}</div>분
+                </div>
+            </div>
+
+            <div class="row alert border">
+                <div class="d-block">
+                    최근 한 달 동안 팔굽혀펴기, 윗몸일으키기, 아령(덤벨), 역기, 철봉 등 근력 운동을 한 날은 1주일당 평균 며칠입니까? 주당 <div class="d-inline-block">{% formfield player.muscle_act_days %}</div>일
+                </div>
+            </div>
+
+        </div>
+
+        <div class="alert row border">
+            다음은 삶의 만족도에 대한 문항입니다. 아래에는 귀하가 동의할 수도 그렇지 않을 수도 있는 다섯 문항이 제시되어 있습니다. 각 문항에 동의 또는 반대하는 정도에 따라서 선택해 주십시오. 자유롭고 솔직하게 응답해주시기 바랍니다.
+            <div class="alert row border">
+                {% formfield player.sq1 %}
+                {% formfield player.sq2 %}
+                {% formfield player.sq3 %}
+                {% formfield player.sq4 %}
+                {% formfield player.sq5 %}
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+        <button class="btn btn-primary btn-large active">모든 질문에 답하셨으면 이 버튼을 클릭하여 다음 페이지로 진행해주시기 바랍니다</button>
+
+
+{% endblock %}

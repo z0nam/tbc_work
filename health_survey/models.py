@@ -1,13 +1,12 @@
 from otree.api import (
     models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer,
 )
-from . import value_questions
-import time
+from . import health_questions
 
 author = 'Namun Cho <mailto:dr.strangelove@kberi.re.kr>'
 
 doc = """
-Part of the KBERI's experimental study for 부모협동형 대안교육의 현황과 제도적 개선방안 연구
+Part of the KBERI's experimental study for khealth
 """
 
 
@@ -17,12 +16,18 @@ class Constants(BaseConstants):
     num_rounds = 1
     # num_value_questions_pages = 1
 
-    value_questions_list_01 = value_questions.value_questions_01
-    value_questions_list_02 = value_questions.value_questions_02
-    value_questions_list_03 = value_questions.value_questions_03
-    value_questions_list_04 = value_questions.value_questions_04
-    value_questions_list_05 = value_questions.value_questions_05
-    value_choice_questions_list = value_questions.value_choice_questions
+    hq1_1_list = health_questions.HQ1_1
+    hq1_2_list = health_questions.HQ1_2
+
+    satisfaction_list = health_questions.SATISFACTION_QUESTIONS
+
+    # BINARY_CHOICES = [
+    #     [1, "현재 약물치료중임"],
+    #     [2, "진단받은 적은 있으나 현재 약물치료상태는 아님"],
+    #     [3, "진단받은 적 없음"],
+    # ]
+
+    alcohollist = health_questions.ALCOHOL_LIST
 
     L5_1, L5_2, L5_3, L5_4, L5_5, L5_OTHER = 1, 2, 3, 4, 5, 99
     L5_CHOICES = [
@@ -44,175 +49,472 @@ class Constants(BaseConstants):
         [L6_6, "매우 동의함"],
     ]
 
+    L7_CHOICES = [
+        [1, "전혀 아니다"],
+        [2, "아니다"],
+        [3, "약간 아니다"],
+        [4, "중간이다"],
+        [5, "약간 그렇다"],
+        [6, "그렇다"],
+        [7, "매우 그렇다"]
+    ]
+
     YES, NO = True, False
     BINARY_CHOICES = [
-        [YES, "있다"],
-        [NO, "없다"],
+        [YES, "예"],
+        [NO, "아니오"],
+    ]
+
+    YNU_CHOICES = [
+        [1, "예"],
+        [2, "아니오"],
+        [3, "모름"],
     ]
 
 
 class Subsession(BaseSubsession):
-    # questions_order = []
-    # choice_questions_order = []
-
-    def creating_session(self):
-        pass
-        # max_num_of_value_questions = len(Constants.value_questions_list)
-        # questions_order = list(range(max_num_of_value_questions))
-        # random.shuffle(questions_order)
-        # print("questions_order: {}".format(questions_order))
-        # print("num_of_questions: {}".format(max_num_of_value_questions))
-        #
-        # max_num_of_value_choice_questions = len(Constants.value_choice_questions_list)
-        # choice_questions_order = list(range(max_num_of_value_choice_questions))
-        # random.shuffle(choice_questions_order)
-        # print("choice_questions_order:{}".format(str(choice_questions_order)))
-        # print("num_of_choice_questions: {}".format(max_num_of_value_choice_questions))
+    pass
 
 
 class Group(BaseGroup):
     pass
 
 
-def make_field_01(index):
-    return models.IntegerField(
-        label=Constants.value_questions_list_01[index],
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L5_CHOICES,
-    )
-
-
-def make_field_02(index):
-    return models.IntegerField(
-        label=Constants.value_questions_list_02[index],
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L5_CHOICES,
-    )
-
-
-def make_field_03(index):
-    return models.IntegerField(
-        label=Constants.value_questions_list_03[index],
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L5_CHOICES,
-    )
-
-
-def make_field_04(index):
-    return models.IntegerField(
-        label=Constants.value_questions_list_04[index],
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L5_CHOICES,
-    )
-
-
-def make_field_05(index):
-    return models.IntegerField(
-        label=Constants.value_questions_list_05[index],
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L5_CHOICES,
-    )
-
-
-def make_field_cq(index):
-    return models.IntegerField(
-        label="자신의 생각과 더 가까운 쪽을 선택해주세요",
-        widget=widgets.RadioSelect,
-        choices=[
-            [1, Constants.value_choice_questions_list[index][0]],
-            [2, Constants.value_choice_questions_list[index][1]]
-        ],
-    )
-
-
 class Player(BasePlayer):
 
-    embrain_response = models.StringField()
-    elapsed_time_seconds = models.IntegerField()
+    hq11list = Constants.hq1_1_list
 
-    # value_questions_01 = Constants.value_questions_list_01
-    # value_choice_questions = Constants.value_choice_questions_list
+    hq1_1_1 = models.IntegerField(
+        label="",
+        widget=widgets.RadioSelectHorizontal,
+        choices=Constants.BINARY_CHOICES,
+    )
 
-    vq1_0 = make_field_01(0)
-    vq1_1 = make_field_01(1)
-    vq1_2 = make_field_01(2)
-    vq1_3 = make_field_01(3)
-    vq1_4 = make_field_01(4)
-    vq1_5 = make_field_01(5)
-    vq1_6 = make_field_01(6)
-    vq1_7 = make_field_01(7)
-    vq1_8 = make_field_01(8)
-    vq1_9 = make_field_01(9)
-    vq1_10 = make_field_01(10)
-    # vq1_11 = make_field_01(11)
+    hq1_1_2 = models.IntegerField(
+        label="",
+        widget=widgets.RadioSelectHorizontal,
+        choices=Constants.BINARY_CHOICES,
+    )
 
-    vq2_0 = make_field_02(0)
-    vq2_1 = make_field_02(1)
-    vq2_2 = make_field_02(2)
-    vq2_3 = make_field_02(3)
-    vq2_4 = make_field_02(4)
-    vq2_5 = make_field_02(5)
-    vq2_6 = make_field_02(6)
-    vq2_7 = make_field_02(7)
-    vq2_8 = make_field_02(8)
-    # vq2_9 = make_field_02(9)
+    hq1_1_3 = models.IntegerField(
+        label="",
+        widget=widgets.RadioSelectHorizontal,
+        choices=Constants.BINARY_CHOICES,
+    )
 
-    vq3_0 = make_field_03(0)
-    vq3_1 = make_field_03(1)
-    vq3_2 = make_field_03(2)
-    vq3_3 = make_field_03(3)
-    vq3_4 = make_field_03(4)
-    vq3_5 = make_field_03(5)
-    vq3_6 = make_field_03(6)
-    vq3_7 = make_field_03(7)
-    vq3_8 = make_field_03(8)
-    # vq3_9 = make_field_03(9)
+    hq1_1_4 = models.IntegerField(
+        label="",
+        widget=widgets.RadioSelectHorizontal,
+        choices=Constants.BINARY_CHOICES,
+    )
 
-    vq4_0 = make_field_04(0)
-    vq4_1 = make_field_04(1)
-    vq4_2 = make_field_04(2)
-    vq4_3 = make_field_04(3)
-    vq4_4 = make_field_04(4)
-    vq4_5 = make_field_04(5)
-    vq4_6 = make_field_04(6)
-    vq4_7 = make_field_04(7)
-    vq4_8 = make_field_04(8)
-    vq4_9 = make_field_04(9)
-    vq4_10 = make_field_04(10)
-    vq4_11 = make_field_04(11)
-    vq4_12 = make_field_04(12)
-    # vq4_13 = make_field_04(13)
+    hq1_1_5 = models.IntegerField(
+        label="",
+        widget=widgets.RadioSelectHorizontal,
+        choices=Constants.BINARY_CHOICES,
+    )
 
-    vq5_0 = make_field_05(0)
-    vq5_1 = make_field_05(1)
-    vq5_2 = make_field_05(2)
-    vq5_3 = make_field_05(3)
-    vq5_4 = make_field_05(4)
-    vq5_5 = make_field_05(5)
-    vq5_6 = make_field_05(6)
-    vq5_7 = make_field_05(7)
-    vq5_8 = make_field_05(8)
-    vq5_9 = make_field_05(9)
-    vq5_10 = make_field_05(10)
-    # vq5_11 = make_field_05(11)
+    hq1_1_6 = models.IntegerField(
+        label="",
+        widget=widgets.RadioSelectHorizontal,
+        choices=Constants.BINARY_CHOICES,
+    )
 
-    vcq_0 = make_field_cq(0)
-    vcq_1 = make_field_cq(1)
-    vcq_2 = make_field_cq(2)
-    vcq_3 = make_field_cq(3)
-    vcq_4 = make_field_cq(4)
-    vcq_5 = make_field_cq(5)
-    vcq_6 = make_field_cq(6)
-    vcq_7 = make_field_cq(7)
-    vcq_8 = make_field_cq(8)
-    vcq_9 = make_field_cq(9)
-    vcq_10 = make_field_cq(10)
-    vcq_11 = make_field_cq(11)
-    # vcq_12 = make_field_cq(12)
+    hq1_1_7 = models.IntegerField(
+        label="",
+        widget=widgets.RadioSelectHorizontal,
+        choices=Constants.BINARY_CHOICES,
+    )
 
-    def get_elapsed_time_seconds(self):
-        start_time = self.participant.vars['start_time']
-        current_time = time.time()
-        elapsed_time = current_time - start_time
-        # print("elapsed_time =", elapsed_time)
-        return int(elapsed_time)
+    hqnow1_1_1 = models.IntegerField(
+        label="",
+        widget=widgets.RadioSelectHorizontal,
+        choices=Constants.BINARY_CHOICES,
+    )
+
+    hqnow1_1_2 = models.IntegerField(
+        label="",
+        widget=widgets.RadioSelectHorizontal,
+        choices=Constants.BINARY_CHOICES,
+    )
+
+    hqnow1_1_3 = models.IntegerField(
+        label="",
+        widget=widgets.RadioSelectHorizontal,
+        choices=Constants.BINARY_CHOICES,
+    )
+
+    hqnow1_1_4 = models.IntegerField(
+        label="",
+        widget=widgets.RadioSelectHorizontal,
+        choices=Constants.BINARY_CHOICES,
+    )
+
+    hqnow1_1_5 = models.IntegerField(
+        label="",
+        widget=widgets.RadioSelectHorizontal,
+        choices=Constants.BINARY_CHOICES,
+    )
+
+    hqnow1_1_6 = models.IntegerField(
+        label="",
+        widget=widgets.RadioSelectHorizontal,
+        choices=Constants.BINARY_CHOICES,
+    )
+
+    hqnow1_1_7 = models.IntegerField(
+        label="",
+        widget=widgets.RadioSelectHorizontal,
+        choices=Constants.BINARY_CHOICES,
+    )
+
+    hq1_2_1 = models.IntegerField(
+        label=Constants.hq1_2_list[0],
+        widget=widgets.RadioSelectHorizontal,
+        choices=Constants.BINARY_CHOICES,
+    )
+
+    hq1_2_2 = models.IntegerField(
+        label=Constants.hq1_2_list[1],
+        widget=widgets.RadioSelectHorizontal,
+        choices=Constants.BINARY_CHOICES,
+    )
+
+    hq1_2_3 = models.IntegerField(
+        label=Constants.hq1_2_list[2],
+        widget=widgets.RadioSelectHorizontal,
+        choices=Constants.BINARY_CHOICES,
+    )
+
+    hq1_2_4 = models.IntegerField(
+        label=Constants.hq1_2_list[3],
+        widget=widgets.RadioSelectHorizontal,
+        choices=Constants.BINARY_CHOICES,
+    )
+
+    hq1_2_5 = models.IntegerField(
+        label=Constants.hq1_2_list[4],
+        widget=widgets.RadioSelectHorizontal,
+        choices=Constants.BINARY_CHOICES,
+    )
+
+    hepatitis_b = models.IntegerField(
+        label="B형간염 바이러스 보균자입니까?",
+        widget=widgets.RadioSelectHorizontal,
+        choices=Constants.YNU_CHOICES,
+    )
+
+# todo 아래 4가지 중 하나는 반드시 체크되어 있어야 하며, 4번을 체크했을 경우에는 신체활동(운동) 관련 문항으로 이동해야함.
+
+    num_drink_week = models.IntegerField(
+        label="일주일간 술마신 횟수",
+        choices=range(1, 8),
+        blank=True,
+    )
+
+    num_drink_month = models.IntegerField(
+        label="한달에 술마신 횟수",
+        choices=range(1, 31),
+        blank=True,
+    )
+
+    num_drink_year = models.IntegerField(
+        label="1년에 술마신 횟수",
+        choices=range(1, 366),
+        blank=True,
+    )
+
+# todo: 여기에 체크할 경우 주량을 묻는 질문을 패스하도록 하기
+    num_drink_not = models.BooleanField(
+        label="술을 전혀 마시지 않음",
+        widget=widgets.RadioSelectHorizontal,
+        choices=Constants.BINARY_CHOICES,
+    )
+
+    alc_avg_1_jan = models.IntegerField(
+        label="",
+        choices=range(1, 100),
+        blank=True,
+    )
+
+    alc_avg_1_bot = models.IntegerField(
+        label="",
+        choices=range(1, 100),
+        blank=True,
+    )
+
+    alc_avg_1_can = models.IntegerField(
+        label="",
+        choices=range(1, 100),
+        blank=True,
+    )
+
+    alc_avg_1_cc = models.IntegerField(
+        label="",
+        choices=range(100, 10000, 100),
+        blank=True,
+    )
+
+    alc_avg_2_jan = models.IntegerField(
+        label="",
+        choices=range(1, 100),
+        blank=True,
+    )
+
+    alc_avg_2_bot = models.IntegerField(
+        label="",
+        choices=range(1, 100),
+        blank=True,
+    )
+
+    alc_avg_2_can = models.IntegerField(
+        label="",
+        choices=range(1, 100),
+        blank=True,
+    )
+
+    alc_avg_2_cc = models.IntegerField(
+        label="",
+        choices=range(100, 10000, 100),
+        blank=True,
+    )
+
+    alc_avg_3_jan = models.IntegerField(
+        label="",
+        choices=range(1, 100),
+        blank=True,
+    )
+
+    alc_avg_3_bot = models.IntegerField(
+        label="",
+        choices=range(1, 100),
+        blank=True,
+    )
+
+    alc_avg_3_can = models.IntegerField(
+        label="",
+        choices=range(1, 100),
+        blank=True,
+    )
+
+    alc_avg_3_cc = models.IntegerField(
+        label="",
+        choices=range(100, 10000, 100),
+        blank=True,
+    )
+
+    alc_avg_4_jan = models.IntegerField(
+        label="",
+        choices=range(1, 100),
+        blank=True,
+    )
+
+    alc_avg_4_bot = models.IntegerField(
+        label="",
+        choices=range(1, 100),
+        blank=True,
+    )
+
+    alc_avg_4_can = models.IntegerField(
+        label="",
+        choices=range(1, 100),
+        blank=True,
+    )
+
+    alc_avg_4_cc = models.IntegerField(
+        label="",
+        choices=range(100, 10000, 100),
+        blank=True,
+    )
+
+    alc_avg_5_jan = models.IntegerField(
+        label="",
+        choices=range(1, 100),
+        blank=True,
+    )
+
+    alc_avg_5_bot = models.IntegerField(
+        label="",
+        choices=range(1, 100),
+        blank=True,
+    )
+
+    alc_avg_5_can = models.IntegerField(
+        label="",
+        choices=range(1, 100),
+        blank=True,
+    )
+
+    alc_avg_5_cc = models.IntegerField(
+        label="",
+        choices=range(100, 10000, 100),
+        blank=True,
+    )
+
+    alc_max_1_jan = models.IntegerField(
+        label="",
+        choices=range(1, 100),
+        blank=True,
+    )
+
+    alc_max_1_bot = models.IntegerField(
+        label="",
+        choices=range(1, 100),
+        blank=True,
+    )
+
+    alc_max_1_can = models.IntegerField(
+        label="",
+        choices=range(1, 100),
+        blank=True,
+    )
+
+    alc_max_1_cc = models.IntegerField(
+        label="",
+        choices=range(100, 10000, 100),
+        blank=True,
+    )
+
+    alc_max_2_jan = models.IntegerField(
+        label="",
+        choices=range(1, 100),
+        blank=True,
+    )
+
+    alc_max_2_bot = models.IntegerField(
+        label="",
+        choices=range(1, 100),
+        blank=True,
+    )
+
+    alc_max_2_can = models.IntegerField(
+        label="",
+        choices=range(1, 100),
+        blank=True,
+    )
+
+    alc_max_2_cc = models.IntegerField(
+        label="",
+        choices=range(100, 10000, 100),
+        blank=True,
+    )
+
+    alc_max_3_jan = models.IntegerField(
+        label="",
+        choices=range(1, 100),
+        blank=True,
+    )
+
+    alc_max_3_bot = models.IntegerField(
+        label="",
+        choices=range(1, 100),
+        blank=True,
+    )
+
+    alc_max_3_can = models.IntegerField(
+        label="",
+        choices=range(1, 100),
+        blank=True,
+    )
+
+    alc_max_3_cc = models.IntegerField(
+        label="",
+        choices=range(100, 10000, 100),
+        blank=True,
+    )
+
+    alc_max_4_jan = models.IntegerField(
+        label="",
+        choices=range(1, 100),
+        blank=True,
+    )
+
+    alc_max_4_bot = models.IntegerField(
+        label="",
+        choices=range(1, 100),
+        blank=True,
+    )
+
+    alc_max_4_can = models.IntegerField(
+        label="",
+        choices=range(1, 100),
+        blank=True,
+    )
+
+    alc_max_4_cc = models.IntegerField(
+        label="",
+        choices=range(100, 10000, 100),
+        blank=True,
+    )
+
+    alc_max_5_jan = models.IntegerField(
+        label="",
+        choices=range(1, 100),
+        blank=True,
+    )
+
+    alc_max_5_bot = models.IntegerField(
+        label="",
+        choices=range(1, 100),
+        blank=True,
+    )
+
+    alc_max_5_can = models.IntegerField(
+        label="",
+        choices=range(1, 100),
+        blank=True,
+    )
+
+    alc_max_5_cc = models.IntegerField(
+        label="",
+        choices=range(100, 10000, 100),
+        blank=True,
+    )
+
+    high_act_day = models.IntegerField(
+        label="",
+        choices=range(0, 8),
+    )
+
+    high_act_hour = models.IntegerField(
+        label="",
+        choices=range(0, 24),
+    )
+
+    high_act_min = models.IntegerField(
+        label="",
+        choices=range(0, 60),
+    )
+
+    mid_act_day = models.IntegerField(
+        label="",
+        choices=range(0, 8),
+    )
+
+    mid_act_hour = models.IntegerField(
+        label="",
+        choices=range(0, 24),
+    )
+
+    mid_act_min = models.IntegerField(
+        label="",
+        choices=range(0, 60),
+    )
+
+    muscle_act_days = models.IntegerField(
+        label="",
+        choices=range(0, 8),
+    )
+
+    def make_field_satisfaction(index):
+        return models.IntegerField(
+            label=Constants.satisfaction_list[index],
+            widget=widgets.RadioSelectHorizontal,
+            choices=Constants.L7_CHOICES,
+        )
+
+    sq1 = make_field_satisfaction(0)
+    sq2 = make_field_satisfaction(1)
+    sq3 = make_field_satisfaction(2)
+    sq4 = make_field_satisfaction(3)
+    sq5 = make_field_satisfaction(4)

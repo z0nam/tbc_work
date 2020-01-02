@@ -21,7 +21,7 @@ class Constants(BaseConstants):
     BORN_YEAR_MIN = 1960
     BORN_YEAR_MAX = 2000
 
-    YES, NO = 1, 2
+    YES, NO = True, False
     BINARY_CHOICE = [
         [YES, "네"],
         [NO, "아니오"],
@@ -250,7 +250,7 @@ class Player(BasePlayer):
 
     #todo: 위 질문에 따라 분기하도록 조치할 것. 일단은 스크린샷을 위해 초안 버젼(순차)으로 작성함.
 
-    is_smoker = models.IntegerField(
+    is_smoker = models.BooleanField(
         label = "[[앞 문항의 1번 응답자]]현재 흡연중이십니까?",
         choices=Constants.BINARY_CHOICE,
         widget=widgets.RadioSelect,
@@ -266,13 +266,13 @@ class Player(BasePlayer):
         choices=range(1,100),
     )
 
-    e_tobacco_experience = models.IntegerField(
+    e_tobacco_experience = models.BooleanField(
         label = "전자담배를 사용한 경험이 있습니까?",
         choices=Constants.BINARY_CHOICE,
         widget=widgets.RadioSelect,
     )
 
-    e_tobacco_frequency = models.IntegerField(
+    e_tobacco_frequency = models.BooleanField(
         label = "[[전자담배 유경험자]]최근 한 달 동안 전자담배(궐련형, 액상형 등)를 사용한 경험이 있습니까?",
         choices = Constants.BINARY_CHOICE,
         widget = widgets.RadioSelect,

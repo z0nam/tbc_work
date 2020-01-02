@@ -30,21 +30,6 @@ class BasicSurvey(Page):
         'tobacco_type_2',
         'tobacco_type_3',
         'tobacco_type_4',
-
-
-        # 'marriage_state',
-        # # 'family_income_type',
-        # 'residence_type',
-        # # 'family_living_with',
-        # # 'occupation',
-        # 'my_education',
-        # 'income_level',
-        # 'having_child',
-        # 'child_education_1',
-        # 'child_education_2',
-        # 'child_education_3',
-        # 'child_education_4',
-        # 'child_education_5',
     ]
 
     def born_year_error_message(self, value):

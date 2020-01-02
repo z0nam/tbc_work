@@ -10,129 +10,111 @@ import requests
 
 from django.http import HttpResponseRedirect
 
-from . import value_questions
+from . import health_questions
 
 
-class TimeOutError(Page): # timeout 구현하지 않을 경우 미사용
+class HealthSurvey(Page):
+    form_model = 'player'
+    form_fields = [
+        'hq1_1_1',
+        'hq1_1_2',
+        'hq1_1_3',
+        'hq1_1_4',
+        'hq1_1_5',
+        'hq1_1_6',
+        'hq1_1_7',
 
-    def is_displayed(self):
-        if self.participant.vars['expiry'] - time.time() < 0:
-            self.participant.vars['is_timeout'] = True
-            params = {
-                'panel_id': self.participant.vars['panel_id'],
-                'status': '002',
-            }
-            r = requests.get(url=GlobalConstants.EXTERNAL_URL, params=params)
-            self.player.embrain_response = r.json()
-            print(r.json())
-            return True
-        else:
-            self.participant.vars['is_timeout'] = False
-            return False
+        'hqnow1_1_1',
+        'hqnow1_1_2',
+        'hqnow1_1_3',
+        'hqnow1_1_4',
+        'hqnow1_1_5',
+        'hqnow1_1_6',
+        'hqnow1_1_7',
 
-    def vars_for_template(self):
-        start_time = self.participant.vars['start_time']
-        current_time = time.time()
-        elapsed_time = current_time - start_time
-        print("elapsed_time =", elapsed_time)
-        # elapsed_time = int(round(elapsed_time / 60, 0))
-        # print("elapsed_time =", elapsed_time)
+        'hq1_2_1',
+        'hq1_2_2',
+        'hq1_2_3',
+        'hq1_2_4',
+        'hq1_2_5',
 
-        start_time_str \
-            = datetime.datetime.fromtimestamp(start_time).strftime(GlobalConstants.TIME_FORMAT)
-        end_time_str \
-            = datetime.datetime.fromtimestamp(current_time).strftime(GlobalConstants.TIME_FORMAT)
-        elapsed_time_minutes = str(elapsed_time) + "분"
+        'hepatitis_b',
 
-        return {
-            'START_TIME': start_time_str,
-            'END_TIME': end_time_str,
-            'ELAPSED_TIME': elapsed_time_minutes,
-            'MINIMUM_TIME_MINUTES': int(round(GlobalConstants.EXPIRE_SECONDS/60, 0))
-        }
+        'num_drink_not',
+        'num_drink_week',
+        'num_drink_month',
+        'num_drink_year',
 
+        'alc_avg_1_jan',
+        'alc_avg_1_bot',
+        'alc_avg_1_can',
+        'alc_avg_1_cc',
+        'alc_avg_2_jan',
+        'alc_avg_2_bot',
+        'alc_avg_2_can',
+        'alc_avg_2_cc',
+        'alc_avg_3_jan',
+        'alc_avg_3_bot',
+        'alc_avg_3_can',
+        'alc_avg_3_cc',
+        'alc_avg_4_jan',
+        'alc_avg_4_bot',
+        'alc_avg_4_can',
+        'alc_avg_4_cc',
+        'alc_avg_5_jan',
+        'alc_avg_5_bot',
+        'alc_avg_5_can',
+        'alc_avg_5_cc',
 
-class ValueSurvey01(Page):
+        'alc_max_1_jan',
+        'alc_max_1_bot',
+        'alc_max_1_can',
+        'alc_max_1_cc',
+        'alc_max_2_jan',
+        'alc_max_2_bot',
+        'alc_max_2_can',
+        'alc_max_2_cc',
+        'alc_max_3_jan',
+        'alc_max_3_bot',
+        'alc_max_3_can',
+        'alc_max_3_cc',
+        'alc_max_4_jan',
+        'alc_max_4_bot',
+        'alc_max_4_can',
+        'alc_max_4_cc',
+        'alc_max_5_jan',
+        'alc_max_5_bot',
+        'alc_max_5_can',
+        'alc_max_5_cc',
 
+        'high_act_day',
+        'high_act_hour',
+        'high_act_min',
+        'mid_act_day',
+        'mid_act_hour',
+        'mid_act_min',
+        'muscle_act_days',
+
+        'sq1',
+        'sq2',
+        'sq3',
+        'sq4',
+        'sq5',
+    ]
     # def is_displayed(self):
     #     return not self.participant.vars['is_timeout']
     # def is_displayed(self):
     #     self.player.elapsed_time_seconds = self.player.get_elapsed_time_seconds() or -999
     #     return True
 
-
-    form_model = 'player'
-    def get_form_fields(self):
-        form_field = ['vq1_{}'.format(i) for i in range(len(value_questions.value_questions_01))]
-        random.shuffle(form_field)
-        return form_field
-
-
-class ValueSurvey02(Page):
-
-    # def is_displayed(self):
-    #     return not self.participant.vars['is_timeout']
-
-    form_model = 'player'
-
-    def get_form_fields(self):
-        form_field = ['vq2_{}'.format(i) for i in range(len(value_questions.value_questions_02))]
-        random.shuffle(form_field)
-        return form_field
-
-
-class ValueSurvey03(Page):
-
-    # def is_displayed(self):
-    #     return not self.participant.vars['is_timeout']
-
-    form_model = 'player'
-
-    def get_form_fields(self):
-        form_field = ['vq3_{}'.format(i) for i in range(len(value_questions.value_questions_03))]
-        random.shuffle(form_field)
-        return form_field
-
-
-class ValueSurvey04(Page):
-
-    # def is_displayed(self):
-    #     return not self.participant.vars['is_timeout']
-
-    form_model = 'player'
-
-    def get_form_fields(self):
-        form_field = ['vq4_{}'.format(i) for i in range(len(value_questions.value_questions_04))]
-        random.shuffle(form_field)
-        return form_field
-
-
-class ValueSurvey05(Page):
-    form_model = 'player'
-
-    def get_form_fields(self):
-        form_field = ['vq5_{}'.format(i) for i in range(len(value_questions.value_questions_05))]
-        random.shuffle(form_field)
-        return form_field
-
-
-class ValueSurvey06(Page):
-    form_model = 'player'
-
-    def get_form_fields(self):
-        form_field = ['vcq_{}'.format(i) for i in range(len(value_questions.value_choice_questions))]
-        random.shuffle(form_field)
-        return form_field
-
-
+    # form_model = 'player'
+    # def get_form_fields(self):
+    #     form_field = ['vq1_{}'.format(i) for i in range(len(health_questions.value_questions_01))]
+    #     random.shuffle(form_field)
+    #     return form_field
 
 
 
 page_sequence = [
-    ValueSurvey01,
-    ValueSurvey02,
-    ValueSurvey03,
-    ValueSurvey04,
-    ValueSurvey05,
-    ValueSurvey06,
+    HealthSurvey,
 ]
