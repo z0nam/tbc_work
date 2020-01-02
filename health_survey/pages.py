@@ -1,16 +1,4 @@
-from otree.api import Currency as c, currency_range
-from ._builtin import Page, WaitPage
-from .models import Constants
-from .models import Subsession
-import time, datetime
-import random
-from datetime import timedelta
-from Global_Constants import GlobalConstants
-import requests
-
-from django.http import HttpResponseRedirect
-
-from . import health_questions
+from ._builtin import Page
 
 
 class HealthSurvey(Page):
@@ -112,7 +100,6 @@ class HealthSurvey(Page):
     #     form_field = ['vq1_{}'.format(i) for i in range(len(health_questions.value_questions_01))]
     #     random.shuffle(form_field)
     #     return form_field
-
 
 
 page_sequence = [

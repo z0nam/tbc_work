@@ -84,115 +84,115 @@ class Player(BasePlayer):
 
     hq11list = Constants.hq1_1_list
 
-    hq1_1_1 = models.IntegerField(
+    hq1_1_1 = models.BooleanField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.BINARY_CHOICES,
     )
 
-    hq1_1_2 = models.IntegerField(
+    hq1_1_2 = models.BooleanField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.BINARY_CHOICES,
     )
 
-    hq1_1_3 = models.IntegerField(
+    hq1_1_3 = models.BooleanField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.BINARY_CHOICES,
     )
 
-    hq1_1_4 = models.IntegerField(
+    hq1_1_4 = models.BooleanField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.BINARY_CHOICES,
     )
 
-    hq1_1_5 = models.IntegerField(
+    hq1_1_5 = models.BooleanField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.BINARY_CHOICES,
     )
 
-    hq1_1_6 = models.IntegerField(
+    hq1_1_6 = models.BooleanField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.BINARY_CHOICES,
     )
 
-    hq1_1_7 = models.IntegerField(
+    hq1_1_7 = models.BooleanField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.BINARY_CHOICES,
     )
 
-    hqnow1_1_1 = models.IntegerField(
+    hqnow1_1_1 = models.BooleanField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.BINARY_CHOICES,
     )
 
-    hqnow1_1_2 = models.IntegerField(
+    hqnow1_1_2 = models.BooleanField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.BINARY_CHOICES,
     )
 
-    hqnow1_1_3 = models.IntegerField(
+    hqnow1_1_3 = models.BooleanField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.BINARY_CHOICES,
     )
 
-    hqnow1_1_4 = models.IntegerField(
+    hqnow1_1_4 = models.BooleanField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.BINARY_CHOICES,
     )
 
-    hqnow1_1_5 = models.IntegerField(
+    hqnow1_1_5 = models.BooleanField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.BINARY_CHOICES,
     )
 
-    hqnow1_1_6 = models.IntegerField(
+    hqnow1_1_6 = models.BooleanField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.BINARY_CHOICES,
     )
 
-    hqnow1_1_7 = models.IntegerField(
+    hqnow1_1_7 = models.BooleanField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.BINARY_CHOICES,
     )
 
-    hq1_2_1 = models.IntegerField(
+    hq1_2_1 = models.BooleanField(
         label=Constants.hq1_2_list[0],
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.BINARY_CHOICES,
     )
 
-    hq1_2_2 = models.IntegerField(
+    hq1_2_2 = models.BooleanField(
         label=Constants.hq1_2_list[1],
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.BINARY_CHOICES,
     )
 
-    hq1_2_3 = models.IntegerField(
+    hq1_2_3 = models.BooleanField(
         label=Constants.hq1_2_list[2],
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.BINARY_CHOICES,
     )
 
-    hq1_2_4 = models.IntegerField(
+    hq1_2_4 = models.BooleanField(
         label=Constants.hq1_2_list[3],
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.BINARY_CHOICES,
     )
 
-    hq1_2_5 = models.IntegerField(
+    hq1_2_5 = models.BooleanField(
         label=Constants.hq1_2_list[4],
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.BINARY_CHOICES,
