@@ -21,11 +21,7 @@ class Constants(BaseConstants):
     BORN_YEAR_MIN = 1960
     BORN_YEAR_MAX = 2000
 
-    YES, NO = True, False
-    BINARY_CHOICE = [
-        [YES, "네"],
-        [NO, "아니오"],
-    ]
+    BINARY_CHOICES = GlobalConstants.BINARY_CHOICES
     
     MALE, FEMALE = 1, 2
     GENDER_CHOICE = [
@@ -53,7 +49,7 @@ class Constants(BaseConstants):
         [ETC, "기타(직접입력)"],
     ]
 
-    UNDER5, OVER5UNDER50, OVER50UNDER100, OVER100UNDER200, OVER200UNDER300, OVER300 = 1,2,3,4,5,6
+    UNDER5, OVER5UNDER50, OVER50UNDER100, OVER100UNDER200, OVER200UNDER300, OVER300 = 1, 2, 3, 4, 5, 6
     FIRM_SIZE = [
         [UNDER5, "5인 미만"],
         [OVER5UNDER50, "5인 이상 ~ 50인 미만"],
@@ -63,7 +59,7 @@ class Constants(BaseConstants):
         [OVER300, "300인 이상"],
     ]
 
-    SEOUL, INCHON, GYEONGGI, GANGWON, SEJONG, CHUNGNAM, CHUNGBUK, DAEJEON, DAEGU, KYUNGBUK, KYUNGNAM, ULSAN, BUSAN, CHEONBUK, CHEONNAM, GWANGJU, JEJU = range(1,18)
+    SEOUL, INCHON, GYEONGGI, GANGWON, SEJONG, CHUNGNAM, CHUNGBUK, DAEJEON, DAEGU, KYUNGBUK, KYUNGNAM, ULSAN, BUSAN, CHEONBUK, CHEONNAM, GWANGJU, JEJU = range(1, 18)
     REGION_CHOICE = [
         [SEOUL, "서울"],
         [INCHON, "인천"],
@@ -84,7 +80,7 @@ class Constants(BaseConstants):
         [JEJU, "제주도"],
     ]
 
-    BIGCITY, SMALLCITY, EUPMYON, SPECIAL = range(1,5)
+    BIGCITY, SMALLCITY, EUPMYON, SPECIAL = range(1, 5)
     REGION_SIZE_CHOICE = [
         [BIGCITY, "대도시 (특별/광역시 - 서울, 부산, 대구, 인천, 광주, 대전, 울산)"],
         [SMALLCITY, "(특별/광역시가 아닌 그 외 시지역)"],
@@ -120,7 +116,7 @@ class Constants(BaseConstants):
 
 # 이하 후반부 인구학설문
 
-    NOT_MARRIED,MARRIED,DIVORCED_BEREAVEMENT,MARRIAGE_OTHER = 1,2,3,4
+    NOT_MARRIED, MARRIED, DIVORCED_BEREAVEMENT, MARRIAGE_OTHER = 1, 2, 3, 4
     MARRIAGE_CHOICE = [
         [NOT_MARRIED, "결혼안함"],
         [MARRIED, "결혼함"],
@@ -163,6 +159,7 @@ class Constants(BaseConstants):
         [7, "750만원 이상"],
     ]
 
+
 class Subsession(BaseSubsession):
     pass
 
@@ -174,111 +171,111 @@ class Group(BaseGroup):
 class Player(BasePlayer):
 
     gender = models.IntegerField(
-        label = "귀하의 성별은 무엇입니까?",
-        choices = Constants.GENDER_CHOICE,
-        widget = widgets.RadioSelectHorizontal,
+        label="귀하의 성별은 무엇입니까?",
+        choices=Constants.GENDER_CHOICE,
+        widget=widgets.RadioSelectHorizontal,
     )
 
     born_year = models.IntegerField(
-        label = "귀하의 출생년도를 기입해주세요.",
-        choices = range(Constants.BORN_YEAR_MAX, Constants.BORN_YEAR_MIN, -1),
+        label="귀하의 출생년도를 기입해주세요.",
+        choices=range(Constants.BORN_YEAR_MAX, Constants.BORN_YEAR_MIN, -1),
     )
 
     work_type = models.IntegerField(
-        label = "귀하의 근무형태를 선택해 주세요.",
-        choices = Constants.WORK_TYPE,
-        widget = widgets.RadioSelect,
+        label="귀하의 근무형태를 선택해 주세요.",
+        choices=Constants.WORK_TYPE,
+        widget=widgets.RadioSelect,
     )
 
     firm_type = models.IntegerField(
-        label = "귀하께서 현재 근무하시는 기업의 유형은 다음 중 무엇입니까?",
-        choices = Constants.FIRM_TYPE,
-        widget = widgets.RadioSelect,
+        label="귀하께서 현재 근무하시는 기업의 유형은 다음 중 무엇입니까?",
+        choices=Constants.FIRM_TYPE,
+        widget=widgets.RadioSelect,
     )
 
     firm_type_op = models.StringField(
-        label = "근무기업 유형 직접입력:",
-        blank = True,
+        label="근무기업 유형 직접입력:",
+        blank=True,
     )
 
     firm_size = models.IntegerField(
-        label = "현재 근무하시는 사업장 규모를 다음 중 선택해주십시오.",
-        choices = Constants.FIRM_SIZE,
-        widget = widgets.RadioSelect,
+        label="현재 근무하시는 사업장 규모를 다음 중 선택해주십시오.",
+        choices=Constants.FIRM_SIZE,
+        widget=widgets.RadioSelect,
     )
 
     work_year = models.IntegerField(
-        label = "현재까지의 귀하의 근무경력년수는 얼마나 되십니까? (1년 미만일 경우 0)",
+        label="현재까지의 귀하의 근무경력년수는 얼마나 되십니까? (1년 미만일 경우 0)",
         choices=range(0, 40),
     )
 
     num_move = models.IntegerField(
-        label = "현재까지의 귀하의 이직횟수는 얼마나 되십니까? (없을 경우 0)",
-        choices=range(0,100),
+        label="현재까지의 귀하의 이직횟수는 얼마나 되십니까? (없을 경우 0)",
+        choices=range(0, 100),
     )
 
     region = models.IntegerField(
-        label = "귀하의 거주 지역을 선택해주세요",
-        choices = Constants.REGION_CHOICE,
-        widget = widgets.RadioSelect,
+        label="귀하의 거주 지역을 선택해주세요",
+        choices=Constants.REGION_CHOICE,
+        widget=widgets.RadioSelect,
     )
 
     region_size = models.IntegerField(
-        label = "귀하의 거주지의 지역규모를 선택해주세요.",
-        choices = Constants.REGION_SIZE_CHOICE,
-        widget = widgets.RadioSelect,
+        label="귀하의 거주지의 지역규모를 선택해주세요.",
+        choices=Constants.REGION_SIZE_CHOICE,
+        widget=widgets.RadioSelect,
     )
 
     residence_type = models.IntegerField(
-        label = "귀하의 거주 형태를 선택해주세요.",
-        choices = Constants.RESIDENCE_TYPE_CHOICE,
-        widget = widgets.RadioSelect,
+        label="귀하의 거주 형태를 선택해주세요.",
+        choices=Constants.RESIDENCE_TYPE_CHOICE,
+        widget=widgets.RadioSelect,
     )
 
     residence_type_op = models.StringField(
         label="기타(직접입력:)",
-        blank = True,
+        blank=True,
     )
 
     # 담배선별문항
 
     tobacco_experience = models.IntegerField(
-        label = "귀하께서는 지금까지 평생 총 (궐련형으로 환산시) 5갑(100개비) 이상의 담배를 피운 적이 있습니까?",
-        choices = Constants.TOBACCO_EXPERIENCE_CHOICE,
-        widget = widgets.RadioSelect,
+        label="귀하께서는 지금까지 평생 총 (궐련형으로 환산시) 5갑(100개비) 이상의 담배를 피운 적이 있습니까?",
+        choices=Constants.TOBACCO_EXPERIENCE_CHOICE,
+        widget=widgets.RadioSelect,
     )
 
-    #todo: 위 질문에 따라 분기하도록 조치할 것. 일단은 스크린샷을 위해 초안 버젼(순차)으로 작성함.
+    # todo: 위 질문에 따라 분기하도록 조치할 것. 일단은 스크린샷을 위해 초안 버젼(순차)으로 작성함.
 
     is_smoker = models.BooleanField(
-        label = "[[앞 문항의 1번 응답자]]현재 흡연중이십니까?",
-        choices=Constants.BINARY_CHOICE,
+        label="[[앞 문항의 1번 응답자]]현재 흡연중이십니까?",
+        choices=Constants.BINARY_CHOICES,
         widget=widgets.RadioSelect,
     )
 
     smoke_year = models.IntegerField(
-        label = "몇 년째 담배를 피우시고 계십니까? 총 연수를 적어주세요.",
-        choices=range(0,60),
+        label="몇 년째 담배를 피우시고 계십니까? 총 연수를 적어주세요.",
+        choices=range(0, 60),
     )
 
     smoke_quantity = models.IntegerField(
-        label = "지난 1년 기준으로 하루 평균 흡연량은 (궐련형으로 환산시) 몇 개피입니까?",
-        choices=range(1,100),
+        label="지난 1년 기준으로 하루 평균 흡연량은 (궐련형으로 환산시) 몇 개피입니까?",
+        choices=range(1, 100),
     )
 
     e_tobacco_experience = models.BooleanField(
-        label = "전자담배를 사용한 경험이 있습니까?",
-        choices=Constants.BINARY_CHOICE,
+        label="전자담배를 사용한 경험이 있습니까?",
+        choices=Constants.BINARY_CHOICES,
         widget=widgets.RadioSelect,
     )
 
     e_tobacco_frequency = models.BooleanField(
-        label = "[[전자담배 유경험자]]최근 한 달 동안 전자담배(궐련형, 액상형 등)를 사용한 경험이 있습니까?",
-        choices = Constants.BINARY_CHOICE,
-        widget = widgets.RadioSelect,
+        label="[[전자담배 유경험자]]최근 한 달 동안 전자담배(궐련형, 액상형 등)를 사용한 경험이 있습니까?",
+        choices=Constants.BINARY_CHOICES,
+        widget=widgets.RadioSelect,
     )
 
-    #todo 아래 네 가지 중에 하나는 반드시 체크되어 있어야 함
+# todo 아래 네 가지 중에 하나는 반드시 체크되어 있어야 함
     tobacco_type_1 = models.BooleanField(
         label="일반 연초형",
         widget=widgets.CheckboxInput,

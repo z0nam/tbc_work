@@ -21,12 +21,19 @@ SESSION_CONFIGS = [
         "num_demo_participants": 1,
         "app_sequence": ["health_survey"],
     },
+    {
+        "name": "nonsmoker",
+        "display_name": "비흡연자용설문",
+        "num_demo_participants": 1,
+        "app_sequence": ["nonsmoker"],
+    }
     # {
     #     "name": "risk_attitude",
     #     "display_name": "리스크선호",
     #     "num_demo_participants": 1,
     #     "app_sequence": ["risk_attitude"],
-    # }, {
+    # },
+    # {
     #     "name": "iat",
     #     "display_name": "내재적 연관 검사",
     #     "num_demo_participants": 2,

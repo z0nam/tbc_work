@@ -1,4 +1,6 @@
 from ._builtin import Page
+from . import health_questions
+import random
 
 
 class HealthSurvey(Page):
@@ -101,7 +103,15 @@ class HealthSurvey(Page):
     #     random.shuffle(form_field)
     #     return form_field
 
+class EnvironmentSurvey(Page):
+    form_model = 'player'
+
+    def get_form_fields(self):
+        form_field = ['eq_{}'.format(i) for i in range(1,len(health_questions.WORK_ENVIRONMENT_QUESTIONS)+1)] # to match index starting from 1
+        random.shuffle(form_field)
+        return form_field
+
 
 page_sequence = [
-    HealthSurvey,
+    HealthSurvey, EnvironmentSurvey,
 ]

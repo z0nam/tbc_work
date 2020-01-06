@@ -2,6 +2,7 @@ from otree.api import (
     models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer,
 )
 from . import health_questions
+from Global_Constants import GlobalConstants
 
 author = 'Namun Cho <mailto:dr.strangelove@kberi.re.kr>'
 
@@ -20,56 +21,16 @@ class Constants(BaseConstants):
     hq1_2_list = health_questions.HQ1_2
 
     satisfaction_list = health_questions.SATISFACTION_QUESTIONS
-
-    # BINARY_CHOICES = [
-    #     [1, "현재 약물치료중임"],
-    #     [2, "진단받은 적은 있으나 현재 약물치료상태는 아님"],
-    #     [3, "진단받은 적 없음"],
-    # ]
+    environment_list = health_questions.WORK_ENVIRONMENT_QUESTIONS
 
     alcohollist = health_questions.ALCOHOL_LIST
 
-    L5_1, L5_2, L5_3, L5_4, L5_5, L5_OTHER = 1, 2, 3, 4, 5, 99
-    L5_CHOICES = [
-        [L5_1, "매우 그렇지 않다"],
-        [L5_2, "그렇지 않다"],
-        [L5_3, "보통"],
-        [L5_4, "그렇다"],
-        [L5_5, "매우 그렇다"],
-        # [L5_OTHER, "응답거부"],
-    ]
-
-    L6_1, L6_2, L6_3, L6_4, L6_5, L6_6 = 1, 2, 3, 4, 5, 6
-    L6_CHOICES = [
-        [L6_1, "매우 동의하지 않음"],
-        [L6_2, "동의하지 않음"],
-        [L6_3, "다소 동의하지 않음"],
-        [L6_4, "다소 동의함"],
-        [L6_5, "동의함"],
-        [L6_6, "매우 동의함"],
-    ]
-
-    L7_CHOICES = [
-        [1, "전혀 아니다"],
-        [2, "아니다"],
-        [3, "약간 아니다"],
-        [4, "중간이다"],
-        [5, "약간 그렇다"],
-        [6, "그렇다"],
-        [7, "매우 그렇다"]
-    ]
-
-    YES, NO = True, False
-    BINARY_CHOICES = [
-        [YES, "예"],
-        [NO, "아니오"],
-    ]
-
-    YNU_CHOICES = [
-        [1, "예"],
-        [2, "아니오"],
-        [3, "모름"],
-    ]
+    L4_CHOICES = GlobalConstants.L4_CHOICES
+    L5_CHOICES = GlobalConstants.L5_CHOICES
+    L6_CHOICES = GlobalConstants.L6_CHOICES
+    L7_CHOICES = GlobalConstants.L7_CHOICES
+    BINARY_CHOICES = GlobalConstants.BINARY_CHOICES
+    YNU_CHOICES = GlobalConstants.YNU_CHOICES
 
 
 class Subsession(BaseSubsession):
@@ -78,6 +39,22 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     pass
+
+
+def make_field_satisfaction(index):
+    return models.IntegerField(
+        label=Constants.satisfaction_list[index],
+        widget=widgets.RadioSelectHorizontal,
+        choices=Constants.L7_CHOICES,
+    )
+
+
+def make_field_environment(index):
+    return models.IntegerField(
+        label=Constants.environment_list[index-1],
+        widget=widgets.RadioSelectHorizontal,
+        choices=Constants.L4_CHOICES,
+    )
 
 
 class Player(BasePlayer):
@@ -506,15 +483,33 @@ class Player(BasePlayer):
         choices=range(0, 8),
     )
 
-    def make_field_satisfaction(index):
-        return models.IntegerField(
-            label=Constants.satisfaction_list[index],
-            widget=widgets.RadioSelectHorizontal,
-            choices=Constants.L7_CHOICES,
-        )
-
     sq1 = make_field_satisfaction(0)
     sq2 = make_field_satisfaction(1)
     sq3 = make_field_satisfaction(2)
     sq4 = make_field_satisfaction(3)
     sq5 = make_field_satisfaction(4)
+
+    eq_1 = make_field_environment(1)
+    eq_2 = make_field_environment(2)
+    eq_3 = make_field_environment(3)
+    eq_4 = make_field_environment(4)
+    eq_5 = make_field_environment(5)
+    eq_6 = make_field_environment(6)
+    eq_7 = make_field_environment(7)
+    eq_8 = make_field_environment(8)
+    eq_9 = make_field_environment(9)
+    eq_10 = make_field_environment(10)
+    eq_11 = make_field_environment(11)
+    eq_12 = make_field_environment(12)
+    eq_13 = make_field_environment(13)
+    eq_14 = make_field_environment(14)
+    eq_15 = make_field_environment(15)
+    eq_16 = make_field_environment(16)
+    eq_17 = make_field_environment(17)
+    eq_18 = make_field_environment(18)
+    eq_19 = make_field_environment(19)
+    eq_20 = make_field_environment(20)
+    eq_21 = make_field_environment(21)
+    eq_22 = make_field_environment(22)
+    eq_23 = make_field_environment(23)
+    eq_24 = make_field_environment(24)
