@@ -26,7 +26,19 @@ SESSION_CONFIGS = [
         "display_name": "비흡연자용설문",
         "num_demo_participants": 1,
         "app_sequence": ["nonsmoker"],
-    }
+    },
+    {
+        "name": "smoker",
+        "display_name": "흡연자용설문",
+        "num_demo_participants": 1,
+        "app_sequence": ["smoker"],
+    },
+    {
+        "name": "smoking_belief",
+        "display_name": "공통:흡연/금연에 대한 인식",
+        "num_demo_participants": 1,
+        "app_sequence": ["smoking_belief"],
+    },
     # {
     #     "name": "risk_attitude",
     #     "display_name": "리스크선호",

@@ -1,0 +1,41 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    설문조사
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="row alert border">
+            다음은 흡연속성에 대한 귀하의 신념을 묻는 문항입니다. 각 문항에 동의 또는 반대하는 정도에 따라서 ①~⑦ 사이의 숫자를 선택해 주시기 바랍니다. 자유롭고 솔직하게 응답해주시기 바랍니다.
+            <div class="row alert border">
+                {% formfield player.sm_1_1 %}
+                {% formfield player.sm_1_2 %}
+                {% formfield player.sm_1_3 %}
+                {% formfield player.sm_1_4 %}
+                {% formfield player.sm_1_5 %}
+                {% formfield player.sm_1_6 %}
+                {% formfield player.sm_1_7 %}
+                {% formfield player.sm_1_8 %}
+            </div>
+            <div class="row alert border">
+                최근 정부가 액상형 전자담배 ‘사용자제’에서 ‘사용중지’로 권고수준을 높여 강력한 경고 내용을 발표했습니다. 이에 대한 귀하의 의견은 어떠십니까? (둘 중 하나만 작성해 주십시오)
+                {% formfield player.sm_2_chan %}
+                {% formfield player.sm_2_ban %}
+            </div>
+            <div class="row alert border">
+                식품 자동판매기 업소로 등록해 금연구역 규제를 받지 않던 일명 ‘흡연카페’가 2018년 보건당국에 의해 금연구역으로 지정되었습니다. 이에 대한 귀하의 의견은 어떠십니까?
+                {% formfield player.sm_3 %}
+            </div>
+        </div>
+
+    </div>
+
+    <button class="btn btn-primary btn-large active">
+        모든 질문에 답하셨으면 이 버튼을 클릭하여 다음 페이지로 진행해주시기 바랍니다
+    </button>
+
+{% endblock %}
