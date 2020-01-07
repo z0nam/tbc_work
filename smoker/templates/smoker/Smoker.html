@@ -1,0 +1,115 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    설문조사
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="alert row border">
+            {% formfield player.sm_1 %}
+        </div>
+        <div class="alert row border d-block">
+            {% formfield player.sm_2 %}
+            {% formfield player.sm_2_op %}
+        </div>
+        <div class="alert row border">
+            <p>
+                귀하는 근무 중 (하루) 평균 흡연휴게 횟수가 몇 번이며, 평균 흡연시간은 몇 분입니까?
+            </p>
+            <p>
+                하루 근무 중 평균 <span>{% formfield player.sm_3_times %}</span>회  <span>{% formfield player.sm_3_mins %}</span>분
+            </p>
+        </div>
+        <div class="row alert border d-block">
+            <div>다음은 금연 경험에 대한 문항입니다.</div>
+            <div class="row alert border">
+                {% formfield player.sm_4_1 %}
+            </div>
+            <div class="row alert border">
+                {% formfield player.sm_4_2 %}
+            </div>
+            <div class="row alert border d-block">
+                <div>
+                    가장 오랫동안 금열을 한 기간이 1개월 이상이었습니까?
+                </div>
+                <div class="row alert">
+                    예, 1개월 이상: <span>{% formfield player.sm_4_3_years %}</span>년 <span>{% formfield player.sm_4_3_months %}</span>개월
+                </div>
+                <div class="row alert">
+                    아니요, 1개월 미만: <span>{% formfield player.sm_4_3_days %}</span>일
+                </div>
+            </div>
+            <div class="row alert border d-block">
+                {% formfield player.sm_4_4 %}
+                {% formfield player.sm_4_4_op %}
+            </div>
+            <div class="row alert border">
+                {% formfield player.sm_4_5 %}
+            </div>
+            <div class="row alert border">
+                {% formfield player.sm_4_6 %}
+            </div>
+        </div>
+        <div class="row alert border d-block">
+                <p>
+                    다음은 니코틴 의존도를 측정하기 위한 문항입니다. 각 질문에 모두 답해주세요
+                </p>
+                <div>
+                    {% formfield player.sm_5_1 %}
+                    {% formfield player.sm_5_2 %}
+                    {% formfield player.sm_5_3 %}
+                    {% formfield player.sm_5_4 %}
+                    {% formfield player.sm_5_5 %}
+                </div>
+        </div>
+        <div class="row alert border">
+            <p>
+                {{ Constants.smoker_size_question_1 }}
+            </p>
+            <div class="row alert border">
+                {{ Constants.smoker_size_question_2 }}
+                <div class="row alert">
+                    근무부서(팀) 총 <span>{% formfield player.sm_6_1_1 %} 명 중 </span> 나를 포함한 흡연자 총 <span>{% formfield player.sm_6_1_2 %}</span>명
+    {#                todo 흡연자수가 근무부서인원수를 넘지 못하게 조치 #}
+                </div>
+            </div>
+            <div class="row border alert">
+                {{ Constants.smoker_neighbor_question }}
+                {% formfield player.sm_6_2_1 %}
+                {% formfield player.sm_6_2_2 %}
+                {% formfield player.sm_6_2_3 %}
+            </div>
+            <div class="row border alert">
+                {% formfield player.sm_6_3 %}
+            </div>
+            <div class="row border alert">
+                {{ Constants.scenario_question }}
+                <div class="row border alert-info d-block">
+                    {{ Constants.episode_a }}
+
+                <div>{% formfield player.sm_transfer_will %}</div>
+                <div>{% formfield player.sm_transfer_will_yn %}</div>
+                </div>
+            </div>
+{#            todo: 위 응답을 안했을 경우에만, 즉 이직 의사 없음을 선택한 음답자만 나타나도록. Slider 초기 값을 0으로 만들것.  #}
+            <div class="row border alert">
+                {{ Constants.scenario_question }}
+                <div class="row border alert-info d-block">
+                    {{ Constants.episode_b }}
+
+                <div>{% formfield player.sm_transfer_will_alt %}</div>
+                <div>{% formfield player.sm_transfer_will_alt_yn %}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <button class="btn btn-primary btn-large active">
+        모든 질문에 답하셨으면 이 버튼을 클릭하여 다음 페이지로 진행해주시기 바랍니다
+    </button>
+
+{% endblock %}

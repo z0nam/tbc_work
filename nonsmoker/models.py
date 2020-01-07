@@ -3,6 +3,7 @@ from otree.api import (
     Currency as c, currency_range
 )
 from Global_Constants import GlobalConstants
+from . import common_smoking_questions as questions
 
 
 author = 'Namun Cho <mailto:dr.strangelove@kberi.re.kr>'
@@ -49,6 +50,12 @@ class Constants(BaseConstants):
         [4, "해당 직위 근무자 부재로 응답불가"],
     ]
 
+    smoker_size_question_1 = questions.smoker_size_question_1
+    smoker_size_question_2 = questions.smoker_size_question_2
+    smoker_neighbor_question = questions.smoker_neighbor_question
+    scenario_question = questions.scenario_question
+    episode_a = questions.episode_a
+    transfer_message = questions.transfer_message
 
 class Subsession(BaseSubsession):
     pass
@@ -67,6 +74,7 @@ class Player(BasePlayer):
 
     nsm_1_op = models.StringField(
         label="직접입력:",
+        blank=True,
     )
 
     nsm_2 = models.BooleanField(
@@ -84,6 +92,7 @@ class Player(BasePlayer):
 
     nsm_2_1_op = models.StringField(
         label="직접입력:",
+        blank=True,
     )
 
     nsm_2_2 = models.IntegerField( # todo 조건부분기
@@ -95,6 +104,7 @@ class Player(BasePlayer):
 
     nsm_2_2_op = models.StringField(
         label="직접입력:",
+        blank=True,
     )
 
     nsm_3_1_1 = models.IntegerField(
@@ -109,24 +119,27 @@ class Player(BasePlayer):
         label="나의 직속 상사",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.IS_SMOKER_CHOICES,
+        blank=True,
     )
 
     nsm_3_2_2 = models.IntegerField(
         label="나의 소속부서 총괄 책임자",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.IS_SMOKER_CHOICES,
+        blank=True,
     )
 
     nsm_3_2_3 = models.IntegerField(
         label="나의 소속기관의 최고경영자",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.IS_SMOKER_CHOICES,
+        blank=True,
     )
 
     nsm_smoking_will = models.IntegerField(
         min=0,
         max=5000,
-        label="(_____)만원의 연봉을 받아도 이직 희망함",
+        label=Constants.transfer_message,
         widget=widgets.Slider(attrs={'step': '10'}),
         blank=True,
     )

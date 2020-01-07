@@ -36,9 +36,9 @@
             </div>
         </div>
         <div class="row border alert">
-            다음은 귀하 주변의 흡연자 규모에 대한 문항입니다.
+            {{ Constants.smoker_size_question_1 }}
             <div class="row alert">
-                귀하가 근무하는 부서 또는 팀 등 가장 많이 가깝게 일하는 업무단위의 총 인원수와 해당 인원중 흡연자 수는 각각 몇 명입니까?
+                {{ Constants.smoker_size_question_2 }}
             </div>
             <div class="row alert">
                 근무부서(팀) 총 <span>{% formfield player.nsm_3_1_1 %}</span>명 중 흡연자 총 <span>{% formfield player.nsm_3_1_2 %}</span>명
@@ -47,18 +47,16 @@
         </div>
 
         <div class="row border alert">
-            귀하의 직속 상사, 부서의 총괄 책임자, 그리고 소속 기관의 최고 경영자가 흡연자입니까?
+           {{ Constants.smoker_neighbor_question }}
             {% formfield player.nsm_3_2_1 %}
             {% formfield player.nsm_3_2_2 %}
             {% formfield player.nsm_3_2_3 %}
         </div>
 
-        <div class="row border alert">
-            다음 가상의 시나리오를 읽고 질문에 답해주십시오.
-            <div class="row border alert-info">
-                현재 귀하가 근무하는 A회사에서는 근무 중 흡연 규제가 없습니다. A회사와 여타의 모든 조건이 동일한 B회사는 금연사업장으로 지정되어 사내 근무 중 흡연이 불가합니다. 사내 흡연규제가 있는 B회사로의 이직에 대한 귀하의 생각은 어떠십니까?
-
-    현재 귀하의 연봉을 5,000만원이라고 가정하고, 금연사업장인 B회사로 이직하기 위해 현재보다 어느 정도까지 낮은 연봉도 받아들일 수 있는지 아래의 막대그래프에 표시해주십시오. B회사로 이직의사가 전혀 없으시면 해당 눈금 칸에 표시해주십시오.
+        <div class="row border alert d-block">
+            {{ Constants.scenario_question }}
+            <div class="row border alert-info d-block">
+                {{ Constants.episode_a }}
 
             <div>{% formfield player.nsm_smoking_will %}</div>
             <div>{% formfield player.nsm_smoking_will_yn %}</div>
