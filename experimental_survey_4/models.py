@@ -13,7 +13,7 @@ doc = """
 
 
 class Constants(BaseConstants):
-    name_in_url = 'experimental_survey_1'
+    name_in_url = 'experimental_survey_4'
     players_per_group = None
     num_rounds = 1
 
@@ -22,7 +22,7 @@ class Constants(BaseConstants):
     common_question_1_2 = GlobalConstants.common_question_1_2
     common_question_2 = GlobalConstants.common_question_2
     relationship_list = GlobalConstants.relationship_list
-    frame_message_1 = GlobalConstants.frame_message_1
+    frame_message_4 = GlobalConstants.frame_message_4
 
 
 class Subsession(BaseSubsession):
@@ -42,7 +42,7 @@ def make_relationship_field(index):
 
 
 class Player(BasePlayer):
-    treatment = models.IntegerField(initial=1)
+    treatment = models.IntegerField(initial=3)
     cq_1_1 = models.IntegerField(
         choices=GlobalConstants.L7_CHOICES_2,
         widget=widgets.RadioSelectHorizontal,

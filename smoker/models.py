@@ -11,7 +11,6 @@ from otree.api import (
 from Global_Constants import GlobalConstants
 from nonsmoker import models as nonsmoker_models
 from nonsmoker import common_smoking_questions as questions
-import ipywidgets
 
 author = '흡연자 대상 문항'
 
@@ -259,6 +258,7 @@ class Player(BasePlayer):
     sm_transfer_will = models.IntegerField(
         min=0,
         max=5000,
+        initial=0,
         label=questions.transfer_message,
         widget=widgets.Slider(),
         blank=True,
@@ -274,6 +274,7 @@ class Player(BasePlayer):
     sm_transfer_will_alt = models.IntegerField(
         min=0,
         max=5000,
+        initial=0,
         label=questions.transfer_message_alt,
         widget=widgets.Slider(),
     )

@@ -139,14 +139,10 @@ class Player(BasePlayer):
     nsm_smoking_will = models.IntegerField(
         min=0,
         max=5000,
+        initial=0,
         label=Constants.transfer_message,
-        widget=widgets.Slider(attrs={'step': '10'}),
+        widget=widgets.Slider(),
         blank=True,
     )
 
-    nsm_smoking_will_yn = models.BooleanField(
-        label="이직의사 없음",
-        widget=widgets.CheckboxInput,
-        choices=Constants.BINARY_CHOICES,
-        blank=True,
-    )
+

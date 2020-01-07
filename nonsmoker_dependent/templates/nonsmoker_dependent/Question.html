@@ -1,0 +1,32 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    설문조사
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="alert row border d-block">
+            <div>
+                귀하는 현재까지 담배를 피워본 적 없는 비흡연자라고 응답하셨습니다. 향후 귀하가 흡연자가 될 가능성에 대해 어떻게 생각하십니까? 다음의 각 문항에 솔직하게 응답해주시기 바랍니다.
+            </div>
+            <div>
+                {% formfield player.nsmd_1_1 %}
+                {% formfield player.nsmd_1_2 %}
+            </div>
+        </div>
+        <div class="alert row border d-block">
+            <div>
+                귀하께서 흡연에 대해 그렇게 응답하신 이유는 무엇입니까?
+            </div>
+            <div>
+                {% formfield player.nsmd_2_1 %}
+                {% formfield player.nsmd_2_2 %}
+                {% formfield player.nsmd_2_3 %}
+            </div>
+        </div>
+    </div>
+    {% next_button %}
+
+{% endblock %}
