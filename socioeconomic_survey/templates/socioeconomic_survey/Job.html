@@ -1,0 +1,35 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    인구통계학적 설문
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row alert border d-block">
+        {% formfield player.job_classification %}
+        <div class="row alert-info">
+           ※귀하의 근무처 업종이 해당 분류에 포함되는지 여부가 불확실하시면 응답번호 선택 후 상세 정보를 작성해주세요. 한국표준산업분류에 따른 대분류 및 중분류(예시)는 아래의 표를 참고해주세요.
+        </div>
+    {% formfield player.job_classification_op %}
+        <div class="row">
+            <table class="table table-bordered table-warning table-hover table-striped">
+                <thead class="text-center thead-dark">
+                    <th>한국표준산업분류</th>
+                    <th>해당 직종 예시</th>
+                </thead>
+                {% for i in Constants.JOB_EXAMPLE %}
+                <tr>
+                    <td>{{i.classification}}</td>
+                    <td>{{i.example}}</td>
+                </tr>
+                {% endfor %}
+                
+            </table>
+        </div>
+    </div>
+</div>
+    {% next_button %}
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    표지디자인 선호조사
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row alert border d-block">
+            {% formfield player.package_choice %}
+            <div class="row alert border">
+                <img src="{% static 'package_choice/packages.png' %}" alt="담뱃갑이미지" class="img-fluid" >
+            </div>
+        </div>
+    </div>
+    {% next_button %}
+
+{% endblock %}

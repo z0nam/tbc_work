@@ -134,7 +134,7 @@ class Constants(BaseConstants):
     ]
 
     MY_EDUCATION_CHOICE = [
-        [1, "고졸 이하"],
+        [1, "고등학교 졸업 이하"],
         [2, "(2,3년제) 전문대학 졸업"],
         [3, "4년제 대학교 졸업"],
         [4, "대학원 졸업 이상"],

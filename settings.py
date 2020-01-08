@@ -75,40 +75,42 @@ SESSION_CONFIGS = [
         "num_demo_participants": 1,
         "app_sequence": ["smoker_dependent"],
     },
-    # {
-    #     "name": "risk_attitude",
-    #     "display_name": "리스크선호",
-    #     "num_demo_participants": 1,
-    #     "app_sequence": ["risk_attitude"],
-    # },
-    # {
-    #     "name": "iat",
-    #     "display_name": "내재적 연관 검사",
-    #     "num_demo_participants": 2,
-    #     "app_sequence": ["introduction","iat"],
-    # }, {
-    #     "name": "experimental_survey_1",
-    #     "display_name": "수행측정 treatment 0",
-    #     "num_demo_participants": 1,
-    #     "app_sequence": ["experimental_survey_1"],
-    # }, {
-    #     "name": "experimental_survey_1",
-    #     "display_name": "수행측정 treatment 1",
-    #     "num_demo_participants": 1,
-    #     "app_sequence": ["experimental_survey_1"],
-    # }, {
-    #     "name": "experimental_survey_2",
-    #     "display_name": "수행측정 treatment 2",
-    #     "num_demo_participants": 1,
-    #     "app_sequence": ["experimental_survey_2"],
-    # }, {
-    #     "name": "survey",
-    #     "display_name": "전체설문 초안 (분기없음)",
-    #     "num_demo_participants": 1,
-    #     "app_sequence": ["basic_survey", "introduction", "health_survey", "decision_survey", "risk_attitude",  ],
-    #     "my_key": "",
-    # }
-    # "nonsmoker", "smoker", "smoking_belief", "job_survey", "frame", "smoking_attitude", "nonsmoker_quit_smoking_attitude", "smoker_quit_smoking_attitude", "socioeconomic_survey"
+    {
+        "name": "package_choice",
+        "display_name": "담뱃갑표지디자인선택",
+        "num_demo_participants": 1,
+        "app_sequence": ["package_choice"],
+    },
+    {
+        "name": "socioeconomic_survey",
+        "display_name": "사회인구학적 설문",
+        "num_demo_participants": 1,
+        "app_sequence": ["socioeconomic_survey"],
+    },
+    {
+        "name": "iat",
+        "display_name": "내재적 연관 검사",
+        "num_demo_participants": 2,
+        "app_sequence": ["introduction", "iat"],
+    },
+    {
+        "name": "total_sequence_1",
+        "display_name": "전체_비흡연자_1",
+        "num_demo_participants": 1,
+        "app_sequence": [
+            "basic_survey",
+            "introduction",
+            "health_survey",
+            "nonsmoker",
+            "smoking_belief",
+            "experimental_survey_1",
+            "nonsmoker_dependent",
+            "package_choice",
+            "socioeconomic_survey",
+            "iat",
+            "ending",
+        ]
+    }
 ]
 LANGUAGE_CODE = "ko"
 REAL_WORLD_CURRENCY_CODE = "KRW"
