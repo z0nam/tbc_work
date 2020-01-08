@@ -94,7 +94,7 @@ SESSION_CONFIGS = [
         "app_sequence": ["introduction", "iat"],
     },
     {
-        "name": "total_sequence_1",
+        "name": "total_nsm_sequence_1",
         "display_name": "전체_비흡연자_1",
         "num_demo_participants": 1,
         "app_sequence": [
@@ -110,7 +110,133 @@ SESSION_CONFIGS = [
             "iat",
             "ending",
         ]
-    }
+    },
+    {
+        "name": "total_nsm_sequence_2",
+        "display_name": "전체_비흡연자_2",
+        "num_demo_participants": 1,
+        "app_sequence": [
+            "basic_survey",
+            "introduction",
+            "health_survey",
+            "nonsmoker",
+            "smoking_belief",
+            "experimental_survey_2",
+            "nonsmoker_dependent",
+            "package_choice",
+            "socioeconomic_survey",
+            "iat",
+            "ending",
+        ]
+    },
+    {
+        "name": "total_nsm_sequence_3",
+        "display_name": "전체_비흡연자_3",
+        "num_demo_participants": 1,
+        "app_sequence": [
+            "basic_survey",
+            "introduction",
+            "health_survey",
+            "nonsmoker",
+            "smoking_belief",
+            "experimental_survey_3",
+            "nonsmoker_dependent",
+            "package_choice",
+            "socioeconomic_survey",
+            "iat",
+            "ending",
+        ]
+    },
+    {
+        "name": "total_nsm_sequence_4",
+        "display_name": "전체_비흡연자_4",
+        "num_demo_participants": 1,
+        "app_sequence": [
+            "basic_survey",
+            "introduction",
+            "health_survey",
+            "nonsmoker",
+            "smoking_belief",
+            "experimental_survey_4",
+            "nonsmoker_dependent",
+            "package_choice",
+            "socioeconomic_survey",
+            "iat",
+            "ending",
+        ]
+    },
+    {
+        "name": "total_sm_sequence_1",
+        "display_name": "전체_흡연자_1",
+        "num_demo_participants": 1,
+        "app_sequence": [
+            "basic_survey",
+            "introduction",
+            "health_survey",
+            "smoker",
+            "smoking_belief",
+            "experimental_survey_1",
+            "smoker_dependent",
+            "package_choice",
+            "socioeconomic_survey",
+            "iat",
+            "ending",
+        ]
+    },
+    {
+        "name": "total_sm_sequence_2",
+        "display_name": "전체_흡연자_2",
+        "num_demo_participants": 1,
+        "app_sequence": [
+            "basic_survey",
+            "introduction",
+            "health_survey",
+            "smoker",
+            "smoking_belief",
+            "experimental_survey_2",
+            "smoker_dependent",
+            "package_choice",
+            "socioeconomic_survey",
+            "iat",
+            "ending",
+        ]
+    },
+    {
+        "name": "total_sm_sequence_3",
+        "display_name": "전체_흡연자_3",
+        "num_demo_participants": 1,
+        "app_sequence": [
+            "basic_survey",
+            "introduction",
+            "health_survey",
+            "smoker",
+            "smoking_belief",
+            "experimental_survey_3",
+            "smoker_dependent",
+            "package_choice",
+            "socioeconomic_survey",
+            "iat",
+            "ending",
+        ]
+    },
+    {
+        "name": "total_sm_sequence_4",
+        "display_name": "전체_흡연자_4",
+        "num_demo_participants": 1,
+        "app_sequence": [
+            "basic_survey",
+            "introduction",
+            "health_survey",
+            "smoker",
+            "smoking_belief",
+            "experimental_survey_4",
+            "smoker_dependent",
+            "package_choice",
+            "socioeconomic_survey",
+            "iat",
+            "ending",
+        ]
+    },
 ]
 LANGUAGE_CODE = "ko"
 REAL_WORLD_CURRENCY_CODE = "KRW"
