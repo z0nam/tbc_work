@@ -8,7 +8,25 @@
 {% block content %}
 
     <div class="container">
+        <div class="row border alert">
+            {{ Constants.scenario_question }}
+            <div class="row border alert-info d-block">
+                {{ Constants.episode_a }}
 
+            <div>{% formfield player.transfer_will %}</div>
+            <div>{% formfield player.transfer_will_yn %}</div>
+            </div>
+        </div>
+{#            todo: 위 응답을 안했을 경우에만, 즉 이직 의사 없음을 선택한 음답자만 나타나도록. Slider 초기 값을 0으로 만들것. js로.   #}
+        <div class="row border alert">
+            {{ Constants.scenario_question }}
+            <div class="row border alert-info d-block">
+                {{ Constants.episode_b }}
+
+            <div>{% formfield player.transfer_will_alt %}</div>
+            <div>{% formfield player.transfer_will_alt_yn %}</div>
+            </div>
+        </div>
         <div class="row alert border">
             다음은 흡연속성에 대한 귀하의 신념을 묻는 문항입니다. 각 문항에 동의 또는 반대하는 정도에 따라서 ①~⑦ 사이의 숫자를 선택해 주시기 바랍니다. 자유롭고 솔직하게 응답해주시기 바랍니다.
             <div class="row alert border">

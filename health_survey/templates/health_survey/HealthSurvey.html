@@ -85,7 +85,7 @@
         <div class="row alert border">
             <div class="alert">다음은 음주에 대한 문항입니다. 자신의 현재 상태에 해당되는 내용을 선택해 주십시오.
                 <div class="border">
-                    지난 1년간 술을 마신 횟수는 어느 정도입니까? (1개만 선택해서 적어주세요)
+                    지난 1년간 술을 마신 적 있으십니까?
                     <div>{% formfield player.num_drink_not %}</div>
 
                 </div>
@@ -231,7 +231,14 @@
                     최근 한 달 동안 팔굽혀펴기, 윗몸일으키기, 아령(덤벨), 역기, 철봉 등 근력 운동을 한 날은 1주일당 평균 며칠입니까? 주당 <div class="d-inline-block">{% formfield player.muscle_act_days %}</div>일
                 </div>
             </div>
+            <div class="row alert border">
+                {% formfield player.overall_health_evaluation %}
+            </div>
 
+        </div>
+
+        <div class="row alert border">
+            {% formfield player.overall_satisfaction %}
         </div>
 
         <div class="alert row border">

@@ -136,20 +136,20 @@ class Player(BasePlayer):
         blank=True,
     )
 
-    nsm_smoking_will = models.IntegerField(
-        min=0,
-        max=5000,
-        initial=0,
-        label=Constants.transfer_message,
-        widget=widgets.Slider(),
-        blank=True,
-    )
-
-    nsm_smoking_will_yn = models.BooleanField(
-        choices=Constants.BINARY_CHOICES,
-        label="이직 의사 없음",
-        widget=widgets.CheckboxInput,
-        blank=True
-    )
+    # nsm_smoking_will = models.IntegerField(
+    #     min=0,
+    #     max=5000,
+    #     initial=0,
+    #     label=Constants.transfer_message,
+    #     widget=widgets.Slider(),
+    #     blank=True,
+    # )
+    #
+    # nsm_smoking_will_yn = models.BooleanField(
+    #     choices=Constants.BINARY_CHOICES,
+    #     label="이직 의사 없음",
+    #     widget=widgets.CheckboxInput,
+    #     blank=True
+    # )
 
 

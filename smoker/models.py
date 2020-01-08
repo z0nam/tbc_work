@@ -187,6 +187,11 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect,
     )
 
+    sm_4_6_op = models.StringField(
+        label="직접입력:",
+        blank=True,
+    )
+
     sm_5_1 = models.IntegerField(
         label="하루에 보통 몇 개비나 피우십니까?",
         choices=Constants.sm_5_1_choices,
@@ -250,38 +255,38 @@ class Player(BasePlayer):
     )
 
     sm_6_3 = models.IntegerField(
-        label="귀하는 근무시간 중 흡연시 동료나 상사 등 다른 사람과 같이 피우는 경우가 10번 중 몇 번 정도인지 아래 막대그래프의 숫자를 선택해주십시오.",
+        label="귀하는 근무시간 중 흡연시 동료나 상사 등 다른 사람과 같이 피우는 경우가 10번 중 몇 번 정도인지 아래 숫자를 선택해주십시오.",
         choices=range(0,11),
         widget=widgets.RadioSelectHorizontal,
     )
 
-    sm_transfer_will = models.IntegerField(
-        min=0,
-        max=5000,
-        initial=0,
-        label=questions.transfer_message,
-        widget=widgets.Slider(),
-        blank=True,
-    )
-
-    sm_transfer_will_yn = models.BooleanField(
-        label="이직의사 없음",
-        widget=widgets.CheckboxInput,
-        choices=Constants.BINARY_CHOICES,
-        blank=True,
-    )
-
-    sm_transfer_will_alt = models.IntegerField(
-        min=0,
-        max=5000,
-        initial=0,
-        label=questions.transfer_message_alt,
-        widget=widgets.Slider(),
-    )
-
-    sm_transfer_will_alt_yn = models.BooleanField(
-        label="이직의사 없음",
-        widget=widgets.CheckboxInput,
-        choices=Constants.BINARY_CHOICES,
-        blank=True,
-    )
+    # sm_transfer_will = models.IntegerField(
+    #     min=0,
+    #     max=5000,
+    #     initial=0,
+    #     label=questions.transfer_message,
+    #     widget=widgets.Slider(),
+    #     blank=True,
+    # )
+    #
+    # sm_transfer_will_yn = models.BooleanField(
+    #     label="이직의사 없음",
+    #     widget=widgets.CheckboxInput,
+    #     choices=Constants.BINARY_CHOICES,
+    #     blank=True,
+    # )
+    #
+    # sm_transfer_will_alt = models.IntegerField(
+    #     min=0,
+    #     max=5000,
+    #     initial=0,
+    #     label=questions.transfer_message_alt,
+    #     widget=widgets.Slider(),
+    # )
+    #
+    # sm_transfer_will_alt_yn = models.BooleanField(
+    #     label="이직의사 없음",
+    #     widget=widgets.CheckboxInput,
+    #     choices=Constants.BINARY_CHOICES,
+    #     blank=True,
+    # )

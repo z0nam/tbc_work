@@ -42,7 +42,7 @@ def make_relationship_field(index):
 
 
 class Player(BasePlayer):
-    treatment = models.IntegerField(initial=3)
+    treatment = models.IntegerField(initial=1)
     cq_1_1 = models.IntegerField(
         choices=GlobalConstants.L7_CHOICES_2,
         widget=widgets.RadioSelectHorizontal,

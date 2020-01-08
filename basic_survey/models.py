@@ -83,9 +83,9 @@ class Constants(BaseConstants):
     BIGCITY, SMALLCITY, EUPMYON, SPECIAL = range(1, 5)
     REGION_SIZE_CHOICE = [
         [BIGCITY, "대도시 (특별/광역시 - 서울, 부산, 대구, 인천, 광주, 대전, 울산)"],
-        [SMALLCITY, "(특별/광역시가 아닌 그 외 시지역)"],
-        [EUPMYON, "(ex. OO시 OO읍/면)"],
-        [SPECIAL, "(도서·벽지 지역)"],
+        [SMALLCITY, "중소도시(특별/광역시가 아닌 그 외 시지역)"],
+        [EUPMYON, "읍면 지역(ex. OO시 OO읍/면)"],
+        [SPECIAL, "특수 지역(도서·벽지 지역)"],
     ]
 
     RESIDENCE_TYPE_CHOICE = [
@@ -101,8 +101,8 @@ class Constants(BaseConstants):
 
     TOBACCO_EXPERIENCE_CHOICE = [
         [1, "아니요. 지금까지 한 번도 흡연한 적 없음"],
-        [2, "아니요. 100개비 이상은 아니지만 흡연한 적 없음"],
-        [3, "예. 100개비 이상 흡연한 적 없음"]
+        [2, "아니요. 100개비 이상은 아니지만 흡연한 적 있음"],
+        [3, "예. 100개비 이상 흡연한 적 있음"]
     ]
 
     E_TOBACCO_FREQUENCY_CHOICE = [
@@ -248,7 +248,7 @@ class Player(BasePlayer):
     # todo: 위 질문에 따라 분기하도록 조치할 것. 일단은 스크린샷을 위해 초안 버젼(순차)으로 작성함.
 
     is_smoker = models.BooleanField(
-        label="[[앞 문항의 1번 응답자]]현재 흡연중이십니까?",
+        label="[[앞 문항의 3번 응답자]]현재 흡연중이십니까?",
         choices=Constants.BINARY_CHOICES,
         widget=widgets.RadioSelect,
     )
@@ -259,7 +259,7 @@ class Player(BasePlayer):
     )
 
     smoke_quantity = models.IntegerField(
-        label="지난 1년 기준으로 하루 평균 흡연량은 (궐련형으로 환산시) 몇 개피입니까?",
+        label="지난 1년 기준으로 하루 평균 흡연량은 (궐련형으로 환산시) 몇 개비입니까?",
         choices=range(1, 100),
     )
 

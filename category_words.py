@@ -11,7 +11,7 @@ word_bundle = {
             '담뱃갑',
         ],
         '': [   # pair, peer, partner
-            '',
+
         ],
     },
     'sub_category': {

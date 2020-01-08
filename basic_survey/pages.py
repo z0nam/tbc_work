@@ -49,15 +49,6 @@ class BasicSurvey(Page):
         if (value == Constants.UNEMPLOYED):
             return str.format("안녕하십니까? 본 연구는 한국건강증진개발원의 위탁을 받아 근무 환경이 직무 능력에 미치는 영향에 대한 연구를 수행하기 위한 목적에 따라, 현재 6개월 이상 재직자를 대상으로 연구참여를 제한하게 된 점 양해 부탁드립니다. 감사합니다.") # todo: 이것을 클릭했을 경우 alert 뜨고 종료로 안내하도록 수정하기
 
-class NonSmoker(Page):
-    pass
-
-class Smoker(Page):
-    pass
-
-class Stop(Page):
-    pass
-
 page_sequence = [
     BasicSurvey,
 ]

@@ -1,0 +1,18 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    아래 메시지를 읽어보시고 설문을 진행해 주시기 바랍니다.
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid align-center">
+        <div class="alert-danger border row h1 align-center">
+            {{ Constants.frame_message_3 }}
+
+        </div>
+    </div>
+    {% next_button %}
+{#    todo next button이 일정시간 후 활성화되도록 조치할 것. #}
+
+{% endblock %}

@@ -9,6 +9,8 @@ from otree.api import (
     currency_range,
 )
 from Global_Constants import GlobalConstants
+from nonsmoker import models as nonsmoker_models
+from nonsmoker import common_smoking_questions as questions
 from . import smoking_questions
 
 
@@ -24,6 +26,8 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 1
 
+    BINARY_CHOICES = GlobalConstants.BINARY_CHOICES
+
     L7_CHOICES = GlobalConstants.L7_CHOICES
     sm1_list = smoking_questions.sm1_list
 
@@ -35,6 +39,14 @@ class Constants(BaseConstants):
         [5,
          "‘흡연카페’ 규제정책에 적극 반대한다. 혐연권은 실내 흡연을 금지하고 공공장소의 금연구역을 확대함으로써 보장된다면, 흡연권은 공공장소의 흡연부스 설치 뿐만 아니라 흡연전용 실내공간을 분리형으로 설치함으로써 보장되어야 한다고 생각한다."],
     ]
+
+    smoker_size_question_1 = questions.smoker_size_question_1
+    smoker_size_question_2 = questions.smoker_size_question_2
+    smoker_neighbor_question = questions.smoker_neighbor_question
+    scenario_question = questions.scenario_question
+    episode_a = questions.episode_a
+    episode_b = questions.episode_b
+    transfer_message = questions.transfer_message
 
 
 class Subsession(BaseSubsession):
@@ -52,6 +64,37 @@ def make_field_sm(index):
     )
 
 class Player(BasePlayer):
+    transfer_will = models.IntegerField(
+        min=2500,
+        max=5000,
+        initial=0,
+        label=questions.transfer_message,
+        widget=widgets.Slider(),
+        blank=True,
+    )
+
+    transfer_will_yn = models.BooleanField(
+        label="이직의사 없음",
+        widget=widgets.CheckboxInput,
+        choices=Constants.BINARY_CHOICES,
+        blank=True,
+    )
+
+    transfer_will_alt = models.IntegerField(
+        min=5000,
+        max=10000,
+        initial=0,
+        label=questions.transfer_message_alt,
+        widget=widgets.Slider(),
+    )
+
+    transfer_will_alt_yn = models.BooleanField(
+        label="이직의사 없음",
+        widget=widgets.CheckboxInput,
+        choices=Constants.BINARY_CHOICES,
+        blank=True,
+    )
+
     sm_1_1 = make_field_sm(1)
     sm_1_2 = make_field_sm(2)
     sm_1_3 = make_field_sm(3)

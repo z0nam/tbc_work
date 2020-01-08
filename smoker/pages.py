@@ -20,6 +20,7 @@ class Smoker(Page):
         'sm_4_4_op',
         'sm_4_5',
         'sm_4_6',
+        'sm_4_6_op',
         'sm_5_1',
         'sm_5_2',
         'sm_5_3',
@@ -32,10 +33,10 @@ class Smoker(Page):
         'sm_6_2_2',
         'sm_6_2_3',
         'sm_6_3',
-        'sm_transfer_will',
-        'sm_transfer_will_yn',
-        'sm_transfer_will_alt',
-        'sm_transfer_will_alt_yn',
+        # 'sm_transfer_will',
+        # 'sm_transfer_will_yn',
+        # 'sm_transfer_will_alt',
+        # 'sm_transfer_will_alt_yn',
     ]
 
 page_sequence = [Smoker]

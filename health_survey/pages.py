@@ -85,6 +85,9 @@ class HealthSurvey(Page):
         'mid_act_min',
         'muscle_act_days',
 
+        'overall_health_evaluation',
+        'overall_satisfaction',
+
         'sq1',
         'sq2',
         'sq3',

@@ -6,6 +6,10 @@ from .models import Constants
 class SmokingBelief(Page):
     form_model = 'player'
     form_fields = [
+        'transfer_will',
+        'transfer_will_yn',
+        'transfer_will_alt',
+        'transfer_will_alt_yn',
         'sm_1_1',
         'sm_1_2',
         'sm_1_3',

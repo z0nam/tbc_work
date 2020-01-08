@@ -18,8 +18,8 @@ class NonSmoker(Page):
         'nsm_3_2_1',
         'nsm_3_2_2',
         'nsm_3_2_3',
-        'nsm_smoking_will',
-        'nsm_smoking_will_yn',
+        # 'nsm_smoking_will',
+        # 'nsm_smoking_will_yn',
     ]
 
 

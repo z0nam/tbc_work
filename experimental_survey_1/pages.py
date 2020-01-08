@@ -2,6 +2,8 @@ from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
 
+class Frame(Page):
+    pass
 
 class Question(Page):
     form_model = 'player'
@@ -22,5 +24,5 @@ class Question(Page):
     ]
 
 page_sequence = [
-    Question,
+    Frame, Question,
 ]

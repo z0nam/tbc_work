@@ -2,15 +2,11 @@
 {% load otree static %}
 
 {% block title %}
-    아래 메시지를 읽어보시고 설문을 진행해 주시기 바랍니다.
+    설문
 {% endblock %}
 
 {% block content %}
     <div class="container">
-        <div class="alert-danger border row h1">
-            {{ Constants.frame_message_4 }}
-
-        </div>
         <div class="alert border row">
            {{ Constants.common_question_1 }}
         {% formfield player.cq_1_1 %}

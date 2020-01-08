@@ -32,6 +32,22 @@ class Constants(BaseConstants):
     BINARY_CHOICES = GlobalConstants.BINARY_CHOICES
     YNU_CHOICES = GlobalConstants.YNU_CHOICES
 
+    L5_HEALTH_CHOICES = [
+        [1, "최고로 좋다"],
+        [2, "아주 좋다"],
+        [3, "좋다"],
+        [4, "조금 나쁘다"],
+        [5, "매우 나쁘다"],
+    ]
+
+    L5_SATISFACTION_CHOICES = [
+        [1, "매우 나쁨"],
+        [2, "나쁨"],
+        [3, "나쁘지도 좋지도 않음"],
+        [4, "좋음"],
+        [5, "매우 좋음"],
+    ]
+
 
 class Subsession(BaseSubsession):
     pass
@@ -203,7 +219,7 @@ class Player(BasePlayer):
 
 # todo: 여기에 체크할 경우 주량을 묻는 질문을 패스하도록 하기
     num_drink_not = models.BooleanField(
-        label="술을 전혀 마시지 않음",
+        label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.BINARY_CHOICES,
     )
@@ -481,6 +497,18 @@ class Player(BasePlayer):
     muscle_act_days = models.IntegerField(
         label="",
         choices=range(0, 8),
+    )
+
+    overall_health_evaluation = models.IntegerField(
+        label="전반적으로 귀하의 건강 상태는 어떻습니까?",
+        choices=Constants.L5_HEALTH_CHOICES,
+        widget=widgets.RadioSelectHorizontal,
+    )
+
+    overall_satisfaction = models.IntegerField(
+        label="귀하는 귀하의 삶의 질을 어떻게 평가하겠습니까?",
+        choices=Constants.L5_SATISFACTION_CHOICES,
+        widget=widgets.RadioSelectHorizontal,
     )
 
     sq1 = make_field_satisfaction(0)
