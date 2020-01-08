@@ -145,4 +145,11 @@ class Player(BasePlayer):
         blank=True,
     )
 
+    nsm_smoking_will_yn = models.BooleanField(
+        choices=Constants.BINARY_CHOICES,
+        label="이직 의사 없음",
+        widget=widgets.CheckboxInput,
+        blank=True
+    )
+
 
