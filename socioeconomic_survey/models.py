@@ -187,49 +187,49 @@ class Player(BasePlayer):
         widget=widgets.RadioSelectHorizontal,
     )
 
-    living_with_1 = models.IntegerField(
+    living_with_1 = models.BooleanField(
         label=Constants.FAMILY_MEMBER_LIST[1 - 1],
         widget=widgets.CheckboxInput,
         blank=True,
     )
 
-    living_with_2 = models.IntegerField(
+    living_with_2 = models.BooleanField(
         label=Constants.FAMILY_MEMBER_LIST[2 - 1],
         widget=widgets.CheckboxInput,
         blank=True,
     )
 
-    living_with_3 = models.IntegerField(
+    living_with_3 = models.BooleanField(
         label=Constants.FAMILY_MEMBER_LIST[3 - 1],
         widget=widgets.CheckboxInput,
         blank=True,
     )
 
-    living_with_4 = models.IntegerField(
+    living_with_4 = models.BooleanField(
         label=Constants.FAMILY_MEMBER_LIST[4 - 1],
         widget=widgets.CheckboxInput,
         blank=True,
     )
 
-    living_with_5 = models.IntegerField(
+    living_with_5 = models.BooleanField(
         label=Constants.FAMILY_MEMBER_LIST[5 - 1],
         widget=widgets.CheckboxInput,
         blank=True,
     )
 
-    living_with_6 = models.IntegerField(
+    living_with_6 = models.BooleanField(
         label=Constants.FAMILY_MEMBER_LIST[6 - 1],
         widget=widgets.CheckboxInput,
         blank=True,
     )
 
-    living_with_7 = models.IntegerField(
+    living_with_7 = models.BooleanField(
         label=Constants.FAMILY_MEMBER_LIST[7 - 1],
         widget=widgets.CheckboxInput,
         blank=True,
     )
 
-    living_with_8 = models.IntegerField(
+    living_with_8 = models.BooleanField(
         label=Constants.FAMILY_MEMBER_LIST[8 - 1],
         widget=widgets.CheckboxInput,
         blank=True,
