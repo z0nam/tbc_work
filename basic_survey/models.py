@@ -18,8 +18,8 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 1
 
-    BORN_YEAR_MIN = 1960
-    BORN_YEAR_MAX = 2000
+    BORN_YEAR_MIN = 1959
+    BORN_YEAR_MAX = 2001
 
     BINARY_CHOICES = GlobalConstants.BINARY_CHOICES
     
