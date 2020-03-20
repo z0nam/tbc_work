@@ -29,12 +29,12 @@ class Constants(BaseConstants):
         [FEMALE, "여성"],
     ]
 
-    REGULAR, PARTTIME, FREERANCER, UNEMPLOYED = 1, 2, 3, 4
+    REGULAR, TEMPORARY, DAILY, UNPAID = 1, 2, 3, 4
     WORK_TYPE = [
-        [REGULAR, "전일제 근무자"],
-        [PARTTIME, "파트타임 근로자"],
-        [FREERANCER, "프리랜서"],
-        [UNEMPLOYED, "최근 6개월내 근로경력 없음"],
+        [REGULAR, "임금 근로자(상용 근로자)"],
+        [TEMPORARY, "임금 근로자(임시 근로자)"],
+        [DAILY, "임금 근로자(일용 근로자)"],
+        [UNPAID, "비 임금 근로자(최근 6개월 이내 근무경력 없음, 무급가족종사자, 고용원이 있는 자영업자, 고용원이 없는 자영업자 등)"],
     ]
 
     BIGFIRM, MIDFIRM, SMALLFIRM, INDIVIDUAL, NGO, GOV, PUBLIC, ETC = 1, 2, 3, 4, 5, 6, 7, 8
@@ -182,7 +182,6 @@ class Player(BasePlayer):
     )
 
     work_type = models.IntegerField(
-        label="귀하의 근무형태를 선택해 주세요.",
         choices=Constants.WORK_TYPE,
         widget=widgets.RadioSelect,
     )
