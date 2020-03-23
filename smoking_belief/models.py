@@ -103,6 +103,7 @@ class Player(BasePlayer):
     sm_1_6 = make_field_sm(6)
     sm_1_7 = make_field_sm(7)
     sm_1_8 = make_field_sm(8)
+    sm_1_9 = make_field_sm(9)
 
     # todo 아래 둘 중 최소 하나는 확실히 입력받게 만들것.
 

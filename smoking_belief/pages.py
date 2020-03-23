@@ -18,6 +18,7 @@ class SmokingBelief(Page):
         'sm_1_6',
         'sm_1_7',
         'sm_1_8',
+        'sm_1_9',
         'sm_2_chan',
         'sm_2_ban',
         'sm_3',

@@ -11,6 +11,8 @@ class Smoker(Page):
         'sm_2_op',
         'sm_3_times',
         'sm_3_mins',
+        'sm_3_1_1',
+        'sm_3_1_2',
         'sm_4_1',
         'sm_4_2',
         'sm_4_3_years',

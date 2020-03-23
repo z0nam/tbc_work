@@ -1,5 +1,6 @@
 smoker_size_question_1 = "다음은 귀하 주변의 흡연자 규모에 대한 문항입니다."
 smoker_size_question_2 = "귀하가 근무하는 부서 또는 팀 등 가장 많이 가깝게 일하는 업무단위의 총 인원수와 해당 인원중 흡연자 수는 각각 몇 명입니까?"
+smoker_size_question_3 = "※ 정확한 인원수를 모르시면 근사치를 적어주세요."
 smoker_neighbor_question = "귀하의 직속 상사, 부서의 총괄 책임자, 그리고 소속 기관의 최고 경영자가 흡연자입니까?"
 scenario_question = "다음 가상의 시나리오를 읽고 질문에 답해주십시오."
 episode_a = """

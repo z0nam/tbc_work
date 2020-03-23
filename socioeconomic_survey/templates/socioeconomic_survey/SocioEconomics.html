@@ -8,6 +8,34 @@
 {% block content %}
     <div class="container">
 
+        <div class="row alert border">
+            <div>
+                사업장 근로자들의 노동조합 또는 '노조'의 이름이 아닌 다른 형태의 근로자 단체행동을 위한 모임이나 조직과 관련하여, 귀하가 근무하는 사업장에 해당하는 경우를 "모두" 선택해 주십시오.
+                <div>1. 노동조합</div>
+                <div>
+                {% formfield player.union_type1_1 %}
+                {% formfield player.union_type1_2 %}
+                {% formfield player.union_type1_3 %}
+                {% formfield player.union_type1_op %}
+                </div>
+                <div>2. 노조와 유사한 성격의 근로자 단체행동 모임이나 조직</div>
+                <div>
+                {% formfield player.union_type2_1 %}
+                {% formfield player.union_type2_2 %}
+                {% formfield player.union_type2_3 %}
+                {% formfield player.union_type2_op %}
+                </div>
+            </div>
+
+            <div class="row alert border">
+            <div>
+                다음은 노사관계에 대한 문항입니다 귀하의 생각과 귀사의 상황을 가장 잘 나타내고 있는 번호를 선택해주세요.
+            </div>
+                {% formfield player.union_1_1 %}
+                {% formfield player.union_1_2 %}
+                {% formfield player.union_1_3 %}
+            </div>
+        </div>
         <div class="row border alert">
             {% formfield player.education %}
         </div>

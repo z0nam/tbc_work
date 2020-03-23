@@ -9,6 +9,7 @@ from otree.api import (
     currency_range,
 )
 from basic_survey.models import Constants as basicConstants
+from Global_Constants import GlobalConstants
 
 author = 'Namun Cho <mailto:dr.strangelove@kberi.re.kr>'
 
@@ -26,6 +27,20 @@ class Constants(BaseConstants):
     EDUCATION_CHOICES = basicConstants.MY_EDUCATION_CHOICE
     MARRIAGE_CHOICES = basicConstants.MARRIAGE_CHOICE
     INCOME_CHOICES = basicConstants.INCOME_LEVEL_CHOICE
+
+    L5_CHOICES_2 = [
+        [1, "전혀 그렇지 않다"],
+        [2, "매우 그렇지 않다"],
+        [3, "그저 그렇다"],
+        [4, "대체로 그렇다"],
+        [5, "매우 그렇다"],
+    ]
+
+    union_list = [
+    "우리 회사의 노사관계는 상호 협력적인 편이다.",
+    "우리 회사의 노사 간 의사소통은 민주적으로 원활하게 이루어지고 있다.",
+    "우리 회사는 노사갈등이 타 기업에 비해 적은 편이다.",
+    ]
 
     JOB_CHOICES = [
         [1, "A. 농업, 임업 및 어업"],
@@ -158,17 +173,67 @@ class Group(BaseGroup):
     pass
 
 
+def make_field_union(index):
+    return models.IntegerField(
+        label=Constants.union_list[index-1],
+        widget=widgets.RadioSelectHorizontal,
+        choices=Constants.L5_CHOICES_2,
+    )
+
 class Player(BasePlayer):
     job_classification = models.IntegerField(
         choices=Constants.JOB_CHOICES,
         widget=widgets.RadioSelect,
         label="현재 근무하시는 기업의 업종은 다음 중 무엇입니까?",
     )
-
     job_classification_op = models.StringField(
         label="기타, 또는 잘 모르겠는 경우 (회사명이나 업종 직접 입력)",
         blank=True,
     )
+
+    union_type1_1 = models.BooleanField(
+        label="조직 유무",
+        blank=True,
+    )
+
+    union_type1_2 = models.BooleanField(
+        label="복수의 조직 존재여부(2개 이상 존재)",
+        blank=True,
+    )
+
+    union_type1_3 = models.BooleanField(
+        label="귀하의 가입여부",
+        blank=True,
+    )   
+
+    union_type1_op = models.StringField(
+        label="사내 가입률(숫자 직접 입력)__%",
+        blank=True,
+    )
+
+    union_type2_1 = models.BooleanField(
+        label="조직 유무",
+        blank=True,
+    )
+
+    union_type2_2 = models.BooleanField(
+        label="복수의 조직 존재여부(2개 이상 존재)",
+        blank=True,
+    )
+
+    union_type2_3 = models.BooleanField(
+        label="귀하의 가입여부",
+        blank=True,
+    )   
+
+    union_type2_op = models.StringField(
+        label="사내 가입률(숫자 직접 입력)__%",
+        blank=True,
+    )
+
+    union_1_1 = make_field_union(1)
+    union_1_2 = make_field_union(2)
+    union_1_3 = make_field_union(3)
 
     education = models.IntegerField(
         choices=Constants.EDUCATION_CHOICES,

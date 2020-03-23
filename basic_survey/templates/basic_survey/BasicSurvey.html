@@ -32,19 +32,7 @@
 
     <div class="alert border">{% formfield player.gender %}</div>
     <div class="alert border">{% formfield player.born_year %}</div>
-
-    <div class="alert border">
-    <p class="col-form-label">
-        직장(일)에서 귀하의 지위는 무엇입니까?
-    </p>
-    <div class="alert border">
-        <p>고용 계약기간에 따라 구분합니다.</p>
-        <p>▣ 상용 : 1년 이상</p>
-        <p>▣ 임시 : 1개월 이상 ~ 1년 미만</p>
-        <p>▣ 일용 : 1개월 미만</p>
-    </div>
-    {% formfield player.work_type label=""%}
-    </div>
+    <div class="alert border">{% formfield player.work_type %}</div>
 
     <div class="alert border" id="firm_type">{% formfield player.firm_type %}
     {% formfield player.firm_type_op %}</div>
@@ -83,6 +71,11 @@
 {#        {% formfield player.child_education_5 %}#}
     </div>
 
+
+
+
+
+    
 
     <button class="btn btn-primary btn-large active">
         모든 질문에 답하셨으면 이 버튼을 클릭하여 다음 화면으로 이동해 주세요

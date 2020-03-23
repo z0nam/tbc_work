@@ -19,10 +19,10 @@ class Constants(BaseConstants):
     num_rounds = 1
 
     NSM_1_CHOICES = [
-        [1, "담배 냄새를 싫어해서"],
+        [1, "종교적인 이유 때문에"],
         [2, "담배에 대한 호기심이나 담배 피는 사람에 대한 매력을 못 느껴서"],
         [3, "회사 동료나 친구, 가족 등 주변에 담배를 피는 사람이 거의 없어서"],
-        [4, "부모님이 담배를 피우지 못하도록 엄하게 가르치셔서"],
+        [4, "부모님이 담배를 피우지 못하도록 엄하게 단속하셔서"],
         [5, "담배 이외에도 스트레스를 해소할 만한 방법이 많다고 느껴서"],
         [6, "담배를 피는 것에 대한 주변의 시선이 걱정되어서"],
         [7, "소속된 학교, 단체나 조직에서 흡연규제 정책을 시행해서"],
@@ -52,6 +52,7 @@ class Constants(BaseConstants):
 
     smoker_size_question_1 = questions.smoker_size_question_1
     smoker_size_question_2 = questions.smoker_size_question_2
+    smoker_size_question_3 = questions.smoker_size_question_3
     smoker_neighbor_question = questions.smoker_neighbor_question
     scenario_question = questions.scenario_question
     episode_a = questions.episode_a

@@ -12,6 +12,17 @@ class Job(Page):
 class SocioEconomics(Page):
     form_model = 'player'
     form_fields = [
+        'union_type1_1',
+        'union_type1_2',
+        'union_type1_3',
+        'union_type1_op',
+        'union_type2_1',
+        'union_type2_2',
+        'union_type2_3',
+        'union_type2_op',
+        'union_1_1',
+        'union_1_2',
+        'union_1_3',
         'education',
         'family_members',
         'marriage_state',

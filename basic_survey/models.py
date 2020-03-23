@@ -29,12 +29,12 @@ class Constants(BaseConstants):
         [FEMALE, "여성"],
     ]
 
-    REGULAR, TEMPORARY, DAILY, UNPAID = 1, 2, 3, 4
+    REGULAR, PARTTIME, FREERANCER, UNEMPLOYED = 1, 2, 3, 4
     WORK_TYPE = [
-        [REGULAR, "임금 근로자(상용 근로자)"],
-        [TEMPORARY, "임금 근로자(임시 근로자)"],
-        [DAILY, "임금 근로자(일용 근로자)"],
-        [UNPAID, "비 임금 근로자(최근 6개월 이내 근무경력 없음, 무급가족종사자, 고용원이 있는 자영업자, 고용원이 없는 자영업자 등)"],
+        [REGULAR, "전일제 근무자"],
+        [PARTTIME, "파트타임 근로자"],
+        [FREERANCER, "프리랜서"],
+        [UNEMPLOYED, "최근 6개월내 근로경력 없음"],
     ]
 
     BIGFIRM, MIDFIRM, SMALLFIRM, INDIVIDUAL, NGO, GOV, PUBLIC, ETC = 1, 2, 3, 4, 5, 6, 7, 8
@@ -177,11 +177,12 @@ class Player(BasePlayer):
     )
 
     born_year = models.IntegerField(
-        label="귀하의 출생년도를 기입해주세요.",
+        label="귀하의 출생년도를 기입해주세요. (대상자: 만20세~59세:2000년생부터 1960년생까지)",
         choices=range(Constants.BORN_YEAR_MAX, Constants.BORN_YEAR_MIN, -1),
     )
 
     work_type = models.IntegerField(
+        label="직장(일)에서 귀하의 지위는 무엇입니까.",
         choices=Constants.WORK_TYPE,
         widget=widgets.RadioSelect,
     )
@@ -205,19 +206,28 @@ class Player(BasePlayer):
 
     work_year = models.IntegerField(
         label="현재까지의 귀하의 근무경력년수는 얼마나 되십니까? (1년 미만일 경우 0)",
-        choices=range(0, 40),
+        choices=range(0, 40), 
     )
 
     num_move = models.IntegerField(
         label="현재까지의 귀하의 이직횟수는 얼마나 되십니까? (없을 경우 0)",
         choices=range(0, 100),
     )
+   
+   
+    '''
+    work_history = models.IntegerField(
+        label="현재까지 귀하의 근무경력년수(휴직기간 제외)와 이직횟수는 얼마나 되십니까?",
+    )
+    '''
 
+    
     region = models.IntegerField(
         label="귀하의 거주 지역을 선택해주세요",
         choices=Constants.REGION_CHOICE,
         widget=widgets.RadioSelect,
     )
+
 
     region_size = models.IntegerField(
         label="귀하의 거주지의 지역규모를 선택해주세요.",
@@ -236,7 +246,7 @@ class Player(BasePlayer):
         blank=True,
     )
 
-    # 담배선별문항
+    # <참여자 선별문항2>
 
     tobacco_experience = models.IntegerField(
         label="귀하께서는 지금까지 평생 총 (궐련형으로 환산시) 5갑(100개비) 이상의 담배를 피운 적이 있습니까?",

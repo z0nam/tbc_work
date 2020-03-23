@@ -9,12 +9,16 @@
 
     <div class="container">
         <div class="alert row border">
-            귀하께서는 현재까지 한 번도 흡연한 적이 없다고 응답하셨습니다. 흡연을 시도하지 않은 가장 큰 이유는 무엇입니까?
-            {% formfield player.nsm_1 %}
-            {# todo conditional op by click etc #}
-            {% formfield player.nsm_1_op %}
+            <div>
+                귀하께서는 현재까지 한 번도 흡연한 적이 없다고 응답하셨습니다. 흡연을 시도하지 않은 가장 큰 이유는 무엇입니까?
+                {% formfield player.nsm_1 %}
+                {# todo conditional op by click etc #}
+    
+            </div>
+            <div>
+                {% formfield player.nsm_1_op %}
+            </div>
         </div>
-
         <div class="alert row border">
             과거에 주변 사람들로부터 담배를 권유받은 적 있습니까?
             {% formfield player.nsm_2 %}
@@ -23,25 +27,31 @@
         <div class="alert row border">
             권유받은 적이 있다면, 가장 기억에 남는 사람은 언제, 누구였습니까?
             <div class="alert row">
-                권유받은 시기
+                권유받은 시기 &nbsp;
                 {% formfield player.nsm_2_1 %}
                 {# todo conditional op by click etc #}
                 {% formfield player.nsm_2_1_op %}
             </div>
             <div class="alert row">
-                권유한 사람
+                권유한 사람 &nbsp;
                 {% formfield player.nsm_2_2 %}
                 {# todo conditional op by click etc #}
                 {% formfield player.nsm_2_2_op %}
             </div>
         </div>
-        <div class="row border alert">
+        <div class="row border alert d-block">
             {{ Constants.smoker_size_question_1 }}
-            <div class="row alert">
+            <div>
                 {{ Constants.smoker_size_question_2 }}
             </div>
+            <div>
+                {{ Constants.smoker_size_question_3 }}
+            </div>
+
             <div class="row alert">
-                근무부서(팀) 총 <span>{% formfield player.nsm_3_1_1 %}</span>명 중 흡연자 총 <span>{% formfield player.nsm_3_1_2 %}</span>명
+               근무부서(팀) 총 <span>{% formfield player.nsm_3_1_1 %}</span>명 중 
+        
+                흡연자 총 <span>{% formfield player.nsm_3_1_2 %}</span>명
 {#                todo 흡연자수가 근무부서인원수를 넘지 못하게 조치 #}
             </div>
         </div>

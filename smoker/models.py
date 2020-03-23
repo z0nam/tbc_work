@@ -24,14 +24,7 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 1
 
-    sm_1_choices = [
-        [1, "12세 이전"],
-        [2, "13세~15세 사이 (중학교 학령기)"],
-        [3, "16세~18세 사이 (고등학교 학령기)"],
-        [4, "19세 이후"],
-        [5, "25세 이후"],
-        [6, "30세 이후"],
-    ]
+    
 
     sm_2_choices = [
         [1, "친구의 권유"],
@@ -92,6 +85,7 @@ class Constants(BaseConstants):
 
     smoker_size_question_1 = questions.smoker_size_question_1
     smoker_size_question_2 = questions.smoker_size_question_2
+    smoker_size_question_3 = questions.smoker_size_question_3
     smoker_neighbor_question = questions.smoker_neighbor_question
     scenario_question = questions.scenario_question
     episode_a = questions.episode_a
@@ -109,9 +103,8 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     sm_1 = models.IntegerField(
-        label="처음 흡연을 시작한 시기는 언제입니까?",
-        choices=Constants.sm_1_choices,
-        widget=widgets.RadioSelect,
+        label="",
+        choices=range(5,100)
     )
 
     sm_2 = models.IntegerField(
@@ -134,7 +127,13 @@ class Player(BasePlayer):
         label="",
         choices=range(0,100),
     )
+    sm_3_1_1 = models.IntegerField(
+        label="",
+    )
 
+    sm_3_1_2 = models.IntegerField(  # todo 뒤응답보다 적은 수가 나오도록 체크
+        label="",
+    )
     sm_4_1 = models.BooleanField(
         label="과거에 금연을 시도한 적 있습니까?",
         choices=Constants.BINARY_CHOICES,
@@ -143,7 +142,7 @@ class Player(BasePlayer):
 
     # todo sm_4_1에서 1을 택한 경우에만 분기하도록 고칠 것.
     sm_4_2 = models.IntegerField(
-        label="귀하께서는 현재 흡연자이며, 과거에 금연을 시도한 적 있다고 응답하셨습니다. 금연 시도 횟수는 몇 번입니까? ",
+        label="",
         choices=range(1,100),
     )
 
@@ -178,7 +177,7 @@ class Player(BasePlayer):
     )
 
     sm_4_5 = models.StringField(
-        label="금연 시도 이후 재흡연을 하게 된 동기는 무엇이었습니까? 직접작성:",
+        label="",
     )
 
     sm_4_6 = models.IntegerField(
