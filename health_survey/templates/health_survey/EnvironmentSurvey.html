@@ -11,9 +11,207 @@
         <div class="alert row border">
             다음은 직무 환경에 대한 문항입니다. 현재 일하면서 귀하의 생각이나 느낌에 가장 가까운 곳에 체크해 주세요.
             <div>
-                {% for field in form %}
-                    <div class="alert border">{% formfield field %}</div>
-                {% endfor %}
+{#                {% for field in form %}#}
+{#                    <div class="alert border">{% formfield field %}</div>#}
+{#                {% endfor %}#}
+                <table class="table table-bordered">
+                    <tr>
+                        <th>문항</th>
+                        <th>응답</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ Constants.environment_list.0 }}
+                        </td>
+                        <td>
+                            {% formfield player.eq_1 %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ Constants.environment_list.1 }}
+                        </td>
+                        <td>
+                            {% formfield player.eq_2 %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ Constants.environment_list.2 }}
+                        </td>
+                        <td>
+                            {% formfield player.eq_3 %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ Constants.environment_list.3 }}
+                        </td>
+                        <td>
+                            {% formfield player.eq_4 %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ Constants.environment_list.4 }}
+                        </td>
+                        <td>
+                            {% formfield player.eq_5 %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ Constants.environment_list.5 }}
+                        </td>
+                        <td>
+                            {% formfield player.eq_6 %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ Constants.environment_list.6 }}
+                        </td>
+                        <td>
+                            {% formfield player.eq_7 %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ Constants.environment_list.7 }}
+                        </td>
+                        <td>
+                            {% formfield player.eq_8 %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ Constants.environment_list.8 }}
+                        </td>
+                        <td>
+                            {% formfield player.eq_9 %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ Constants.environment_list.9 }}
+                        </td>
+                        <td>
+                            {% formfield player.eq_10 %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ Constants.environment_list.10 }}
+                        </td>
+                        <td>
+                            {% formfield player.eq_11 %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ Constants.environment_list.11 }}
+                        </td>
+                        <td>
+                            {% formfield player.eq_12 %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ Constants.environment_list.12 }}
+                        </td>
+                        <td>
+                            {% formfield player.eq_13 %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ Constants.environment_list.13 }}
+                        </td>
+                        <td>
+                            {% formfield player.eq_14 %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ Constants.environment_list.14 }}
+                        </td>
+                        <td>
+                            {% formfield player.eq_15 %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ Constants.environment_list.15 }}
+                        </td>
+                        <td>
+                            {% formfield player.eq_16 %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ Constants.environment_list.16 }}
+                        </td>
+                        <td>
+                            {% formfield player.eq_17 %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ Constants.environment_list.17 }}
+                        </td>
+                        <td>
+                            {% formfield player.eq_18 %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ Constants.environment_list.18 }}
+                        </td>
+                        <td>
+                            {% formfield player.eq_19 %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ Constants.environment_list.19 }}
+                        </td>
+                        <td>
+                            {% formfield player.eq_20 %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ Constants.environment_list.20 }}
+                        </td>
+                        <td>
+                            {% formfield player.eq_21 %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ Constants.environment_list.21 }}
+                        </td>
+                        <td>
+                            {% formfield player.eq_22 %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ Constants.environment_list.22 }}
+                        </td>
+                        <td>
+                            {% formfield player.eq_23 %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ Constants.environment_list.23 }}
+                        </td>
+                        <td>
+                            {% formfield player.eq_24 %}
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
         <button class="btn btn-primary btn-large active">

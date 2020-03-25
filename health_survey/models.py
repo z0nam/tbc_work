@@ -67,7 +67,8 @@ def make_field_satisfaction(index):
 
 def make_field_environment(index):
     return models.IntegerField(
-        label=Constants.environment_list[index-1],
+        # label=Constants.environment_list[index-1],
+        label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L4_CHOICES,
     )
