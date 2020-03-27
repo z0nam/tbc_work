@@ -5,6 +5,21 @@
     설문조사
 {% endblock %}
 
+{% block styles %}
+   <style>
+      input[type=radio] {
+        transform: scale(1.7);
+        margin:10px;
+      }
+      input[type=checkbox] {
+        transform: scale(1.7);
+        margin:10px;
+      }
+   </style>
+{% endblock %}
+
+
+
 {% block content %}
 
     <div class="container">
@@ -27,29 +42,109 @@
             <div>{% formfield player.transfer_will_alt_yn %}</div>
             </div>
         </div>
+
         <div class="row alert border">
-            다음은 흡연속성에 대한 귀하의 신념을 묻는 문항입니다. 각 문항에 동의 또는 반대하는 정도에 따라서 ①~⑦ 사이의 숫자를 선택해 주시기 바랍니다. 자유롭고 솔직하게 응답해주시기 바랍니다.
-            <div class="row alert border">
-                {% formfield player.sm_1_1 %}
-                {% formfield player.sm_1_2 %}
-                {% formfield player.sm_1_3 %}
-                {% formfield player.sm_1_4 %}
-                {% formfield player.sm_1_5 %}
-                {% formfield player.sm_1_6 %}
-                {% formfield player.sm_1_7 %}
-                {% formfield player.sm_1_8 %}
-                {% formfield player.sm_1_9 %}
+            <p>현재 귀하의 사업장 및 사업장 주변은 흡연 금지 구역입니까?</p>
+
+                    <table class="table-bordered">
+                        <tr>
+                            <th></th>
+                            <th style="text-align:center">흡연금지구역 여부 또는 모름</th>
+                        </tr>
+                        <tr>
+                            <td>사업장의 실내 공간</td>
+                            <td>{% formfield player.workplace_restriction_1 %}</td>
+                        </tr>
+                        <tr>
+                            <td>사업장 소유지인 외부 공간(예: 주차장, 산책로 등)</td>
+                            <td>{% formfield player.workplace_restriction_2 %}</td>
+                        </tr>
+                    </table>
             </div>
-            <div class="row alert border">
-                최근 정부가 액상형 전자담배 ‘사용자제’에서 ‘사용중지’로 권고수준을 높여 강력한 경고 내용을 발표했습니다. 이에 대한 귀하의 의견은 어떠십니까? (둘 중 하나만 작성해 주십시오)
-                {% formfield player.sm_2_chan %}
-                {% formfield player.sm_2_ban %}
+
+        <div class="alert row border">
+            <div>{% formfield player.cessation_education %}</div>
+        </div>
+
+        <div class="row alert border">
+            <p>작년 한 해 동안 귀하의 사업장 내 흡연규제정책 또는 금연프로그램을 운영한 적 있거나 현재 운영 중입니까?</p>
+
+                    <table class="table-bordered">
+                        <tr>
+                            <th></th>
+                            <th style="text-align:center">시행 여부 또는 모름</th>
+                        </tr>
+                        <tr>
+                            <td>사내 흡연규제정책/규정 (예: 근무시간 중 흡연 불가)</td>
+                            <td>{% formfield player.cessation_program_1 %}</td>
+                        </tr>
+                        <tr>
+                            <td>사내 금연프로그램 (예: 6개월간 금연시 인센티브 제공)</td>
+                            <td>{% formfield player.cessation_program_2 %}</td>
+                        </tr>
+                    </table>
+                    <div class="alert row border">
+                        <div>{% formfield player.cessation_program_2_op %}</div>
+                    </div>
             </div>
+
+
+
+        <div class="alert row border">
+            <div>{% formfield player.paid_leave4program %}</div>
+        </div>
+
+        <div class="row alert border">
+            다음은 흡연속성에 대한 귀하의 신념을 묻는 문항입니다. 각 문항에 동의 또는 반대하는 정도에 따라서 ①~⑦ 사이의 숫자를 선택해 주세요. 자유롭고 솔직하게 응답해주시기 바랍니다.
+
+                    <table class="table-bordered">
+                        <tr>
+                            <th></th>
+                            <th style="text-align:center">① 전혀 아니다  ② 아니다  ③ 약간 아니다  ④ 중간이다  ⑤ 약간 그렇다  ⑥ 그렇다  ⑦ 매우 그렇다</th>
+                        </tr>
+                        <tr>
+                            <td>흡연은 수명을 단축시킨다.</td>
+                            <td>{% formfield player.sm1_1 %}</td>
+                        </tr>
+                        <tr>
+                            <td>흡연은 타인에게 혐오감을 주는 지저분한 습관이다.</td>
+                            <td>{% formfield player.sm1_2 %}</td>
+                        </tr>
+                        <tr>
+                            <td>흡연은 체력을 저하시킨다.</td>
+                            <td>{% formfield player.sm1_3 %}</td>
+                        </tr>
+                        <tr>
+                            <td>흡연은 건강에 치명적인 영향을 끼친다.</td>
+                            <td>{% formfield player.sm1_4 %}</td>
+                        </tr>
+                        <tr>
+                            <td>흡연은 타인에게 피해를 주는 이기적인 행위이다.</td>
+                            <td>{% formfield player.sm1_5 %}</td>
+                        </tr>
+                        <tr>
+                            <td>흡연은 각종 질병의 심각한 원인이다.</td>
+                            <td>{% formfield player.sm1_6 %}</td>
+                        </tr>
+                        <tr>
+                            <td>흡연은 대인관계에 지장을 준다.</td>
+                            <td>{% formfield player.sm1_7 %}</td>
+                        </tr>
+                        <tr>
+                            <td>흡연은 사회적으로 바람직하지 못한 행위이다.</td>
+                            <td>{% formfield player.sm1_8 %}</td>
+                        </tr>
+                        <tr>
+                            <td>흡연은 근로자의 노동생산성을 저하시킨다.</td>
+                            <td>{% formfield player.sm1_9 %}</td>
+                        </tr>
+                    </table>
+
             <div class="row alert border">
                 식품 자동판매기 업소로 등록해 금연구역 규제를 받지 않던 일명 ‘흡연카페’가 2018년 보건당국에 의해 금연구역으로 지정되었습니다. 이에 대한 귀하의 의견은 어떠십니까?
-                <br> &nbsp; 
-                <br> &nbsp;&nbsp;※ ‘혐연권’이란? 비흡연자가 공공장소에서 담배연기를 거부할 권리
-                <br> &nbsp;
+                    <div class="row alert-info">
+                    ※'혐연권'이란? 비흡연자가 공공장소에서 담배연기를 거부할 권리
+                    </div>
                 {% formfield player.sm_3 %}
             </div>
         </div>

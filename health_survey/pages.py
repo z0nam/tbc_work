@@ -13,6 +13,7 @@ class HealthSurvey(Page):
         'hq1_1_5',
         'hq1_1_6',
         'hq1_1_7',
+        'hq1_1_8',
 
         'hqnow1_1_1',
         'hqnow1_1_2',
@@ -21,14 +22,11 @@ class HealthSurvey(Page):
         'hqnow1_1_5',
         'hqnow1_1_6',
         'hqnow1_1_7',
+        'hqnow1_1_8',
 
-        'hq1_2_1',
-        'hq1_2_2',
-        'hq1_2_3',
-        'hq1_2_4',
-        'hq1_2_5',
-
-        'hepatitis_b',
+        'drink_freq_1',
+        'drink_freq_2',
+        'drink_freq_3',
 
         'num_drink_not',
         'num_drink_week',
@@ -56,27 +54,6 @@ class HealthSurvey(Page):
         'alc_avg_5_can',
         'alc_avg_5_cc',
 
-        'alc_max_1_jan',
-        'alc_max_1_bot',
-        'alc_max_1_can',
-        'alc_max_1_cc',
-        'alc_max_2_jan',
-        'alc_max_2_bot',
-        'alc_max_2_can',
-        'alc_max_2_cc',
-        'alc_max_3_jan',
-        'alc_max_3_bot',
-        'alc_max_3_can',
-        'alc_max_3_cc',
-        'alc_max_4_jan',
-        'alc_max_4_bot',
-        'alc_max_4_can',
-        'alc_max_4_cc',
-        'alc_max_5_jan',
-        'alc_max_5_bot',
-        'alc_max_5_can',
-        'alc_max_5_cc',
-
         'high_act_day',
         'high_act_hour',
         'high_act_min',
@@ -86,7 +63,8 @@ class HealthSurvey(Page):
         'muscle_act_days',
 
         'overall_health_evaluation',
-        'overall_satisfaction',
+        'overall_society_evaluation',
+        'overall_workplace_evaluation',
 
         'sq1',
         'sq2',
@@ -108,13 +86,63 @@ class HealthSurvey(Page):
 
 class EnvironmentSurvey(Page):
     form_model = 'player'
+    form_fields = [
+        'eq1',
+        'eq2',
+        'eq3',
+        'eq4',
+        'eq5',
+        'eq6',
+        'eq7',
+        'eq8',
+        'eq9',
+        'eq10',
+        'eq11',
+        'eq12',
+        'eq13',
+        'eq14',
+        'eq15',
+        'eq16',
+        'eq17',
+        'eq18',
+        'eq19',
+        'eq20',
+        'eq21',
+        'eq22',
+        'eq23',
+        'eq24',
 
-    def get_form_fields(self):
+    ]
+
+
+    """
+    def get_form_field(self):
         form_field = ['eq_{}'.format(i) for i in range(1,len(health_questions.WORK_ENVIRONMENT_QUESTIONS)+1)] # to match index starting from 1
         random.shuffle(form_field)
         return form_field
+    """
+
+class ProductivitySurvey(Page):
+    form_model = 'player'
+    form_fields = [
+        'work_ability_index_1',
+        'work_ability_index_2',
+        'diagnosed_diseases',
+        'work_impairment',
+        'sick_leaves',
+        'work_prognosis',
+        'mental_resources',
+
+        'pq_1',
+        'pq_2',
+        'pq_3',
+        'pq_4',
+        'pq_5',
+        'pq_6',
+
+    ]
 
 
 page_sequence = [
-    HealthSurvey, EnvironmentSurvey,
+    HealthSurvey, EnvironmentSurvey, ProductivitySurvey,
 ]

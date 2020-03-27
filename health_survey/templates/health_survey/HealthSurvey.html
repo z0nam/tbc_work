@@ -5,6 +5,154 @@
     설문조사
 {% endblock %}
 
+{% block styles %}
+   <style>
+        input[type=radio] {
+            transform: scale(2);
+            margin:10px;
+            padding:20;
+        }
+        input[type=range][orient=vertical] {
+            writing-mode: bt-lr; /* IE */
+            -webkit-appearance: slider-vertical; /* WebKit */
+            width: 10px;
+            height: 756px;
+            padding: 0 5px;
+        }
+
+        input[type='range'],
+        input[type='range']::-webkit-slider-runnable-track,
+        input[type='range']::-webkit-slider-thumb {
+          -webkit-appearance: none;
+        }
+        input[type='range']::-webkit-slider-runnable-track {
+          width: 10px;
+          height: 10px;
+          background: linear-gradient(to right, #777, #777), #AAA;
+          background-size: 10% 100%;
+          background-repeat: no-repeat;
+          border-radius: 5px;
+        }
+        body {
+            padding: 100px;
+        }
+
+        .mixin rangeThumb {
+          width: 18px;
+          height: 18px;
+          margin: -8px 0  0;
+          border-radius: 50%;
+          background: #37adbf;
+          cursor: pointer;
+          border: 0 !important;
+        }
+
+        .mixin rangeTrack {
+          width: 100%;
+          height: 2px;
+          cursor: pointer;
+          background: #b2b2b2;
+        }
+
+        .range {
+          position: relative;
+          width: 550px;
+          height: 5px;
+        }
+
+        .range input {
+          width: 100%;
+          position: absolute;
+          top: 2px;
+          height: 0;
+          -webkit-appearance: none;
+
+          // Thumb
+          &::-webkit-slider-thumb {
+            -webkit-appearance: none; // needed again for Chrome & Safari
+            @include rangeThumb;
+          }
+
+          &::-moz-range-thumb {
+            @include rangeThumb;
+          }
+
+          &::-ms-thumb {
+            @include rangeThumb;
+          }
+
+          // Track
+          &::-webkit-slider-runnable-track {
+            @include rangeTrack;
+          }
+
+          &::-moz-range-track {
+            @include rangeTrack;
+          }
+
+          &::-ms-track {
+            @include rangeTrack;
+          }
+
+          &:focus { // override outline/background on focus
+            background: none;
+            outline: none;
+          }
+
+          &::-ms-track { // A little somethin' somethin' for IE
+            width: 100%;
+            cursor: pointer;
+            background: transparent;
+            border-color: transparent;
+            color: transparent;
+          }
+        }
+
+        // Labels below slider
+        .range-labels {
+            margin: 18px -41px 0;
+            padding: 0;
+            list-style: none;
+          
+          li {
+            position: relative;
+            float: left;
+            width: 90.25px;
+            text-align: center;
+            color: #b2b2b2;
+            font-size: 14px;
+            cursor: pointer;
+            
+            &::before {
+              position: absolute;
+              top: -25px;
+              right: 0;
+              left: 0;
+              content: "";
+              margin: 0 auto;
+              width: 9px;
+              height: 9px;
+              background: #b2b2b2;
+              border-radius: 50%;
+            }
+        }
+          
+        .active {
+            color: #37adbf;
+        }
+          
+        .selected::before {
+            background: #37adbf;
+        }
+          
+        .active.selected::before {
+            display: none;
+        }
+        }
+
+   </style>
+{% endblock %}
+
 {% block content %}
     <h2>아래의 질문들에 답해주시기 바랍니다.</h2>
     <div class="container">
@@ -14,16 +162,13 @@
         </div>
 
         <div class="row alert border">
-            <p>다음은 질환력(과거력, 가족력)에 대한 문항입니다. 자신의 현재 상태에 해당되는 내용을 선택해주십시오.</p>
-
-            <div class="row alert border">
-                <div class="alert">다음과 같은 질병으로 진단을 받았거나, 현재 약물 치료 중이십니까? (진단, 약물치료쪽 모두에 답해야 합니다)
+            <p>다음은 질환력(과거력)에 대한 문항입니다.다음과 같은 진단을 받았거나, 현재 약물 치료 중이십니까? (진단, 약물치료쪽 모두에 답해야 합니다)</p>
 
                     <table class="table-bordered">
                         <tr>
                             <th></th>
-                            <th>진단</th>
-                            <th>약물치료</th>
+                            <th style="text-align:center">진단</th>
+                            <th style="text-align:center">약물치료</th>
                         </tr>
                         <tr>
                             <td>뇌졸증 (중풍)</td>
@@ -56,41 +201,34 @@
                             <td>{% formfield player.hqnow1_1_6 %}</td>
                         </tr>
                         <tr>
-                            <td>기타(암 포함)</td>
+                            <td>천식</td>
                             <td>{% formfield player.hq1_1_7 %}</td>
                             <td>{% formfield player.hqnow1_1_7 %}</td>
+                        </tr>
+                        <tr>
+                            <td>기타(암 포함)</td>
+                            <td>{% formfield player.hq1_1_8 %}</td>
+                            <td>{% formfield player.hqnow1_1_8 %}</td>
                         </tr>
                     </table>
                 </div>
             </div>
-
-            <div class="row alert border">
-                <div class="alert">부모, 형제, 자매 중에 다음 질환을 앓았거나 해당 질환으로 사망한 경우가 있으십니까?
-                    <div>
-                        <div class="alert">{% formfield player.hq1_2_1 %}</div>
-                        <div class="alert">{% formfield player.hq1_2_2 %}</div>
-                        <div class="alert">{% formfield player.hq1_2_3 %}</div>
-                        <div class="alert">{% formfield player.hq1_2_4 %}</div>
-                        <div class="alert">{% formfield player.hq1_2_5 %}</div>
-                    </div>
-                </div>
-            </div>
-
         </div>
-        <div class="row alert border">
-            <div class="alert">
-                {% formfield player.hepatitis_b %}
-            </div>
-        </div>
+
         <div class="row alert border">
             <div class="alert">다음은 음주에 대한 문항입니다. 자신의 현재 상태에 해당되는 내용을 선택해 주십시오.
                 <div class="border">
                     지난 1년간 술을 마신 적 있으십니까?
                     <div>{% formfield player.num_drink_not %}</div>
-
+                </div>
+                <div class="border">
+                    술을 마신 횟수는 어느 정도입니까? (1개만 선택해서 작성)
+                    <div>{% formfield player.drink_freq_1 %}</div>
+                    <div>{% formfield player.drink_freq_2 %}</div>
+                    <div>{% formfield player.drink_freq_3 %}</div>
                 </div>
                 <div class="row border alert">
-                    지난 1년간 술을 마신 적이 있다면, 술을 마시는 날은 보통 어느 정도 마십니까? (원하는 단위에 따라 작성해주세요, 숫자만 입력가능)
+                    술을 마시는 날은 보통 어느 정도 마십니까? (원하는 단위에 따라 작성해주세요, 숫자만 입력가능)
                     <table>
                         <tr>
                             <th></th>
@@ -138,55 +276,6 @@
                     </table>
                 </div>
 
-                <div class="row border alert">
-                    지난 1년간 가장 많이 마셨던 하루 음주량은 어느 정도입니까? (원하는 단위만 작성해주시면 됩니다)
-                    <table>
-                        <tr>
-                            <th></th>
-                            <th class="align-content-center">잔</th>
-                            <th>병</th>
-                            <th>캔</th>
-                            <th>cc</th>
-                        </tr>
-                        <tr>
-                            <td>소주</td>
-                            <td>{% formfield player.alc_max_1_jan %} </td>
-                            <td>{% formfield player.alc_max_1_bot %} </td>
-                            <td> </td>
-                            <td>{% formfield player.alc_max_1_cc %} </td>
-                        </tr>
-                        <tr>
-                            <td>맥주</td>
-                            <td>{% formfield player.alc_max_2_jan %} </td>
-                            <td>{% formfield player.alc_max_2_bot %} </td>
-                            <td>{% formfield player.alc_max_2_can %} </td>
-                            <td>{% formfield player.alc_max_2_cc %} </td>
-                        </tr>
-                        <tr>
-                            <td>양주</td>
-                            <td>{% formfield player.alc_max_3_jan %} </td>
-                            <td>{% formfield player.alc_max_3_bot %} </td>
-                            <td> </td>
-                            <td>{% formfield player.alc_max_3_cc %} </td>
-                        </tr>
-                        <tr>
-                            <td>막걸리</td>
-                            <td>{% formfield player.alc_max_4_jan %} </td>
-                            <td>{% formfield player.alc_max_4_bot %} </td>
-                            <td></td>
-                            <td>{% formfield player.alc_max_4_cc %} </td>
-                        </tr>
-                        <tr>
-                            <td>와인</td>
-                            <td>{% formfield player.alc_max_5_jan %} </td>
-                            <td>{% formfield player.alc_max_5_bot %} </td>
-                            <td></td>
-                            <td>{% formfield player.alc_max_5_cc %} </td>
-
-                        </tr>
-                    </table>
-                </div>
-
             </div>
         </div>
 
@@ -209,7 +298,7 @@
             </div>
 
             <div class="row alert border">
-                <div class="d-block">간
+                <div class="d-block">
                     평소 1주일간, 숨이 약간 차게 만드는 중강도 신체활동을 며칠 하십니까? 주당 <div class="d-inline-block">{% formfield player.mid_act_day %}</div> 일
                 </div>
                 <p class="alert-info">
@@ -231,25 +320,117 @@
                     최근 한 달 동안 팔굽혀펴기, 윗몸일으키기, 아령(덤벨), 역기, 철봉 등 근력 운동을 한 날은 1주일당 평균 며칠입니까? 주당 <div class="d-inline-block">{% formfield player.muscle_act_days %}</div>일
                 </div>
             </div>
-            <div class="row alert border">
-                {% formfield player.overall_health_evaluation %}
-            </div>
-
         </div>
-
-        <div class="row alert border">
-            {% formfield player.overall_satisfaction %}
+        <div class="alert row border">
+                {% formfield player.overall_health_evaluation %}
         </div>
 
         <div class="alert row border">
-            다음은 삶의 만족도에 대한 문항입니다. 아래에는 귀하가 동의할 수도 그렇지 않을 수도 있는 다섯 문항이 제시되어 있습니다. 각 문항에 동의 또는 반대하는 정도에 따라서 선택해 주십시오. 자유롭고 솔직하게 응답해주시기 바랍니다.
             <div class="alert row border">
+                {% formfield player.overall_society_evaluation %}
+            </div>
+            <div class="alert row border">
+                {% formfield player.overall_workplace_evaluation %}
+            </div>
+        </div>
+
+    <div class="alert row border">
+        <div class="container">
+            <div class="row border alert-info d-block">
+                <p>아래에 그려진 눈금자에는 0에서 100까지의 숫자가 표시되어 있습니다.  100은 상상할 수 있는 최고의 건강 상태를 의미하고, 0은 상상할 수 있는 최저의 건강 상태를 의미합니다. 눈금자 상의 화살표를 움직여 오늘 귀하의 건강 상태를 표시해주십시오.</p>
+                <div data-role="fieldcontain" align="center">
+                    <div class="slider">
+                        <br>100: 상상할 수 있는 최고의 건강상태</br>
+
+                <table class="table-bordered" align="center">
+                    <tr>
+                        <th style="line-height: 230%">
+                            <ul class="range-labels">
+                              <li>100</li>
+                              <li>95</li>
+                              <li>90</li>
+                              <li>85</li>
+                              <li>80</li>
+                              <li>75</li>
+                              <li>70</li>
+                              <li>65</li>
+                              <li>60</li>
+                              <li>55</li>
+                              <li>50</li>
+                              <li>45</li>
+                              <li>40</li>
+                              <li>35</li>
+                              <li>30</li>
+                              <li>25</li>
+                              <li>20</li>
+                              <li>15</li>
+                              <li>10</li>
+                              <li>5</li>
+                              <li>0</li>
+                            </ul> 
+                        </th>
+                        <th style="text-align: justify">
+                            <input type="range" id="slider" name="health_scale" min="0" max="100" value="50" step="1" list="tickmarks" orient="vertical"> 
+                            <datalist id="tickmarks">
+                                <option>100</option>
+                                <option>90</option>
+                                <option>80</option>
+                                <option>70</option>
+                                <option>60</option>
+                                <option>50</option>
+                                <option>40</option>
+                                <option>30</option>
+                                <option>20</option>
+                                <option>10</option>
+                                <option>0</option>
+                            </datalist>
+                        </th>
+                    </tr>
+                </table>
+                <br>0: 상상할 수 있는 최저의 건강상태</br>
+            </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+        <div class="alert row border">
+            다음은 삶의 만족도에 대한 문항입니다. 아래에는 귀하가 동의할 수도 그렇지 않을 수도 있는 다섯 문항이 제시되어 있습니다. 각 문항에 동의 또는 반대하는 정도에 따라서 선택해주세요. 자유롭고 솔직하게 응답해주시기 바랍니다.
+
+                <table class="table-bordered">
+                        <tr>
+                            <th></th>
+                            <th style="text-align:center">① 전혀 아니다  ② 아니다  ③ 약간 아니다  ④ 중간이다  ⑤ 약간 그렇다  ⑥ 그렇다  ⑦ 매우 그렇다</th>
+                        </tr>
+                        <tr>
+                            <td>전반적으로 나의 인생은 내가 이상적으로 여기는 모습에 가깝다.</td>
+                            <td>{% formfield player.sq1 %}</td>
+                        </tr>
+                        <tr>
+                            <td>내 인생의 여건은 아주 좋은 편이다.</td>
+                            <td>{% formfield player.sq2 %}</td>
+                        </tr>
+                        <tr>
+                            <td>나는 나의 삶에 만족한다.</td>
+                            <td>{% formfield player.sq3 %}</td>
+                        </tr>
+                        <tr>
+                            <td>지금까지 나는 내 인생에서 원하는 중요한 것들을 이루어냈다.</td>
+                            <td>{% formfield player.sq4 %}</td>
+                        </tr>
+                        <tr>
+                            <td>다시 태어난다 해도, 나는 지금처럼 살아갈 것이다.</td>
+                            <td>{% formfield player.sq5 %}</td>
+                        </tr>
+                    </table>
+
+<!--             <div class="alert row border">
                 {% formfield player.sq1 %}
                 {% formfield player.sq2 %}
                 {% formfield player.sq3 %}
                 {% formfield player.sq4 %}
                 {% formfield player.sq5 %}
-            </div>
+            </div> -->
 
         </div>
 

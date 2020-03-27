@@ -10,18 +10,30 @@ class SmokingBelief(Page):
         'transfer_will_yn',
         'transfer_will_alt',
         'transfer_will_alt_yn',
-        'sm_1_1',
-        'sm_1_2',
-        'sm_1_3',
-        'sm_1_4',
-        'sm_1_5',
-        'sm_1_6',
-        'sm_1_7',
-        'sm_1_8',
-        'sm_1_9',
-        'sm_2_chan',
-        'sm_2_ban',
+
+        'workplace_restriction_1',
+        'workplace_restriction_2',
+
+        'sm1_1',
+        'sm1_2',
+        'sm1_3',
+        'sm1_4',
+        'sm1_5',
+        'sm1_6',
+        'sm1_7',
+        'sm1_8',
+        'sm1_9',
+
         'sm_3',
+
+        'cessation_education',
+
+        'cessation_program_1',
+        'cessation_program_2',
+        'cessation_program_2_op',
+
+        'paid_leave4program',
+
     ]
 
 
