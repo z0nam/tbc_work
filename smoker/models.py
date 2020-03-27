@@ -227,13 +227,13 @@ class Player(BasePlayer):
         widget=widgets.RadioSelectHorizontal,
     )
 
-    sm_6_1_1 = models.IntegerField(
-        label="",
-    )
-
-    sm_6_1_2 = models.IntegerField( #todo 뒤응답보다 적은 수가 나오면 안되게 처리할 것.
-        label="",
-    )
+    # sm_6_1_1 = models.IntegerField(
+    #         label="",
+    #     )
+    #
+    # sm_6_1_2 = models.IntegerField( #todo 뒤응답보다 적은 수가 나오면 안되게 처리할 것.
+    #     label="",
+    # )
 
     sm_6_2_1 =  models.IntegerField(
         label="나의 직속 상사",
