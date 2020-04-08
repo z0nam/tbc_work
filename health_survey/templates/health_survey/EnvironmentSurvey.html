@@ -5,69 +5,60 @@
 설문조사
 {% endblock %}
 
-{% block styles %}
-   <style>
-      input[type=radio] {
-        transform: scale(2);
-        margin:10px;
-      }
-   </style>
-{% endblock %}
-
 
 {% block content %}
 
     <div class="container">
         <div class="alert row border">
-            다음은 직무 환경에 대한 문항입니다. 현재 일하면서 귀하의 생각이나 느낌에 가장 가까운 곳에 체크해 주세요.
-            <table class="table-bordered">
+            <b>다음은 직무 환경에 대한 문항입니다.</b><br>현재 일하면서 귀하의 생각이나 느낌에 가장 가까운 곳에 체크해 주세요.
+            <table class="table-bordered" style="border: 3px solid grey">
                     <tr>
                         <th></th>
-                        <th style="text-align:center">① 전혀 그렇지 않다  ② 그렇지 않다  ③ 그렇다  ④ 매우 그렇다</th>
+                        <th style="text-align:center; border: 3px solid grey">① 전혀 그렇지 않다  ② 그렇지 않다  ③ 그렇다  ④ 매우 그렇다</th>
                     </tr>
                     <tr>
-                        <td>나는 일이 많아 항상 시간에 쫓기며 일한다.</td>
-                        <td>{% formfield player.eq1 %}</td>
+                        <td style="background-color: lightgrey">나는 일이 많아 항상 시간에 쫓기며 일한다.</td>
+                        <td style="background-color: lightgrey">{% formfield player.eq1 %}</td>
                     </tr>
                     <tr>
                         <td>업무량이 현저하게 증가하였다.</td>
                         <td>{% formfield player.eq2 %}</td>
                     </tr>
                     <tr>
-                        <td>업무 수행 중에 충분한 휴식(짬)이 주어진다.</td>
-                        <td>{% formfield player.eq3 %}</td>
+                        <td style="background-color: lightgrey">업무 수행 중에 충분한 휴식(짬)이 주어진다.</td>
+                        <td style="background-color: lightgrey">{% formfield player.eq3 %}</td>
                     </tr>
                     <tr>
                         <td>여러 가지 일을 동시에 해야 한다.</td>
                         <td>{% formfield player.eq4 %}</td>
                     </tr>
                     <tr>
-                        <td>내 업무는 창의력을 필요로 한다.</td>
-                        <td>{% formfield player.eq5 %}</td>
+                        <td style="background-color: lightgrey">내 업무는 창의력을 필요로 한다.</td>
+                        <td style="background-color: lightgrey">{% formfield player.eq5 %}</td>
                     </tr>
                     <tr>
                         <td>내 업무를 수행하기 위해서는 높은 수준의 기술이나 지식이 필요하다.</td>
                         <td>{% formfield player.eq6 %}</td>
                     </tr>
                     <tr>
-                        <td>작업시간, 업무수행과정에서 나에게 결정할 권한이 주어지며 영향력을 행사할 수 있다.</td>
-                        <td>{% formfield player.eq7 %}</td>
+                        <td style="background-color: lightgrey">작업시간, 업무수행과정에서 나에게 결정할 권한이 주어지며 영향력을 행사할 수 있다.</td>
+                        <td style="background-color: lightgrey">{% formfield player.eq7 %}</td>
                     </tr>
                     <tr>
                         <td>나의 업무량과 작업스케줄을 스스로 조절할 수 있다.</td>
                         <td>{% formfield player.eq8 %}</td>
                     </tr>
                     <tr>
-                        <td>나의 상사는 업무를 완료하는데 도움을 준다.</td>
-                        <td>{% formfield player.eq9 %}</td>
+                        <td style="background-color: lightgrey">나의 상사는 업무를 완료하는데 도움을 준다.</td>
+                        <td style="background-color: lightgrey">{% formfield player.eq9 %}</td>
                     </tr>
                     <tr>
                         <td>나의 동료는 업무를 완료하는데 도움을 준다.</td>
                         <td>{% formfield player.eq10 %}</td>
                     </tr>
                     <tr>
-                        <td>직장에서 내가 힘들 때 내가 힘들다는 것을 알아주고 이해해 주는 사람이 있다.</td>
-                        <td>{% formfield player.eq11 %}</td>
+                        <td style="background-color: lightgrey">직장에서 내가 힘들 때 내가 힘들다는 것을 알아주고 이해해 주는 사람이 있다.</td>
+                        <td style="background-color: lightgrey">{% formfield player.eq11 %}</td>
                     </tr>
                     <tr>
                         <td>직장사정이 불안하여 미래가 불확실하다.</td>
@@ -75,51 +66,51 @@
                     </tr>
                     <tr>
                         <th></th>
-                        <th style="text-align:center">① 전혀 그렇지 않다  ② 그렇지 않다  ③ 그렇다  ④ 매우 그렇다</th>
+                        <th style="text-align:center; border: 3px solid grey">① 전혀 그렇지 않다  ② 그렇지 않다  ③ 그렇다  ④ 매우 그렇다</th>
                     </tr>
                     <tr>
-                        <td>나의 근무조건이나 상황에 바람직하지 못한 변화(예: 구조조정)가 있었거나 있을 것으로 예상된다.</td>
-                        <td>{% formfield player.eq13 %}</td>
+                        <td style="background-color: lightgrey">나의 근무조건이나 상황에 바람직하지 못한 변화(예: 구조조정)가 있었거나 있을 것으로 예상된다.</td>
+                        <td style="background-color: lightgrey">{% formfield player.eq13 %}</td>
                     </tr>
                     <tr>
                         <td>우리 직장은 근무평가, 인사제도(승진, 부서배치 등)가 공정하고 합리적이다.</td>
                         <td>{% formfield player.eq14 %}</td>
                     </tr>
                     <tr>
-                        <td>업무수행에 필요한 인원, 공간, 시설, 장비, 훈련 등의 지원이 잘 이루어지고 있다.</td>
-                        <td>{% formfield player.eq15 %}</td>
+                        <td style="background-color: lightgrey">업무수행에 필요한 인원, 공간, 시설, 장비, 훈련 등의 지원이 잘 이루어지고 있다.</td>
+                        <td style="background-color: lightgrey">{% formfield player.eq15 %}</td>
                     </tr>
                     <tr>
                         <td>우리 부서와 타 부서간에는 마찰이 없고 업무협조가 잘 이루어진다.</td>
                         <td>{% formfield player.eq16 %}</td>
                     </tr>
                     <tr>
-                        <td>일에 대한 나의 생각을 반영할 수 있는 기회와 통로가 있다.</td>
-                        <td>{% formfield player.eq17 %}</td>
+                        <td style="background-color: lightgrey">일에 대한 나의 생각을 반영할 수 있는 기회와 통로가 있다.</td>
+                        <td style="background-color: lightgrey">{% formfield player.eq17 %}</td>
                     </tr>
                     <tr>
                         <td>나의 모든 노력과 업적을 고려할 때, 나는 직장에서 제대로 존중과 신임을 받고 있다.</td>
                         <td>{% formfield player.eq18 %}</td>
                     </tr>
                     <tr>
-                        <td>내 사정이 앞으로 더 좋아질 것을 생각하면 힘든 줄 모르고 일하게 된다.</td>
-                        <td>{% formfield player.eq19 %}</td>
+                        <td style="background-color: lightgrey">내 사정이 앞으로 더 좋아질 것을 생각하면 힘든 줄 모르고 일하게 된다.</td>
+                        <td style="background-color: lightgrey">{% formfield player.eq19 %}</td>
                     </tr>
                     <tr>
                         <td>나의 능력을 개발하고 발휘할 수 있는 기회가 주어진다.</td>
                         <td>{% formfield player.eq20 %}</td>
                     </tr>
                     <tr>
-                        <td>회식자리가 불편하다.</td>
-                        <td>{% formfield player.eq21 %}</td>
+                        <td style="background-color: lightgrey">회식자리가 불편하다.</td>
+                        <td style="background-color: lightgrey">{% formfield player.eq21 %}</td>
                     </tr>
                     <tr>
                         <td>나는 기준이나 일관성이 없는 상태로 업무 지시를 받는다.</td>
                         <td>{% formfield player.eq22 %}</td>
                     </tr>
                     <tr>
-                        <td>직장의 분위기가 권위적이고 수직적이다.</td>
-                        <td>{% formfield player.eq23 %}</td>
+                        <td style="background-color: lightgrey">직장의 분위기가 권위적이고 수직적이다.</td>
+                        <td style="background-color: lightgrey">{% formfield player.eq23 %}</td>
                     </tr>
                     <tr>
                         <td>남성, 여성이라는 성적인 차이 때문에 불이익을 받는다.</td>

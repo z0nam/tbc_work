@@ -22,7 +22,7 @@ class Constants(BaseConstants):
     BORN_YEAR_MAX = 2001
 
     BINARY_CHOICES = GlobalConstants.BINARY_CHOICES
-    
+
     MALE, FEMALE = 1, 2
     GENDER_CHOICE = [
         [MALE, "남성"],
@@ -97,7 +97,7 @@ class Constants(BaseConstants):
         [6, "기타(직접입력:             )"],
     ]
 
-# 이하 담배설문
+    # 이하 담배설문
 
     TOBACCO_EXPERIENCE_CHOICE = [
         [1, "아니요. 지금까지 한 번도 흡연한 적 없음"],
@@ -113,8 +113,7 @@ class Constants(BaseConstants):
         [5, "매일 사용함"],
     ]
 
-
-# 이하 후반부 인구학설문
+    # 이하 후반부 인구학설문
 
     NOT_MARRIED, MARRIED, DIVORCED_BEREAVEMENT, MARRIAGE_OTHER = 1, 2, 3, 4
     MARRIAGE_CHOICE = [
@@ -169,7 +168,6 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-
     gender = models.IntegerField(
         label="귀하의 성별은 무엇입니까?",
         choices=Constants.GENDER_CHOICE,
@@ -206,28 +204,25 @@ class Player(BasePlayer):
 
     work_year = models.IntegerField(
         label="현재까지의 귀하의 근무경력년수는 얼마나 되십니까? (1년 미만일 경우 0)",
-        choices=range(0, 40), 
+        choices=range(0, 40),
     )
 
     num_move = models.IntegerField(
         label="현재까지의 귀하의 이직횟수는 얼마나 되십니까? (없을 경우 0)",
         choices=range(0, 100),
     )
-   
-   
+
     '''
     work_history = models.IntegerField(
         label="현재까지 귀하의 근무경력년수(휴직기간 제외)와 이직횟수는 얼마나 되십니까?",
     )
     '''
 
-    
     region = models.IntegerField(
         label="귀하의 거주 지역을 선택해주세요",
         choices=Constants.REGION_CHOICE,
         widget=widgets.RadioSelect,
     )
-
 
     region_size = models.IntegerField(
         label="귀하의 거주지의 지역규모를 선택해주세요.",
@@ -259,7 +254,7 @@ class Player(BasePlayer):
     is_smoker = models.BooleanField(
         label="[[앞 문항의 3번 응답자]]현재 흡연중이십니까?",
         choices=Constants.BINARY_CHOICES,
-        widget=widgets.RadioSelect,
+        widget=widgets.RadioSelectHorizontal,
     )
 
     smoke_year = models.IntegerField(
@@ -275,16 +270,16 @@ class Player(BasePlayer):
     e_tobacco_experience = models.BooleanField(
         label="전자담배를 사용한 경험이 있습니까?",
         choices=Constants.BINARY_CHOICES,
-        widget=widgets.RadioSelect,
+        widget=widgets.RadioSelectHorizontal,
     )
 
     e_tobacco_frequency = models.BooleanField(
         label="[[전자담배 유경험자]]최근 한 달 동안 전자담배(궐련형, 액상형 등)를 사용한 경험이 있습니까?",
         choices=Constants.BINARY_CHOICES,
-        widget=widgets.RadioSelect,
+        widget=widgets.RadioSelectHorizontal,
     )
 
-# todo 아래 네 가지 중에 하나는 반드시 체크되어 있어야 함
+    # todo 아래 네 가지 중에 하나는 반드시 체크되어 있어야 함
     tobacco_type_1 = models.BooleanField(
         label="일반 연초형",
         widget=widgets.CheckboxInput,
@@ -308,7 +303,7 @@ class Player(BasePlayer):
         blank=True,
     )
 
-# 이하는 후반부 인구사회학 질문에 사용
+    # 이하는 후반부 인구사회학 질문에 사용
 
     FAMILY_WITH_1 = models.BooleanField(
         label="조부모",

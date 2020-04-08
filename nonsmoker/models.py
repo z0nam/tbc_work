@@ -152,5 +152,3 @@ class Player(BasePlayer):
     #     widget=widgets.CheckboxInput,
     #     blank=True
     # )
-
-

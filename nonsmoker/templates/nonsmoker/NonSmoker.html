@@ -5,54 +5,58 @@
     설문조사
 {% endblock %}
 
+
 {% block content %}
 
     <div class="container">
         <div class="alert row border">
             <div>
-                귀하께서는 현재까지 한 번도 흡연한 적이 없다고 응답하셨습니다. 흡연을 시도하지 않은 가장 큰 이유는 무엇입니까?
-                {% formfield player.nsm_1 %}
-                {# todo conditional op by click etc #}
-    
-            </div>
-            <div>
-                {% formfield player.nsm_1_op %}
+                <b>귀하께서는 현재까지 한 번도 흡연한 적이 없다고 응답하셨습니다.</b><br><p class="alert-info">흡연을 시도하지 않은 가장 큰 이유는 무엇입니까?</p>
+                    {% formfield player.nsm_1 %}
+                    {# todo conditional op by click etc #}
+                    {% formfield player.nsm_1_op %}
             </div>
         </div>
         <div class="alert row border">
-            과거에 주변 사람들로부터 담배를 권유받은 적 있습니까?
+            <b>과거에 주변 사람들로부터 담배를 권유받은 적 있습니까? . </b>
             {% formfield player.nsm_2 %}
         </div>
 
         <div class="alert row border">
+            <p class="alert-info">
             권유받은 적이 있다면, 가장 기억에 남는 사람은 언제, 누구였습니까?
+            </p>
             <div class="alert row">
-                권유받은 시기 &nbsp;
+                <b>권유받은 시기 :</b> &nbsp;
                 {% formfield player.nsm_2_1 %}
-                {# todo conditional op by click etc #}
+            {# todo conditional op by click etc #}
                 {% formfield player.nsm_2_1_op %}
             </div>
             <div class="alert row">
-                권유한 사람 &nbsp;
+                <b>권유한 사람 :</b> &nbsp;
                 {% formfield player.nsm_2_2 %}
-                {# todo conditional op by click etc #}
+            {# todo conditional op by click etc #}
                 {% formfield player.nsm_2_2_op %}
             </div>
         </div>
         <div class="row border alert d-block">
-            {{ Constants.smoker_size_question_1 }}
+            <b>{{ Constants.smoker_size_question_1 }}</b>
+            <div class="row border alert">
             <div>
                 {{ Constants.smoker_size_question_2 }}
             </div>
             <div>
+                <p class="alert-info">
                 {{ Constants.smoker_size_question_3 }}
-            </div>
+                </p>
+
 
             <div class="row alert">
-               근무부서(팀) 총 <span>{% formfield player.nsm_3_1_1 %}</span>명 중 
-        
+               근무부서(팀) 총 <span>{% formfield player.nsm_3_1_1 %}</span>명 중
+
                 흡연자 총 <span>{% formfield player.nsm_3_1_2 %}</span>명
 {#                todo 흡연자수가 근무부서인원수를 넘지 못하게 조치 #}
+            </div>
             </div>
         </div>
 

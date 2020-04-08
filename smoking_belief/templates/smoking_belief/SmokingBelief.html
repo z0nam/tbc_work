@@ -5,26 +5,11 @@
     설문조사
 {% endblock %}
 
-{% block styles %}
-   <style>
-      input[type=radio] {
-        transform: scale(1.7);
-        margin:10px;
-      }
-      input[type=checkbox] {
-        transform: scale(1.7);
-        margin:10px;
-      }
-   </style>
-{% endblock %}
-
-
-
 {% block content %}
 
     <div class="container">
         <div class="row border alert">
-            {{ Constants.scenario_question }}
+            <b>{{ Constants.scenario_question }}</b>
             <div class="row border alert-info d-block">
                 {{ Constants.episode_a }}
 
@@ -34,7 +19,7 @@
         </div>
 {#            todo: 위 응답을 안했을 경우에만, 즉 이직 의사 없음을 선택한 음답자만 나타나도록. Slider 초기 값을 0으로 만들것. js로.   #}
         <div class="row border alert">
-            {{ Constants.scenario_question }}
+            <b>{{ Constants.scenario_question }}</b>
             <div class="row border alert-info d-block">
                 {{ Constants.episode_b }}
 
@@ -44,7 +29,7 @@
         </div>
 
         <div class="row alert border">
-            <p>현재 귀하의 사업장 및 사업장 주변은 흡연 금지 구역입니까?</p>
+            <p><b>현재 귀하의 사업장 및 사업장 주변은 흡연 금지 구역입니까?</b></p>
 
                     <table class="table-bordered">
                         <tr>
@@ -67,7 +52,7 @@
         </div>
 
         <div class="row alert border">
-            <p>작년 한 해 동안 귀하의 사업장 내 흡연규제정책 또는 금연프로그램을 운영한 적 있거나 현재 운영 중입니까?</p>
+            <p><b>작년 한 해 동안 귀하의 사업장 내 흡연규제정책 또는 금연프로그램을 운영한 적 있거나 현재 운영 중입니까?</b></p>
 
                     <table class="table-bordered">
                         <tr>
@@ -95,60 +80,59 @@
         </div>
 
         <div class="row alert border">
-            다음은 흡연속성에 대한 귀하의 신념을 묻는 문항입니다. 각 문항에 동의 또는 반대하는 정도에 따라서 ①~⑦ 사이의 숫자를 선택해 주세요. 자유롭고 솔직하게 응답해주시기 바랍니다.
+            <b>다음은 흡연속성에 대한 귀하의 신념을 묻는 문항입니다.</b> 각 문항에 동의 또는 반대하는 정도에 따라서 ①~⑦ 사이의 숫자를 선택해 주세요. 자유롭고 솔직하게 응답해주시기 바랍니다.
 
-                    <table class="table-bordered">
+                    <table class="table-bordered" style="border:3px solid grey; padding-left: 5px; padding-right: 5px">
                         <tr>
                             <th></th>
-                            <th style="text-align:center">① 전혀 아니다  ② 아니다  ③ 약간 아니다  ④ 중간이다  ⑤ 약간 그렇다  ⑥ 그렇다  ⑦ 매우 그렇다</th>
+                            <th style="text-align:center; border: 3px solid grey">① 전혀 아니다  ② 아니다  ③ 약간 아니다  ④ 중간이다  ⑤ 약간 그렇다  ⑥ 그렇다  ⑦ 매우 그렇다</th>
                         </tr>
                         <tr>
-                            <td>흡연은 수명을 단축시킨다.</td>
-                            <td>{% formfield player.sm1_1 %}</td>
+                            <td style="background-color: lightgrey">흡연은 수명을 단축시킨다.</td>
+                            <td style="background-color: lightgrey">{% formfield player.sm1_1 %}</td>
                         </tr>
                         <tr>
                             <td>흡연은 타인에게 혐오감을 주는 지저분한 습관이다.</td>
                             <td>{% formfield player.sm1_2 %}</td>
                         </tr>
                         <tr>
-                            <td>흡연은 체력을 저하시킨다.</td>
-                            <td>{% formfield player.sm1_3 %}</td>
+                            <td style="background-color: lightgrey">흡연은 체력을 저하시킨다.</td>
+                            <td style="background-color: lightgrey">{% formfield player.sm1_3 %}</td>
                         </tr>
                         <tr>
                             <td>흡연은 건강에 치명적인 영향을 끼친다.</td>
                             <td>{% formfield player.sm1_4 %}</td>
                         </tr>
                         <tr>
-                            <td>흡연은 타인에게 피해를 주는 이기적인 행위이다.</td>
-                            <td>{% formfield player.sm1_5 %}</td>
+                            <td style="background-color: lightgrey">흡연은 타인에게 피해를 주는 이기적인 행위이다.</td>
+                            <td style="background-color: lightgrey">{% formfield player.sm1_5 %}</td>
                         </tr>
                         <tr>
                             <td>흡연은 각종 질병의 심각한 원인이다.</td>
                             <td>{% formfield player.sm1_6 %}</td>
                         </tr>
                         <tr>
-                            <td>흡연은 대인관계에 지장을 준다.</td>
-                            <td>{% formfield player.sm1_7 %}</td>
+                            <td style="background-color: lightgrey">흡연은 대인관계에 지장을 준다.</td>
+                            <td style="background-color: lightgrey">{% formfield player.sm1_7 %}</td>
                         </tr>
                         <tr>
                             <td>흡연은 사회적으로 바람직하지 못한 행위이다.</td>
                             <td>{% formfield player.sm1_8 %}</td>
                         </tr>
                         <tr>
-                            <td>흡연은 근로자의 노동생산성을 저하시킨다.</td>
-                            <td>{% formfield player.sm1_9 %}</td>
+                            <td style="background-color: lightgrey">흡연은 근로자의 노동생산성을 저하시킨다.</td>
+                            <td style="background-color: lightgrey">{% formfield player.sm1_9 %}</td>
                         </tr>
                     </table>
+            </div>
 
             <div class="row alert border">
-                식품 자동판매기 업소로 등록해 금연구역 규제를 받지 않던 일명 ‘흡연카페’가 2018년 보건당국에 의해 금연구역으로 지정되었습니다. 이에 대한 귀하의 의견은 어떠십니까?
+                <b>식품 자동판매기 업소로 등록해 금연구역 규제를 받지 않던 일명 ‘흡연카페’가 2018년 보건당국에 의해 금연구역으로 지정되었습니다. 이에 대한 귀하의 의견은 어떠십니까?</b>
                     <div class="row alert-info">
                     ※'혐연권'이란? 비흡연자가 공공장소에서 담배연기를 거부할 권리
                     </div>
                 {% formfield player.sm_3 %}
             </div>
-        </div>
-
     </div>
 
     <button class="btn btn-primary btn-large active">

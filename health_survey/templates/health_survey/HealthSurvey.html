@@ -7,11 +7,6 @@
 
 {% block styles %}
    <style>
-        input[type=radio] {
-            transform: scale(2);
-            margin:10px;
-            padding:20;
-        }
         input[type=range][orient=vertical] {
             writing-mode: bt-lr; /* IE */
             -webkit-appearance: slider-vertical; /* WebKit */
@@ -113,7 +108,7 @@
             margin: 18px -41px 0;
             padding: 0;
             list-style: none;
-          
+
           li {
             position: relative;
             float: left;
@@ -122,7 +117,7 @@
             color: #b2b2b2;
             font-size: 14px;
             cursor: pointer;
-            
+
             &::before {
               position: absolute;
               top: -25px;
@@ -136,15 +131,15 @@
               border-radius: 50%;
             }
         }
-          
+
         .active {
             color: #37adbf;
         }
-          
+
         .selected::before {
             background: #37adbf;
         }
-          
+
         .active.selected::before {
             display: none;
         }
@@ -162,7 +157,7 @@
         </div>
 
         <div class="row alert border">
-            <p>다음은 질환력(과거력)에 대한 문항입니다.다음과 같은 진단을 받았거나, 현재 약물 치료 중이십니까? (진단, 약물치료쪽 모두에 답해야 합니다)</p>
+            <p><b>다음은 질환력(과거력)에 대한 문항입니다.다음과 같은 진단을 받았거나, 현재 약물 치료 중이십니까? (진단, 약물치료쪽 모두에 답해야 합니다)</b></p>
 
                     <table class="table-bordered">
                         <tr>
@@ -216,19 +211,21 @@
         </div>
 
         <div class="row alert border">
-            <div class="alert">다음은 음주에 대한 문항입니다. 자신의 현재 상태에 해당되는 내용을 선택해 주십시오.
+            <div class="alert"><b>다음은 음주에 대한 문항입니다. 자신의 현재 상태에 해당되는 내용을 선택해 주십시오.</b>
                 <div class="border">
                     지난 1년간 술을 마신 적 있으십니까?
                     <div>{% formfield player.num_drink_not %}</div>
                 </div>
                 <div class="border">
-                    술을 마신 횟수는 어느 정도입니까? (1개만 선택해서 작성)
+                    <p class="alert-info">
+                    술을 마신 횟수는 어느 정도입니까? (1개만 선택해서 작성)</p>
                     <div>{% formfield player.drink_freq_1 %}</div>
                     <div>{% formfield player.drink_freq_2 %}</div>
                     <div>{% formfield player.drink_freq_3 %}</div>
                 </div>
                 <div class="row border alert">
-                    술을 마시는 날은 보통 어느 정도 마십니까? (원하는 단위에 따라 작성해주세요, 숫자만 입력가능)
+                    <p class="alert-info">
+                    술을 마시는 날은 보통 어느 정도 마십니까? (원하는 단위에 따라 작성해주세요, 숫자만 입력가능)</p>
                     <table>
                         <tr>
                             <th></th>
@@ -280,26 +277,24 @@
         </div>
 
         <div class="row alert border">
-            다음은 신체활동(운동)에 대한 문항입니다. 자신의 현재 상태에 해당되는 내용을 선택해주십시오.
+            <b>다음은 신체활동(운동)에 대한 문항입니다. 자신의 현재 상태에 해당되는 내용을 선택해주십시오.</b>
 
-            <div class="row alert border">
-                <div class="d-block">
-                    평소 1주일간, 숨이 많이 차게 만드는 고강도 신체활동을 며칠 하십니까? 주당 <div class="d-inline-block">{% formfield player.high_act_day %}</div> 일
-                </div>
+              <body>
+                <div style="border:3px solid skyblue; padding-left: 5px; padding-right: 5px">
+                  <div class="d-block">
+                    평소 <b>1주일간</b>, 숨이 많이 차게 만드는 <u>고강도</u> 신체활동을 며칠 하십니까? 주당 <div class="d-inline-block">{% formfield player.high_act_day %}</div> 일
+                  </div>
                 <p class="alert-info">
                     ※고강도 신체활동의 예: 달리기, 에어로빅, 빠른 속도로 자전거 타기, 건설 현장 노동, 계단으로 물건 나르기 등
                 </p>
-            </div>
 
-            <div class="row alert border">
-                <div class="d-block">
-                    평소 하루에 숨이 많이 차게 만드는 고강도 신체활동을 몇 시간 하십니까? 하루에 <div class="d-inline-block">{% formfield player.high_act_hour %}</div>시간 <div class="d-inline-block">{% formfield player.high_act_min %}</div>분
-                </div>
-            </div>
+                    평소 <b>하루에</b> 숨이 많이 차게 만드는 <u>고강도</u> 신체활동을 몇 시간 하십니까? 하루에 <div class="d-inline-block">{% formfield player.high_act_hour %}</div>시간 <div class="d-inline-block">{% formfield player.high_act_min %}</div>분
+                  </div>
+              </body>
 
-            <div class="row alert border">
+                <div style="border:3px solid skyblue; padding-left: 5px; padding-right: 5px">
                 <div class="d-block">
-                    평소 1주일간, 숨이 약간 차게 만드는 중강도 신체활동을 며칠 하십니까? 주당 <div class="d-inline-block">{% formfield player.mid_act_day %}</div> 일
+                    평소 <b>1주일간</b>, 숨이 약간 차게 만드는 <u>중강도</u> 신체활동을 며칠 하십니까? 주당 <div class="d-inline-block">{% formfield player.mid_act_day %}</div> 일
                 </div>
                 <p class="alert-info">
                     ※ 앞에서 답하신 고강도 문항에 관련한 신체활동은 제외하고 답해주십시오
@@ -307,25 +302,26 @@
                 <p class="alert-info">
                     ※ 중강도 신체활동의 예: 빠르게 걷기, 복식 테니스, 보통 속도로 자전거 타기, 가벼운 물건 나르기, 청소 등
                 </p>
-            </div>
 
-            <div class="row alert border">
                 <div class="d-block">
-                    평소 하루에 숨이 약간 차게 만드는 중강도 신체활동을 몇 시간 하십니까? 하루에 <div class="d-inline-block">{% formfield player.mid_act_hour %}</div>시간 <div class="d-inline-block">{% formfield player.mid_act_min %}</div>분
+                    평소 <b>하루에</b> 숨이 약간 차게 만드는 <u>중강도</u> 신체활동을 몇 시간 하십니까? 하루에 <div class="d-inline-block">{% formfield player.mid_act_hour %}</div>시간 <div class="d-inline-block">{% formfield player.mid_act_min %}</div>분
                 </div>
-            </div>
+                </div>
 
-            <div class="row alert border">
+              <div class="row alert border">
                 <div class="d-block">
                     최근 한 달 동안 팔굽혀펴기, 윗몸일으키기, 아령(덤벨), 역기, 철봉 등 근력 운동을 한 날은 1주일당 평균 며칠입니까? 주당 <div class="d-inline-block">{% formfield player.muscle_act_days %}</div>일
                 </div>
-            </div>
-        </div>
+              </div>
+
         <div class="alert row border">
                 {% formfield player.overall_health_evaluation %}
         </div>
+    </div>
+
 
         <div class="alert row border">
+          <b>다음은 흡연 및 금연 문화에 대한 문항입니다.</b>
             <div class="alert row border">
                 {% formfield player.overall_society_evaluation %}
             </div>
@@ -334,18 +330,19 @@
             </div>
         </div>
 
+
     <div class="alert row border">
         <div class="container">
             <div class="row border alert-info d-block">
-                <p>아래에 그려진 눈금자에는 0에서 100까지의 숫자가 표시되어 있습니다.  100은 상상할 수 있는 최고의 건강 상태를 의미하고, 0은 상상할 수 있는 최저의 건강 상태를 의미합니다. 눈금자 상의 화살표를 움직여 오늘 귀하의 건강 상태를 표시해주십시오.</p>
+                <p><b>아래에 그려진 눈금자에는 0에서 100까지의 숫자가 표시되어 있습니다.  100은 상상할 수 있는 최고의 건강 상태를 의미하고, 0은 상상할 수 있는 최저의 건강 상태를 의미합니다. 눈금자 상의 화살표를 움직여 오늘 귀하의 건강 상태를 표시해주십시오.</b></p>
                 <div data-role="fieldcontain" align="center">
                     <div class="slider">
                         <br>100: 상상할 수 있는 최고의 건강상태</br>
 
                 <table class="table-bordered" align="center">
                     <tr>
-                        <th style="line-height: 230%">
-                            <ul class="range-labels">
+                        <th style="line-height: 234%">
+                            <ul class="range-labels" style="padding-top: 3px">
                               <li>100</li>
                               <li>95</li>
                               <li>90</li>
@@ -367,10 +364,10 @@
                               <li>10</li>
                               <li>5</li>
                               <li>0</li>
-                            </ul> 
+                            </ul>
                         </th>
                         <th style="text-align: justify">
-                            <input type="range" id="slider" name="health_scale" min="0" max="100" value="50" step="1" list="tickmarks" orient="vertical"> 
+                            <input type="range" id="slider" name="health_scale" min="0" max="100" value="50" step="1" list="tickmarks" orient="vertical">
                             <datalist id="tickmarks">
                                 <option>100</option>
                                 <option>90</option>
@@ -395,32 +392,34 @@
     </div>
 
         <div class="alert row border">
-            다음은 삶의 만족도에 대한 문항입니다. 아래에는 귀하가 동의할 수도 그렇지 않을 수도 있는 다섯 문항이 제시되어 있습니다. 각 문항에 동의 또는 반대하는 정도에 따라서 선택해주세요. 자유롭고 솔직하게 응답해주시기 바랍니다.
+            <b>다음은 삶의 만족도에 대한 문항입니다.</b>
+            <p>아래에는 귀하가 동의할 수도 그렇지 않을 수도 있는 다섯 문항이 제시되어 있습니다. 각 문항에 동의 또는 반대하는 정도에 따라서 ①~⑦의 번호 중에서 선택해주세요. 자유롭고 솔직하게 응답해주시기 바랍니다.</p>
 
                 <table class="table-bordered">
+                  <table style="border: 3px solid grey">
                         <tr>
                             <th></th>
-                            <th style="text-align:center">① 전혀 아니다  ② 아니다  ③ 약간 아니다  ④ 중간이다  ⑤ 약간 그렇다  ⑥ 그렇다  ⑦ 매우 그렇다</th>
+                            <th style="text-align:center; border: 3px solid grey">① 전혀 아니다  ② 아니다  ③ 약간 아니다  ④ 중간이다  ⑤ 약간 그렇다  ⑥ 그렇다  ⑦ 매우 그렇다</th>
                         </tr>
                         <tr>
-                            <td>전반적으로 나의 인생은 내가 이상적으로 여기는 모습에 가깝다.</td>
-                            <td>{% formfield player.sq1 %}</td>
+                            <td style="background-color: lightgrey">전반적으로 나의 인생은 내가 이상적으로 여기는 모습에 가깝다.</td>
+                            <td style="background-color: lightgrey">{% formfield player.sq1 %}</td>
                         </tr>
                         <tr>
                             <td>내 인생의 여건은 아주 좋은 편이다.</td>
                             <td>{% formfield player.sq2 %}</td>
                         </tr>
                         <tr>
-                            <td>나는 나의 삶에 만족한다.</td>
-                            <td>{% formfield player.sq3 %}</td>
+                            <td style="background-color: lightgrey">나는 나의 삶에 만족한다.</td>
+                            <td style="background-color: lightgrey">{% formfield player.sq3 %}</td>
                         </tr>
                         <tr>
                             <td>지금까지 나는 내 인생에서 원하는 중요한 것들을 이루어냈다.</td>
                             <td>{% formfield player.sq4 %}</td>
                         </tr>
                         <tr>
-                            <td>다시 태어난다 해도, 나는 지금처럼 살아갈 것이다.</td>
-                            <td>{% formfield player.sq5 %}</td>
+                            <td style="background-color: lightgrey">다시 태어난다 해도, 나는 지금처럼 살아갈 것이다.</td>
+                            <td style="background-color: lightgrey">{% formfield player.sq5 %}</td>
                         </tr>
                     </table>
 
@@ -433,9 +432,6 @@
             </div> -->
 
         </div>
-
-
-    </div>
 
 
 

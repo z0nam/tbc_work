@@ -45,31 +45,31 @@ class Constants(BaseConstants):
     ]
 
     L11_SOCIETY_CHOICES = [
-        [1, "_____(-5)흡연 권장 사회"],
-        [2, "_____(-4)"],
-        [3, "_____(-3)"],
-        [4, "_____(-2)"],
-        [5, "_____(-1)"],
-        [6, "_____(0)어느 쪽으로도 적극적 노력없이 무관심한 사회"],
-        [7, "_____(1)"],
-        [8, "_____(2)"],
-        [9, "_____(3)"],
-        [10, "_____(4)"],
-        [11, "_____(5)금연 권장 사회"],
+        [1, "(-5)흡연 권장 사회"],
+        [2, "(-4)"],
+        [3, "(-3)"],
+        [4, "(-2)"],
+        [5, "(-1)"],
+        [6, "(0)어느 쪽으로도 적극적 노력없이 무관심한 사회"],
+        [7, "(1)"],
+        [8, "(2)"],
+        [9, "(3)"],
+        [10, "(4)"],
+        [11, "(5)금연 권장 사회"],
     ]
 
     L11_WORKPLACE_CHOICES = [
-        [1, "_____(-5)흡연 권장 직장"],
-        [2, "_____(-4)"],
-        [3, "_____(-3)"],
-        [4, "_____(-2)"],
-        [5, "_____(-1)"],
-        [6, "_____(0)어느 쪽으로도 적극적 노력없이 무관심한 직장"],
-        [7, "_____(1)"],
-        [8, "_____(2)"],
-        [9, "_____(3)"],
-        [10, "_____(4)"],
-        [11, "_____(5)금연 권장 직장"],
+        [1, "(-5)흡연 권장 직장"],
+        [2, "(-4)"],
+        [3, "(-3)"],
+        [4, "(-2)"],
+        [5, "(-1)"],
+        [6, "(0)어느 쪽으로도 적극적 노력없이 무관심한 직장"],
+        [7, "(1)"],
+        [8, "(2)"],
+        [9, "(3)"],
+        [10, "(4)"],
+        [11, "(5)금연 권장 직장"],
     ]
 
     L7_DISEASES = [
@@ -280,7 +280,7 @@ class Player(BasePlayer):
     drink_freq_3 = models.StringField(
         label="1년에 (__)번",
         blank=True,
-    )   
+    )
 
 # todo 아래 4가지 중 하나는 반드시 체크되어 있어야 하며, 4번을 체크했을 경우에는 신체활동(운동) 관련 문항으로 이동해야함.
 
@@ -499,31 +499,31 @@ class Player(BasePlayer):
     sq5 = make_field_satisfaction(4)
     """
 
-    sq1 = models.IntegerField(        
+    sq1 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L7_NUMS,
     )
 
-    sq2 = models.IntegerField(        
+    sq2 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L7_NUMS,
     )
 
-    sq3 = models.IntegerField(        
+    sq3 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L7_NUMS,
     )
 
-    sq4 = models.IntegerField(        
+    sq4 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L7_NUMS,
     )
 
-    sq5 = models.IntegerField(        
+    sq5 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L7_NUMS,
@@ -557,145 +557,145 @@ class Player(BasePlayer):
     eq_24 = make_field_environment(24)
     """
 
-    eq1 = models.IntegerField(        
+    eq1 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L4_NUMS,
     )
 
-    eq2 = models.IntegerField(        
+    eq2 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L4_NUMS,
     )
 
-    eq3 = models.IntegerField(        
+    eq3 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L4_NUMS,
     )
 
-    eq4 = models.IntegerField(        
+    eq4 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L4_NUMS,
     )
 
-    eq5 = models.IntegerField(        
+    eq5 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L4_NUMS,
     )
 
-    eq6 = models.IntegerField(        
+    eq6 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L4_NUMS,
     )
 
-    eq7 = models.IntegerField(        
+    eq7 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L4_NUMS,
     )
 
-    eq8 = models.IntegerField(        
+    eq8 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L4_NUMS,
     )
 
-    eq9 = models.IntegerField(        
+    eq9 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L4_NUMS,
     )
 
-    eq10 = models.IntegerField(        
+    eq10 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L4_NUMS,
     )
 
-    eq11 = models.IntegerField(        
+    eq11 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L4_NUMS,
     )
 
-    eq12 = models.IntegerField(        
+    eq12 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L4_NUMS,
     )
 
-    eq13 = models.IntegerField(        
+    eq13 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L4_NUMS,
     )
 
-    eq14 = models.IntegerField(        
+    eq14 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L4_NUMS,
     )
 
-    eq15 = models.IntegerField(        
+    eq15 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L4_NUMS,
     )
 
-    eq16 = models.IntegerField(        
+    eq16 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L4_NUMS,
     )
 
-    eq17 = models.IntegerField(        
+    eq17 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L4_NUMS,
     )
 
-    eq18 = models.IntegerField(        
+    eq18 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L4_NUMS,
     )
 
-    eq19 = models.IntegerField(        
+    eq19 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L4_NUMS,
     )
 
-    eq20 = models.IntegerField(        
+    eq20 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L4_NUMS,
     )
 
-    eq21 = models.IntegerField(        
+    eq21 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L4_NUMS,
     )
 
-    eq22 = models.IntegerField(        
+    eq22 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L4_NUMS,
     )
 
-    eq23 = models.IntegerField(        
+    eq23 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L4_NUMS,
     )
 
-    eq24 = models.IntegerField(        
+    eq24 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L4_NUMS,
@@ -751,6 +751,3 @@ class Player(BasePlayer):
     pq_4 = make_field_productivity(4)
     pq_5 = make_field_productivity(5)
     pq_6 = make_field_productivity(6)
-
-
-

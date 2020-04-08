@@ -10,13 +10,13 @@
     <div class="container">
         <div class="alert row border d-block">
               <p>
-               처음 흡연은 몇 세에 시작하였습니까?
+               <b>언제 처음 흡연을 시작하셨습니까?</b>
               </p>
-            
+
            <div class="alert row">
             만 &nbsp <span> {% formfield player.sm_1 %}</span> &nbsp세
            </div>
-        
+
 
         </div>
         <div class="alert row border d-block">
@@ -25,31 +25,31 @@
         </div>
         <div class="alert row border d-block">
             <p>
-                귀하는 근무 중 (하루) 평균 흡연휴게 횟수가 몇 번이며, 평균 흡연시간은 몇 분입니까?
+                <b>귀하는 근무 중 (하루) 평균 흡연휴게 횟수가 몇 번이며, 평균 흡연시간은 몇 분입니까?</b>
                 <br>
-                &nbsp;&nbsp; ※ 흡연휴게 : 흡연을 위한 목적으로 사업장 밖, 또는 흡연장소로 나갔다 오는 휴게시간
+                <p class="alert-info">&nbsp;&nbsp; ※ 흡연휴게 : 흡연을 위한 목적으로 사업장 밖, 또는 흡연장소로 나갔다 오는 휴게시간</p>
             </p>
             <div class="alert row d-block">
-            
+
             <div class="row">
-                &nbsp;&nbsp;&nbsp;하루 근무 중  흡연휴게 평균 &nbsp;<span>{% formfield player.sm_3_times %}</span>&nbsp;회  
-            </div> 
+                &nbsp;&nbsp;&nbsp;하루 근무 중  흡연휴게 평균 &nbsp;<span>{% formfield player.sm_3_times %}</span>&nbsp;회
+            </div>
             <div class="row">
                 &nbsp;&nbsp;&nbsp;평균 흡연시간 &nbsp;<span>{% formfield player.sm_3_mins %}</span>&nbsp;분
-            </div> 
-              
+            </div>
+
         </div>
 
         <div class="row alert border d-block">
-            <div>다음은 금연 경험에 대한 문항입니다.</div>
+            <div><b>다음은 금연 경험에 대한 문항입니다.</b></div>
             <div class="row alert border">
                 {% formfield player.sm_4_1 %}
             </div>
             <div class="row alert border  d-block">
                 <div>
-                    귀하께서는 현재 흡연자이며, 과거에 금연을 시도한 적이 있다고 응답하셨습니다. <br>금연시도 횟수는 몇 번입니까?
+                    <b>귀하께서는 현재 흡연자이며, 과거에 금연을 시도한 적이 있다고 응답하셨습니다.</b> <br>금연시도 횟수는 몇 번입니까?
                 </div>
-               <div class="row alert"> 
+               <div class="row alert">
                <span>{% formfield player.sm_4_2 %}</span> &nbsp;번
                </div>
             </div>
@@ -82,7 +82,7 @@
         </div>
         <div class="row alert border d-block">
                 <p>
-                    다음은 니코틴 의존도를 측정하기 위한 문항입니다. 각 질문에 모두 답해주세요
+                    <b>다음은 니코틴 의존도를 측정하기 위한 문항입니다. 각 질문에 모두 답해주세요.</b>
                 </p>
                 <div>
                     {% formfield player.sm_5_1 %}
@@ -94,12 +94,12 @@
                 </div>
         </div>
         <div class="row border alert d-block">
-                {{ Constants.smoker_size_question_1 }}
+                <b>{{ Constants.smoker_size_question_1 }}</b>
             <div>
                 {{ Constants.smoker_size_question_2 }}
             </div>
             <div>
-                {{ Constants.smoker_size_question_3 }}
+                <p class="alert-info">{{ Constants.smoker_size_question_3 }}</p>
             </div>
 
             <div class="row alert">

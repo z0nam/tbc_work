@@ -305,31 +305,31 @@ class Player(BasePlayer):
         blank=True,
     )
 
-    num_child_under7 = models.StringField(
+    num_child_under7 = models.IntegerField(
         label="미취학(만 7세미만) 자녀수",
         choices=range(0, 10),
         blank=True,
     )
 
-    num_child_elem = models.StringField(
+    num_child_elem = models.IntegerField(
         label="초등학교 재학중(또는 연령대) 자녀수",
         choices=range(0, 10),
         blank=True,
     )
 
-    num_child_mid = models.StringField(
+    num_child_mid = models.IntegerField(
         label="중학교 재학중(또는 연령대) 자녀수",
         choices=range(0, 10),
         blank=True,
     )
 
-    num_child_high = models.StringField(
+    num_child_high = models.IntegerField(
         label="고등학교 재학중(또는 연령대) 자녀수",
         choices=range(0, 10),
         blank=True,
     )
 
-    num_child_over19 = models.StringField(
+    num_child_over19 = models.IntegerField(
         label="만 19세 이상 자녀수",
         choices=range(0, 10),
         blank=True,

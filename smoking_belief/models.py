@@ -104,13 +104,13 @@ class Player(BasePlayer):
         blank=True,
     )
 
-    workplace_restriction_1 = models.BooleanField(
+    workplace_restriction_1 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.YNU_CHOICES,
     )
 
-    workplace_restriction_2 = models.BooleanField(
+    workplace_restriction_2 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.YNU_CHOICES,
@@ -128,55 +128,55 @@ class Player(BasePlayer):
     sm_1_9 = make_field_sm(9)
     """
 
-    sm1_1 = models.IntegerField(        
+    sm1_1 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L7_NUMS,
     )
 
-    sm1_2 = models.IntegerField(        
+    sm1_2 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L7_NUMS,
     )
 
-    sm1_3 = models.IntegerField(        
+    sm1_3 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L7_NUMS,
     )
 
-    sm1_4 = models.IntegerField(        
+    sm1_4 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L7_NUMS,
     )
 
-    sm1_5 = models.IntegerField(        
+    sm1_5 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L7_NUMS,
     )
 
-    sm1_6 = models.IntegerField(        
+    sm1_6 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L7_NUMS,
     )
 
-    sm1_7 = models.IntegerField(        
+    sm1_7 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L7_NUMS,
     )
 
-    sm1_8 = models.IntegerField(        
+    sm1_8 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L7_NUMS,
     )
 
-    sm1_9 = models.IntegerField(        
+    sm1_9 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L7_NUMS,
@@ -191,19 +191,19 @@ class Player(BasePlayer):
         choices=Constants.sm3_choices,
     )
 
-    cessation_education = models.IntegerField(
+    cessation_education = models.BooleanField(
         label="현재 재직중인 귀하의 사업장에서 작년(2019년) 한해 동안 흡연과 관련된 교육(예: 금연 및 흡연예방 교육, 간접흡연 피해 교육, 금연 프로그램 안내 교육 등)을 받은 적 있으십니까?",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.BINARY_CHOICES,
     )
 
-    cessation_program_1 = models.BooleanField(
+    cessation_program_1 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.YNU_CHOICES,
     )
 
-    cessation_program_2 = models.BooleanField(
+    cessation_program_2 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.YNU_CHOICES,
@@ -219,5 +219,3 @@ class Player(BasePlayer):
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.pros_cons_choices,
     )
-
-
