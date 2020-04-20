@@ -17,6 +17,8 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 1
 
+    WAITING_SECONDS = GlobalConstants.WAITING_SECONDS
+
     common_question_1 = GlobalConstants.common_question_1
     common_question_1_1 = GlobalConstants.common_question_1_1
     common_question_1_2 = GlobalConstants.common_question_1_2

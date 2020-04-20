@@ -5,6 +5,33 @@
     설문조사
 {% endblock %}
 
+{% block styles %}
+    <script>
+    $(document).ready(function(){
+        op_checker("id_sm_2_9", "sm_2");
+        op_checker("id_sm_4_1_0", "ceased_case")
+        op_checker("id_sm_4_1_1", "not_ceased_case")
+        op_checker("id_sm_4_4_10", "sm_4_4")
+        op_checker("id_sm_4_6_6", "sm_4_6")
+
+        {#sm_3_1_1 대답에 기반하여 select가 3_1_1 답을 넘지 않도록 select values 를 조정. #}
+        $("#id_sm_3_1_1").change(
+            function(){
+                var x = $("#id_sm_3_1_1").val();
+                {#console.log("#id_sm_3_1_1 changed to "+$("#id_sm_3_1_1").val());#}
+                $("#sm_3_1_2").show();
+                var option_html =""
+                for (i=0; i<= x; i++){
+                    option_html+="<option value='"+i+"'>"+i+"</option>";
+                }
+                $("#id_sm_3_1_2").html(option_html);
+            }
+        )
+
+    })
+    </script>
+{% endblock %}
+
 {% block content %}
 
     <div class="container">
@@ -21,7 +48,9 @@
         </div>
         <div class="alert row border d-block">
             {% formfield player.sm_2 %}
-            {% formfield player.sm_2_op %}
+            <div id="sm_2" class="optional">
+                {% formfield player.sm_2_op %}
+            </div>
         </div>
         <div class="alert row border d-block">
             <p>
@@ -45,39 +74,45 @@
             <div class="row alert border">
                 {% formfield player.sm_4_1 %}
             </div>
-            <div class="row alert border  d-block">
-                <div>
-                    <b>귀하께서는 현재 흡연자이며, 과거에 금연을 시도한 적이 있다고 응답하셨습니다.</b> <br>금연시도 횟수는 몇 번입니까?
+            <div class="optional" id="ceased_case">
+                <div class="row alert border  d-block">
+                    <div>
+                        <b>귀하께서는 현재 흡연자이며, 과거에 금연을 시도한 적이 있다고 응답하셨습니다.</b> <br>금연시도 횟수는 몇 번입니까?
+                    </div>
+                    <div class="row alert">
+                        <span>{% formfield player.sm_4_2 %}</span> &nbsp;번
+                    </div>
                 </div>
-               <div class="row alert">
-               <span>{% formfield player.sm_4_2 %}</span> &nbsp;번
-               </div>
-            </div>
-            <div class="row alert border d-block">
-                <div>
-                    가장 오랫동안 금연을 한 기간이 1개월 이상이었습니까?
+                <div class="row alert border d-block">
+                    <div>
+                        가장 오랫동안 금연을 한 기간이 1개월 이상이었습니까?
+                    </div>
+                    <div class="row alert">
+                        예, 1개월 이상: <span>{% formfield player.sm_4_3_years %}</span>년 <span>{% formfield player.sm_4_3_months %}</span>개월
+                    </div>
+                    <div class="row alert">
+                        아니요, 1개월 미만: <span>{% formfield player.sm_4_3_days %}</span>일
+                    </div>
                 </div>
-                <div class="row alert">
-                    예, 1개월 이상: <span>{% formfield player.sm_4_3_years %}</span>년 <span>{% formfield player.sm_4_3_months %}</span>개월
+                <div class="row alert border d-block">
+                    {% formfield player.sm_4_4 %}
+                    <div class="optional" id="sm_4_4">
+                        {% formfield player.sm_4_4_op %}
+                    </div>
                 </div>
-                <div class="row alert">
-                    아니요, 1개월 미만: <span>{% formfield player.sm_4_3_days %}</span>일
+                <div class="row alert d-block border">
+                    <p>
+                        금연 시도 이후 재흡연을 하게 된 동기는 무엇이었습니까?
+                        <br><br>&nbsp;직접입력:
+                    </p>
+                    {% formfield player.sm_4_5 %}
                 </div>
             </div>
-            <div class="row alert border d-block">
-                {% formfield player.sm_4_4 %}
-                {% formfield player.sm_4_4_op %}
-            </div>
-            <div class="row alert d-block border">
-                <p>
-                    금연 시도 이후 재흡연을 하게 된 동기는 무엇이었습니까?
-                    <br><br>&nbsp;직접입력:
-                </p>
-                {% formfield player.sm_4_5 %}
-            </div>
-            <div class="row alert border">
+            <div class="row alert border optional" id="not_ceased_case">
                 {% formfield player.sm_4_6 %}
-                {% formfield player.sm_4_6_op %}
+                <div class="optional" id="sm_4_6">
+                    {% formfield player.sm_4_6_op %}
+                </div>
             </div>
         </div>
         <div class="row alert border d-block">
@@ -103,11 +138,10 @@
             </div>
 
             <div class="row alert">
-               근무부서(팀) 총 <span>{% formfield player.sm_3_1_1 %}</span>명 중 
+               근무부서(팀) 총 <span>{% formfield player.sm_3_1_1 %}</span>명 중 흡연자 총 <span class="optional" id="sm_3_1_2">{% formfield player.sm_3_1_2 %}</span>명
             </div>
-            <div class="row alert">    
-                흡연자 총 <span>{% formfield player.sm_3_1_2 %}</span>명
-    {#                todo 흡연자수가 근무부서인원수를 넘지 못하게 조치 #}
+            <div class="row alert">
+
             </div>
         </div>
             <div class="row border alert">
@@ -119,25 +153,6 @@
             <div class="row border alert">
                 {% formfield player.sm_6_3 %}
             </div>
-{#            <div class="row border alert">#}
-{#                {{ Constants.scenario_question }}#}
-{#                <div class="row border alert-info d-block">#}
-{#                    {{ Constants.episode_a }}#}
-{##}
-{#                <div>{% formfield player.sm_transfer_will %}</div>#}
-{#                <div>{% formfield player.sm_transfer_will_yn %}</div>#}
-{#                </div>#}
-{#            </div>#}
-{#            todo: 위 응답을 안했을 경우에만, 즉 이직 의사 없음을 선택한 음답자만 나타나도록. Slider 초기 값을 0으로 만들것. js로.   #}
-{#            <div class="row border alert">#}
-{#                {{ Constants.scenario_question }}#}
-{#                <div class="row border alert-info d-block">#}
-{#                    {{ Constants.episode_b }}#}
-{##}
-{#                <div>{% formfield player.sm_transfer_will_alt %}</div>#}
-{#                <div>{% formfield player.sm_transfer_will_alt_yn %}</div>#}
-{#                </div>#}
-{#            </div>#}
         </div>
     </div>
 

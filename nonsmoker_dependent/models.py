@@ -45,7 +45,6 @@ class Player(BasePlayer):
         label="나는 앞으로도 흡연하지 않겠다는 의지가 매우 확고하다.",
     )
 
-    # todo 특정 응답에만 반응하게 고칠 것.
     nsmd_2_1 = models.StringField(
         label="한번쯤이라도 흡연 의향이 전혀 없다: 이유(직접 작성):",
         blank=True,

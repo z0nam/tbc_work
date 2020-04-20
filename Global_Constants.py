@@ -1,6 +1,9 @@
 class GlobalConstants:
     EXPIRE_SECONDS_TEST = 1*60
     EXPIRE_SECONDS_PRODUCTION = 20*60
+
+    WAITING_SECONDS = 10 # showing time for framing experiments
+
     TIMER_TEXT = "권장 완료 시간:"
     TIME_FORMAT = '"%Y년 %m월 %d일 %H시 %M분 %S초"'
 

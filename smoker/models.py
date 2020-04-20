@@ -104,7 +104,7 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     sm_1 = models.IntegerField(
         label="",
-        choices=range(5,100)
+        choices=range(10,100)
     )
 
     sm_2 = models.IntegerField(
@@ -129,10 +129,12 @@ class Player(BasePlayer):
     )
     sm_3_1_1 = models.IntegerField(
         label="",
+        choices=range(1,101),
     )
 
-    sm_3_1_2 = models.IntegerField(  # todo 뒤응답보다 적은 수가 나오도록 체크
+    sm_3_1_2 = models.IntegerField(
         label="",
+        choices=range(1,101),
     )
     sm_4_1 = models.BooleanField(
         label="과거에 금연을 시도한 적 있습니까?",
@@ -140,10 +142,10 @@ class Player(BasePlayer):
         widget=widgets.RadioSelectHorizontal,
     )
 
-    # todo sm_4_1에서 1을 택한 경우에만 분기하도록 고칠 것.
     sm_4_2 = models.IntegerField(
         label="",
         choices=range(1,100),
+        blank=True,
     )
 
     sm_4_3_years = models.IntegerField(
@@ -169,6 +171,7 @@ class Player(BasePlayer):
         label="금연을 시도하게 된 가장 큰 동기는 무엇이었습니까?",
         choices=Constants.sm_4_4_choices,
         widget=widgets.RadioSelect,
+        blank=True,
     )
 
     sm_4_4_op = models.StringField(
@@ -176,8 +179,9 @@ class Player(BasePlayer):
         blank=True,
     )
 
-    sm_4_5 = models.StringField(
+    sm_4_5 = models.LongStringField(
         label="",
+        blank=True,
     )
 
     sm_4_6 = models.IntegerField(
@@ -231,7 +235,7 @@ class Player(BasePlayer):
     #         label="",
     #     )
     #
-    # sm_6_1_2 = models.IntegerField( #todo 뒤응답보다 적은 수가 나오면 안되게 처리할 것.
+    # sm_6_1_2 = models.IntegerField(
     #     label="",
     # )
 

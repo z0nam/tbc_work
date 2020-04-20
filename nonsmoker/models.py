@@ -84,7 +84,7 @@ class Player(BasePlayer):
         choices=Constants.BINARY_CHOICES,
     )
 
-    nsm_2_1 = models.IntegerField( # todo 조건부분기
+    nsm_2_1 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.NSM_RECOMMEND_TIME_CHOICES,
@@ -96,7 +96,7 @@ class Player(BasePlayer):
         blank=True,
     )
 
-    nsm_2_2 = models.IntegerField( # todo 조건부분기
+    nsm_2_2 = models.IntegerField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.MSN_RECOMMENDER_CHOICES,
@@ -110,10 +110,12 @@ class Player(BasePlayer):
 
     nsm_3_1_1 = models.IntegerField(
         label="",
+        choices=range(1, 101),
     )
 
-    nsm_3_1_2 = models.IntegerField(  # todo 뒤응답보다 적은 수가 나오도록 체크
+    nsm_3_1_2 = models.IntegerField(
         label="",
+        choices=range(1, 101),
     )
 
     nsm_3_2_1 = models.IntegerField(

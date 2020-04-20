@@ -24,14 +24,11 @@ class HealthSurvey(Page):
         'hqnow1_1_7',
         'hqnow1_1_8',
 
+
+        'num_drink_not',
         'drink_freq_1',
         'drink_freq_2',
         'drink_freq_3',
-
-        'num_drink_not',
-        'num_drink_week',
-        'num_drink_month',
-        'num_drink_year',
 
         'alc_avg_1_jan',
         'alc_avg_1_bot',

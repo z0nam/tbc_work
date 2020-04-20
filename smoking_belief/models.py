@@ -83,7 +83,7 @@ class Player(BasePlayer):
     )
 
     transfer_will_yn = models.BooleanField(
-        label="____이직의사 없음",
+        label="이직의사 없음",
         widget=widgets.CheckboxInput,
         choices=Constants.BINARY_CHOICES,
         blank=True,
@@ -98,7 +98,7 @@ class Player(BasePlayer):
     )
 
     transfer_will_alt_yn = models.BooleanField(
-        label="____이직의사 없음",
+        label="이직의사 없음",
         widget=widgets.CheckboxInput,
         choices=Constants.BINARY_CHOICES,
         blank=True,
@@ -182,9 +182,6 @@ class Player(BasePlayer):
         choices=Constants.L7_NUMS,
     )
 
-
-    # todo 아래 둘 중 최소 하나는 확실히 입력받게 만들것.
-
     sm_3 = models.IntegerField(
         label="",
         widget=widgets.RadioSelect,
@@ -210,7 +207,7 @@ class Player(BasePlayer):
     )
 
     cessation_program_2_op = models.StringField(
-        label="(위 문항에서 '사내 금연프로그램 시행 중'으로 체크한 응답자만 답해주십시오.) 귀하의 사업장에서운영중인 금연프로그램에 대해 구체적으로 설명해주십시오. (예: 참가자 기준, 프로그램 내용, 보상 체계, 패널티 체계, 금연성공률 등)",
+        label="귀하의 사업장에서운영중인 금연프로그램에 대해 구체적으로 설명해주십시오. (예: 참가자 기준, 프로그램 내용, 보상 체계, 패널티 체계, 금연성공률 등)",
         blank=True,
     )
 

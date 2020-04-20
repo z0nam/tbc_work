@@ -5,6 +5,15 @@
     설문조사
 {% endblock %}
 
+{% block app_scripts %}
+    <script>
+        $(document).ready(function(){
+            op_checker("id_num_drink_not_0", "drink_questions")
+        });
+
+    </script>
+{% endblock %}
+
 {% block styles %}
    <style>
         input[type=range][orient=vertical] {
@@ -216,7 +225,8 @@
                     지난 1년간 술을 마신 적 있으십니까?
                     <div>{% formfield player.num_drink_not %}</div>
                 </div>
-                <div class="border">
+                <div class="optional" id="drink_questions">
+                    <div class="border">
                     <p class="alert-info">
                     술을 마신 횟수는 어느 정도입니까? (1개만 선택해서 작성)</p>
                     <div>{% formfield player.drink_freq_1 %}</div>
@@ -272,7 +282,7 @@
                         </tr>
                     </table>
                 </div>
-
+                </div>
             </div>
         </div>
 

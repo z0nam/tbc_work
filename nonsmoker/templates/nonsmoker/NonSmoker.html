@@ -5,6 +5,36 @@
     설문조사
 {% endblock %}
 
+{% block styles %}
+
+<script>
+
+    console.log("딸기영농: "+$("#id_nsm_1_7").is(":checked"));
+    {#alert("test")#}
+    $(document).ready(function(){
+        op_checker("id_nsm_1_7", 'nsm_1');
+        op_checker("id_nsm_2_0", 'nsm_2');
+        op_checker("id_nsm_2_1_4", 'nsm_2_1_op');
+        op_checker("id_nsm_2_2_4", 'nsm_2_2_op');
+
+                    {#sm_3_1_1 대답에 기반하여 select가 3_1_1 답을 넘지 않도록 select values 를 조정. #}
+        $("#id_nsm_3_1_1").change(
+            function(){
+                var x = $("#id_nsm_3_1_1").val();
+                {#console.log("#id_nsm_3_1_1 changed to "+$("#id_nsm_3_1_1").val());#}
+                $("#nsm_3_1_2").show();
+                var option_html =""
+                for (i=0; i<= x; i++){
+                    option_html+="<option value='"+i+"'>"+i+"</option>";
+                }
+                $("#id_nsm_3_1_2").html(option_html);
+            }
+        )
+    })
+</script>
+
+
+{% endblock %}
 
 {% block content %}
 
@@ -13,8 +43,7 @@
             <div>
                 <b>귀하께서는 현재까지 한 번도 흡연한 적이 없다고 응답하셨습니다.</b><br><p class="alert-info">흡연을 시도하지 않은 가장 큰 이유는 무엇입니까?</p>
                     {% formfield player.nsm_1 %}
-                    {# todo conditional op by click etc #}
-                    {% formfield player.nsm_1_op %}
+                    <div id="nsm_1" class="optional">{% formfield player.nsm_1_op %}</div>
             </div>
         </div>
         <div class="alert row border">
@@ -22,21 +51,24 @@
             {% formfield player.nsm_2 %}
         </div>
 
-        <div class="alert row border">
+        <div class="alert row border optional" id="nsm_2">
             <p class="alert-info">
             권유받은 적이 있다면, 가장 기억에 남는 사람은 언제, 누구였습니까?
             </p>
             <div class="alert row">
                 <b>권유받은 시기 :</b> &nbsp;
                 {% formfield player.nsm_2_1 %}
-            {# todo conditional op by click etc #}
-                {% formfield player.nsm_2_1_op %}
+                <div class="optional" id="nsm_2_1_op">
+                    {% formfield player.nsm_2_1_op %}
+                </div>
             </div>
             <div class="alert row">
                 <b>권유한 사람 :</b> &nbsp;
                 {% formfield player.nsm_2_2 %}
-            {# todo conditional op by click etc #}
-                {% formfield player.nsm_2_2_op %}
+
+                <div class="optional" id="nsm_2_2_op">
+                    {% formfield player.nsm_2_2_op %}
+                </div>
             </div>
         </div>
         <div class="row border alert d-block">
@@ -54,8 +86,7 @@
             <div class="row alert">
                근무부서(팀) 총 <span>{% formfield player.nsm_3_1_1 %}</span>명 중
 
-                흡연자 총 <span>{% formfield player.nsm_3_1_2 %}</span>명
-{#                todo 흡연자수가 근무부서인원수를 넘지 못하게 조치 #}
+                흡연자 총 <span class="optional" id="nsm_3_1_2">{% formfield player.nsm_3_1_2 %}</span>명
             </div>
             </div>
         </div>
@@ -81,5 +112,5 @@
     <button class="btn btn-primary btn-large active">
         모든 질문에 답하셨으면 이 버튼을 클릭하여 다음 페이지로 진행해주시기 바랍니다
     </button>
-
+    </div>
 {% endblock %}

@@ -9,20 +9,10 @@
     <script>
 
         $(document).ready(function(){
-            {#alert("hiding!");#}
-            $(".hidden").hide();
-
-            $('input:radio[name="having_child"]').change( // todo 분기 hide
-                function(){
-                    {#alert("button chang event!");#}
-                    if($(this).val() === '1'){
-                        {#alert("1");#}
-                        $(".hidden").show();
-                    }else{
-                        $(".hidden").hide();
-                    }
-                }
-            )
+            op_checker("id_firm_type_7","firm_type_op")
+            op_checker("id_residence_type_5", "residence_type_op")
+            op_checker("id_tobacco_experience_2", "smoking_case")
+            op_checker("id_e_tobacco_experience_0", "e_tobacco_type")
         })
 
     </script>
@@ -45,42 +35,38 @@
     </div>
 
     <div class="alert border" id="firm_type">{% formfield player.firm_type %}
-    {% formfield player.firm_type_op %}</div>
+    <div class="optional" id="firm_type_op">{% formfield player.firm_type_op %}</div></div>
     <div class="alert border">{% formfield player.firm_size %}</div>
     <div class="alert border">{% formfield player.work_year %}</div>
     <div class="alert border">{% formfield player.num_move %}</div>
     <div class="alert border">{% formfield player.region %}
-    {% formfield player.residence_type_op %}</div>
+    {% formfield player.region_op %}</div>
     <div class="alert border">{% formfield player.region_size %}</div>
     <div class="alert border">{% formfield player.residence_type %}
-    {% formfield player.residence_type_op %}</div>
+    <div class="optional" id="residence_type_op">{% formfield player.residence_type_op %}</div></div>
 
     <div class="alert border">{% formfield player.tobacco_experience %}</div>
-    <div class="alert border">{% formfield player.is_smoker %}</div>
+
+    <div class="optional" id="smoking_case">
+            <div class="alert border">{% formfield player.is_smoker %}</div>
     <div class="alert border">{% formfield player.smoke_year %}</div>
     <div class="alert border">{% formfield player.smoke_quantity %}</div>
     <div class="alert border">{% formfield player.e_tobacco_experience %}</div>
-    <div class="alert border">{% formfield player.e_tobacco_frequency %}</div>
+        <div class="optional" id="e_tobacco_type">
+            <div class="alert border">{% formfield player.e_tobacco_frequency %}</div>
     <div class="alert border"><p>현재 사용하시는 담배의 유형은 무엇입니까? (복수응답 가능)</p>
         {% formfield player.tobacco_type_1 %}
         {% formfield player.tobacco_type_2 %}
         {% formfield player.tobacco_type_3 %}
         {% formfield player.tobacco_type_4 %}
     </div>
+        </div>
 
-
-{#    <div class="alert border" id="having_child">{% formfield player.having_child %}</div>#}
-{#    <div class="alert border hidden" id="child_edu_checkboxes">#}
-{#        <p>#}
-{#            귀하께서는 가족 구성원 중 미성년자가 있다고 답하셨습니다. 미성년자인 가족 구성원의 취학 상태에 해당하는 것을 골라주세요. 여러 사람일 경우 해당하는 상태에 모두 체크해주시기 바랍니다.#}
-{#        </p>#}
-{#        {% formfield player.child_education_1 %}#}
-{#        {% formfield player.child_education_2 %}#}
-{#        {% formfield player.child_education_3 %}#}
-{#        {% formfield player.child_education_4 %}#}
-{#        {% formfield player.child_education_5 %}#}
     </div>
 
+
+
+    </div>
 
 
 

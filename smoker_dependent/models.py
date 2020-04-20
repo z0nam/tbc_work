@@ -45,7 +45,6 @@ class Player(BasePlayer):
         label="나는 금연에 실패하더라도 계속 시도할 것이다.",
     )
 
-    # todo 특정 응답에만 반응하게 고칠 것.
     smd_2_1 = models.StringField(
         label="금연 의향이 전혀 없다: 이유(직접 작성):",
         blank=True,

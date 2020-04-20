@@ -5,6 +5,16 @@
     설문조사
 {% endblock %}
 
+{% block app_scripts %}
+    <script>
+    $(document).ready(function(){
+        op_checker("id_union_type1_1_0", "union_type1");
+        op_checker("id_union_type2_1_0", "union_type2");
+        checkbox_shower("id_living_with_5", "having_child");
+    })
+    </script>
+{% endblock %}
+
 {% block content %}
     <div class="container">
 
@@ -14,16 +24,20 @@
                 <div>1. 노동조합</div>
                 <div>
                 {% formfield player.union_type1_1 %}
-                {% formfield player.union_type1_2 %}
-                {% formfield player.union_type1_3 %}
-                {% formfield player.union_type1_op %}
+                <div class="optional" id="union_type1">
+                    {% formfield player.union_type1_2 %}
+                    {% formfield player.union_type1_3 %}
+                    {% formfield player.union_type1_op %}
+                </div>
                 </div>
                 <div>2. 노조와 유사한 성격의 근로자 단체행동 모임이나 조직</div>
                 <div>
                 {% formfield player.union_type2_1 %}
-                {% formfield player.union_type2_2 %}
-                {% formfield player.union_type2_3 %}
-                {% formfield player.union_type2_op %}
+                <div class="optional" id="union_type2">
+                    {% formfield player.union_type2_2 %}
+                    {% formfield player.union_type2_3 %}
+                    {% formfield player.union_type2_op %}
+                </div>
                 </div>
             </div>
 
@@ -59,19 +73,22 @@
                 {% formfield player.living_with_8 %}
                 {% formfield player.living_with_9 %}
             </div>
-            <div>
-                귀하께서는 자녀와 함께 살고 있다고 응답하셨습니다. 자녀의 연령대에 따른 자녀수를 작성해주십시오 (복수 응답 가능)
+            <div class="optional" id="having_child">
+                <div>
+                    귀하께서는 자녀와 함께 살고 있다고 응답하셨습니다. 자녀의 연령대에 따른 자녀수를 작성해주십시오 (복수 응답 가능)
+                </div>
+                <div>
+                    ※ 해당 연령대의 자녀가 있는 칸에만 숫자를 입력해주세요.
+                </div>
+                <div>
+                    {% formfield player.num_child_under7 %}
+                    {% formfield player.num_child_elem %}
+                    {% formfield player.num_child_mid %}
+                    {% formfield player.num_child_high %}
+                    {% formfield player.num_child_over19 %}
+                </div>
             </div>
-            <div>
-                ※ 해당 연령대의 자녀가 있는 칸에만 숫자를 입력해주세요.
-            </div>
-            <div>
-                {% formfield player.num_child_under7 %}
-                {% formfield player.num_child_elem %}
-                {% formfield player.num_child_mid %}
-                {% formfield player.num_child_high %}
-                {% formfield player.num_child_over19 %}
-            </div>
+
             {% formfield player.is_family_owner %}
             <div class="alert-info">
                 ※ 가주주란? 주민등록상 세대주와는 관계없이 가계의 생계를 책임지고 있는 그 가구의 실질적인 대표자, 즉, 가족구성원 중 소득이 가장 많은 사람을 뜻함
@@ -81,9 +98,8 @@
             <div>
                 다음은 소득 수준에 대한 문항입니다.
             </div>
-            {% formfield player.family_income %}
-{#            todo: 가구소득은 개인소득보다 커야함. 체크하게 할 것. #}
             {% formfield player.individual_income %}
+            {% formfield player.family_income %}
         </div>
     </div>
     {% next_button %}

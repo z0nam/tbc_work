@@ -267,46 +267,29 @@ class Player(BasePlayer):
         choices=Constants.BINARY_CHOICES,
     )
 
+
+    num_drink_not = models.BooleanField(
+        label="",
+        widget=widgets.RadioSelectHorizontal,
+        choices=Constants.BINARY_CHOICES,
+    )
+
     drink_freq_1 = models.StringField(
         label="일주일에 (__)번",
+        choices=range(1,8),
         blank=True,
     )
 
     drink_freq_2 = models.StringField(
         label="한 달에 (__)번",
+        choices=range(1,31),
         blank=True,
     )
 
     drink_freq_3 = models.StringField(
         label="1년에 (__)번",
+        choices=range(1,13),
         blank=True,
-    )
-
-# todo 아래 4가지 중 하나는 반드시 체크되어 있어야 하며, 4번을 체크했을 경우에는 신체활동(운동) 관련 문항으로 이동해야함.
-
-    num_drink_week = models.IntegerField(
-        label="일주일간 술마신 횟수",
-        choices=range(1, 8),
-        blank=True,
-    )
-
-    num_drink_month = models.IntegerField(
-        label="한달에 술마신 횟수",
-        choices=range(1, 31),
-        blank=True,
-    )
-
-    num_drink_year = models.IntegerField(
-        label="1년에 술마신 횟수",
-        choices=range(1, 366),
-        blank=True,
-    )
-
-# todo: 여기에 체크할 경우 주량을 묻는 질문을 패스하도록 하기
-    num_drink_not = models.BooleanField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.BINARY_CHOICES,
     )
 
     alc_avg_1_jan = models.IntegerField(

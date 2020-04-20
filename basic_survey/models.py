@@ -222,6 +222,12 @@ class Player(BasePlayer):
         label="귀하의 거주 지역을 선택해주세요",
         choices=Constants.REGION_CHOICE,
         widget=widgets.RadioSelect,
+        blank=True,
+    )
+
+    region_op = models.StringField(
+        label="기타(직접입력:)",
+        blank=True,
     )
 
     region_size = models.IntegerField(
@@ -249,34 +255,37 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect,
     )
 
-    # todo: 위 질문에 따라 분기하도록 조치할 것. 일단은 스크린샷을 위해 초안 버젼(순차)으로 작성함.
-
     is_smoker = models.BooleanField(
-        label="[[앞 문항의 3번 응답자]]현재 흡연중이십니까?",
+        label="현재는 흡연중이십니까?",
         choices=Constants.BINARY_CHOICES,
         widget=widgets.RadioSelectHorizontal,
+        blank=True,
     )
 
     smoke_year = models.IntegerField(
-        label="몇 년째 담배를 피우시고 계십니까? 총 연수를 적어주세요.",
+        label="담배를 피우신 기간은 얼마나 되십니까? 총 연수를 적어주세요.",
         choices=range(0, 60),
+        blank=True,
     )
 
     smoke_quantity = models.IntegerField(
-        label="지난 1년 기준으로 하루 평균 흡연량은 (궐련형으로 환산시) 몇 개비입니까?",
+        label="가장 최근 흡연했던 1년 기준으로 하루 평균 흡연량은 (궐련형으로 환산시) 몇 개비입니까?",
         choices=range(1, 100),
+        blank=True,
     )
 
     e_tobacco_experience = models.BooleanField(
         label="전자담배를 사용한 경험이 있습니까?",
         choices=Constants.BINARY_CHOICES,
         widget=widgets.RadioSelectHorizontal,
+        blank=True,
     )
 
     e_tobacco_frequency = models.BooleanField(
-        label="[[전자담배 유경험자]]최근 한 달 동안 전자담배(궐련형, 액상형 등)를 사용한 경험이 있습니까?",
+        label="최근 한 달 동안 전자담배(궐련형, 액상형 등)를 사용한 경험이 있습니까?",
         choices=Constants.BINARY_CHOICES,
         widget=widgets.RadioSelectHorizontal,
+        blank=True,
     )
 
     # todo 아래 네 가지 중에 하나는 반드시 체크되어 있어야 함

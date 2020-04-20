@@ -193,41 +193,48 @@ class Player(BasePlayer):
 
     union_type1_1 = models.BooleanField(
         label="조직 유무",
-        blank=True,
+        widget=widgets.RadioSelectHorizontal,
     )
 
     union_type1_2 = models.BooleanField(
         label="복수의 조직 존재여부(2개 이상 존재)",
+        widget=widgets.RadioSelectHorizontal,
         blank=True,
     )
 
     union_type1_3 = models.BooleanField(
         label="귀하의 가입여부",
+        widget=widgets.RadioSelectHorizontal,
         blank=True,
     )   
 
     union_type1_op = models.StringField(
-        label="사내 가입률(숫자 직접 입력)__%",
+        label="사내 가입률(%)",
+        choices=range(1,101),
         blank=True,
     )
 
     union_type2_1 = models.BooleanField(
         label="조직 유무",
+        widget=widgets.RadioSelectHorizontal,
         blank=True,
     )
 
     union_type2_2 = models.BooleanField(
         label="복수의 조직 존재여부(2개 이상 존재)",
+        widget=widgets.RadioSelectHorizontal,
         blank=True,
     )
 
     union_type2_3 = models.BooleanField(
         label="귀하의 가입여부",
+        widget=widgets.RadioSelectHorizontal,
         blank=True,
     )   
 
     union_type2_op = models.StringField(
-        label="사내 가입률(숫자 직접 입력)__%",
+        label="사내 가입률(%)",
+        choices=range(1, 101),
         blank=True,
     )
 

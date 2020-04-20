@@ -2,7 +2,13 @@
 {% load otree static %}
 
 {% block title %}
-    아래 메시지를 읽어보시고 설문을 진행해 주시기 바랍니다.
+    아래 메시지가 약 {{ Constants.WAITING_SECONDS }} 초 동안 나타납니다. 가능한한 꼼꼼히 읽어보시고 설문을 진행해 주시기 바랍니다.
+{% endblock %}
+
+{% block app_scripts %}
+    <script>
+        show_after("next_button", {{ Constants.WAITING_SECONDS }})
+    </script>
 {% endblock %}
 
 {% block content %}
@@ -12,7 +18,8 @@
 
         </div>
     </div>
-    {% next_button %}
-{#    todo next button이 일정시간 후 활성화되도록 조치할 것. #}
+    <div class="optional" id="next_button">
+        {% next_button %}
+    </div>
 
 {% endblock %}

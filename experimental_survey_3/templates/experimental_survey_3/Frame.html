@@ -2,7 +2,13 @@
 {% load otree static %}
 
 {% block title %}
-    아래 메시지를 읽어보시고 설문을 진행해 주시기 바랍니다.
+    아래 메시지가 약 {{ Constants.WAITING_SECONDS }} 초 동안 나타납니다. 가능한한 꼼꼼히 읽어보시고 설문을 진행해 주시기 바랍니다.
+{% endblock %}
+
+{% block app_scripts %}
+    <script>
+        show_after("next_button", {{ Constants.WAITING_SECONDS }})
+    </script>
 {% endblock %}
 
 {% block content %}
@@ -11,7 +17,8 @@
             <p>미국의 한 연구에 따르면 (동일 조건의 흡연 근로자와 비교하여) <b><u>비흡연 근로자</u></b>를 고용함에 따라 사업주에게 나타나는 <b><u>연간 노동력 보전비용</u></b>은 1인당 <b><u>$5,816의 이익</u></b>인 것으로 추산됩니다.</p>
         </div>
     </div>
-    {% next_button %}
-{#    todo next button이 일정시간 후 활성화되도록 조치할 것. #}
+    <div class="optional" id="next_button">
+        {% next_button %}
+    </div>
 
 {% endblock %}

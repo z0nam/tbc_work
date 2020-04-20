@@ -16,6 +16,7 @@ class BasicSurvey(Page):
         'work_year',
         'num_move',
         'region',
+        'region_op',
         'region_size',
         'residence_type',
         'residence_type_op',
