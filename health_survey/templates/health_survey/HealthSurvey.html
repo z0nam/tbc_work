@@ -6,155 +6,31 @@
 {% endblock %}
 
 {% block app_scripts %}
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
     <script>
         $(document).ready(function(){
-            op_checker("id_num_drink_not_0", "drink_questions")
+            op_checker("id_num_drink_not_0", "drink_questions");
+            $("#health_meter").slider({
+                orientation: "vertical",
+                range:"min",
+                min:0,
+                max:100,
+                value:50,
+                slide: function(event, ui){
+                    $("#my_health").text(ui.value);
+                }
+            });
+            $("#my_health").val($("#health_meter").slider("value"));
+
         });
 
     </script>
 {% endblock %}
 
 {% block styles %}
-   <style>
-        input[type=range][orient=vertical] {
-            writing-mode: bt-lr; /* IE */
-            -webkit-appearance: slider-vertical; /* WebKit */
-            width: 10px;
-            height: 756px;
-            padding: 0 5px;
-        }
-
-        input[type='range'],
-        input[type='range']::-webkit-slider-runnable-track,
-        input[type='range']::-webkit-slider-thumb {
-          -webkit-appearance: none;
-        }
-        input[type='range']::-webkit-slider-runnable-track {
-          width: 10px;
-          height: 10px;
-          background: linear-gradient(to right, #777, #777), #AAA;
-          background-size: 10% 100%;
-          background-repeat: no-repeat;
-          border-radius: 5px;
-        }
-        body {
-            padding: 100px;
-        }
-
-        .mixin rangeThumb {
-          width: 18px;
-          height: 18px;
-          margin: -8px 0  0;
-          border-radius: 50%;
-          background: #37adbf;
-          cursor: pointer;
-          border: 0 !important;
-        }
-
-        .mixin rangeTrack {
-          width: 100%;
-          height: 2px;
-          cursor: pointer;
-          background: #b2b2b2;
-        }
-
-        .range {
-          position: relative;
-          width: 550px;
-          height: 5px;
-        }
-
-        .range input {
-          width: 100%;
-          position: absolute;
-          top: 2px;
-          height: 0;
-          -webkit-appearance: none;
-
-          // Thumb
-          &::-webkit-slider-thumb {
-            -webkit-appearance: none; // needed again for Chrome & Safari
-            @include rangeThumb;
-          }
-
-          &::-moz-range-thumb {
-            @include rangeThumb;
-          }
-
-          &::-ms-thumb {
-            @include rangeThumb;
-          }
-
-          // Track
-          &::-webkit-slider-runnable-track {
-            @include rangeTrack;
-          }
-
-          &::-moz-range-track {
-            @include rangeTrack;
-          }
-
-          &::-ms-track {
-            @include rangeTrack;
-          }
-
-          &:focus { // override outline/background on focus
-            background: none;
-            outline: none;
-          }
-
-          &::-ms-track { // A little somethin' somethin' for IE
-            width: 100%;
-            cursor: pointer;
-            background: transparent;
-            border-color: transparent;
-            color: transparent;
-          }
-        }
-
-        // Labels below slider
-        .range-labels {
-            margin: 18px -41px 0;
-            padding: 0;
-            list-style: none;
-
-          li {
-            position: relative;
-            float: left;
-            width: 90.25px;
-            text-align: center;
-            color: #b2b2b2;
-            font-size: 14px;
-            cursor: pointer;
-
-            &::before {
-              position: absolute;
-              top: -25px;
-              right: 0;
-              left: 0;
-              content: "";
-              margin: 0 auto;
-              width: 9px;
-              height: 9px;
-              background: #b2b2b2;
-              border-radius: 50%;
-            }
-        }
-
-        .active {
-            color: #37adbf;
-        }
-
-        .selected::before {
-            background: #37adbf;
-        }
-
-        .active.selected::before {
-            display: none;
-        }
-        }
-
-   </style>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 {% endblock %}
 
 {% block content %}
@@ -344,56 +220,19 @@
     <div class="alert row border">
         <div class="container">
             <div class="row border alert-info d-block">
-                <p><b>아래에 그려진 눈금자에는 0에서 100까지의 숫자가 표시되어 있습니다.  100은 상상할 수 있는 최고의 건강 상태를 의미하고, 0은 상상할 수 있는 최저의 건강 상태를 의미합니다. 눈금자 상의 화살표를 움직여 오늘 귀하의 건강 상태를 표시해주십시오.</b></p>
+                <p><b>아래에 그려진 눈금자에는 0에서 100까지의 숫자가 표시되어 있습니다.  100은 상상할 수 있는 최고의 건강 상태를 의미하고, 0은 상상할 수 있는 최저의 건강 상태를 의미합니다. 눈금자 상의 화살표를 움직여 오늘 귀하의 건강 상태를 표시해주십시오.</b>
+                </p>
                 <div data-role="fieldcontain" align="center">
+                    <div>
+                        나의 건강상태: <span id="my_health"></span>
+                    </div>
                     <div class="slider">
                         <br>100: 상상할 수 있는 최고의 건강상태</br>
+                        <div id="health_meter" style="height:200px;" class="ui-slider ui-slider-vertical ui-widget ui-widget-content">
+                            <img src="{% static "global/thermometer.png" %}" alt="thermometer" height="200px">
+                            <span tabindex="0" class="ui-slider-handle ui-state-default" style="bottom:50%;"></span>
+                        </div>
 
-                <table class="table-bordered" align="center">
-                    <tr>
-                        <th style="line-height: 234%">
-                            <ul class="range-labels" style="padding-top: 3px">
-                              <li>100</li>
-                              <li>95</li>
-                              <li>90</li>
-                              <li>85</li>
-                              <li>80</li>
-                              <li>75</li>
-                              <li>70</li>
-                              <li>65</li>
-                              <li>60</li>
-                              <li>55</li>
-                              <li>50</li>
-                              <li>45</li>
-                              <li>40</li>
-                              <li>35</li>
-                              <li>30</li>
-                              <li>25</li>
-                              <li>20</li>
-                              <li>15</li>
-                              <li>10</li>
-                              <li>5</li>
-                              <li>0</li>
-                            </ul>
-                        </th>
-                        <th style="text-align: justify">
-                            <input type="range" id="slider" name="health_scale" min="0" max="100" value="50" step="1" list="tickmarks" orient="vertical">
-                            <datalist id="tickmarks">
-                                <option>100</option>
-                                <option>90</option>
-                                <option>80</option>
-                                <option>70</option>
-                                <option>60</option>
-                                <option>50</option>
-                                <option>40</option>
-                                <option>30</option>
-                                <option>20</option>
-                                <option>10</option>
-                                <option>0</option>
-                            </datalist>
-                        </th>
-                    </tr>
-                </table>
                 <br>0: 상상할 수 있는 최저의 건강상태</br>
             </div>
             </div>

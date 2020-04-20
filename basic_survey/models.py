@@ -19,7 +19,7 @@ class Constants(BaseConstants):
     num_rounds = 1
 
     BORN_YEAR_MIN = 1959
-    BORN_YEAR_MAX = 2001
+    BORN_YEAR_MAX = 2000
 
     BINARY_CHOICES = GlobalConstants.BINARY_CHOICES
 
