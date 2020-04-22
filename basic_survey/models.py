@@ -203,12 +203,12 @@ class Player(BasePlayer):
     )
 
     work_year = models.IntegerField(
-        label="현재까지의 귀하의 근무경력년수는 얼마나 되십니까? (1년 미만일 경우 0)",
+        label="현재까지 귀하의 근무경력년수는 얼마나 되십니까? (1년 미만일 경우 0)",
         choices=range(0, 40),
     )
 
     num_move = models.IntegerField(
-        label="현재까지의 귀하의 이직횟수는 얼마나 되십니까? (없을 경우 0)",
+        label="현재까지 귀하의 이직횟수는 얼마나 되십니까? (없을 경우 0)",
         choices=range(0, 100),
     )
 
@@ -225,10 +225,10 @@ class Player(BasePlayer):
         blank=True,
     )
 
-    region_op = models.StringField(
-        label="기타(직접입력:)",
-        blank=True,
-    )
+    # region_op = models.StringField(
+    #     label="기타(직접입력:)",
+    #     blank=True,
+    # )
 
     region_size = models.IntegerField(
         label="귀하의 거주지의 지역규모를 선택해주세요.",

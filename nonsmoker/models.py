@@ -115,7 +115,7 @@ class Player(BasePlayer):
 
     nsm_3_1_2 = models.IntegerField(
         label="",
-        choices=range(1, 101),
+        choices=range(0, 101),
     )
 
     nsm_3_2_1 = models.IntegerField(

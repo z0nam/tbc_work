@@ -1,4 +1,5 @@
 from ._builtin import Page
+from .models import Constants
 from . import health_questions
 import random
 
@@ -62,6 +63,8 @@ class HealthSurvey(Page):
         'overall_health_evaluation',
         'overall_society_evaluation',
         'overall_workplace_evaluation',
+
+        'health_status_today',
 
         'sq1',
         'sq2',
@@ -138,6 +141,25 @@ class ProductivitySurvey(Page):
         'pq_6',
 
     ]
+
+
+    def vars_for_template(self) -> dict:
+        vars_to_return={}
+        vars_to_return['pqs'] = [
+            'pq_1',
+            'pq_2',
+            'pq_3',
+            'pq_4',
+            'pq_5',
+            'pq_6',
+        ]
+        vars_to_return['L11'] = [i[1] for i in Constants.L11_PRODUCTIVITY_CHOICES]
+        return vars_to_return
+
+    # def get_form_fields(self):
+    #     return [
+    #         "pq_"+str(i) for i in range(1,7)
+    #     ]
 
 
 page_sequence = [

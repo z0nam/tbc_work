@@ -20,6 +20,7 @@
                 value:50,
                 slide: function(event, ui){
                     $("#my_health").text(ui.value);
+                    $("#health_status_today").val($("#health_meter").slider("value"))
                 }
             });
             $("#my_health").val($("#health_meter").slider("value"));
@@ -221,6 +222,7 @@
         <div class="container">
             <div class="row border alert-info d-block">
                 <p><b>아래에 그려진 눈금자에는 0에서 100까지의 숫자가 표시되어 있습니다.  100은 상상할 수 있는 최고의 건강 상태를 의미하고, 0은 상상할 수 있는 최저의 건강 상태를 의미합니다. 눈금자 상의 화살표를 움직여 오늘 귀하의 건강 상태를 표시해주십시오.</b>
+                    {{ form.health_status_today.errors }}
                 </p>
                 <div data-role="fieldcontain" align="center">
                     <div>
@@ -230,6 +232,7 @@
                         <br>100: 상상할 수 있는 최고의 건강상태</br>
                         <div id="health_meter" style="height:200px;" class="ui-slider ui-slider-vertical ui-widget ui-widget-content">
                             <img src="{% static "global/thermometer.png" %}" alt="thermometer" height="200px">
+                            <input type="hidden" name="health_status_today" id="health_status_today"/>
                             <span tabindex="0" class="ui-slider-handle ui-state-default" style="bottom:50%;"></span>
                         </div>
 

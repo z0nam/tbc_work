@@ -162,7 +162,7 @@ def make_field_environment(index):
 def make_field_productivity(index):
     return models.IntegerField(
         label=Constants.productivity_questions[index-1],
-        widget=widgets.RadioSelectHorizontal,
+        widget=widgets.RadioSelect,
         choices=Constants.L11_PRODUCTIVITY_CHOICES,
     )
 
@@ -267,26 +267,25 @@ class Player(BasePlayer):
         choices=Constants.BINARY_CHOICES,
     )
 
-
     num_drink_not = models.BooleanField(
         label="",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.BINARY_CHOICES,
     )
 
-    drink_freq_1 = models.StringField(
+    drink_freq_1 = models.IntegerField(
         label="일주일에 (__)번",
         choices=range(1,8),
         blank=True,
     )
 
-    drink_freq_2 = models.StringField(
+    drink_freq_2 = models.IntegerField(
         label="한 달에 (__)번",
         choices=range(1,31),
         blank=True,
     )
 
-    drink_freq_3 = models.StringField(
+    drink_freq_3 = models.IntegerField(
         label="1년에 (__)번",
         choices=range(1,13),
         blank=True,
@@ -463,6 +462,10 @@ class Player(BasePlayer):
         label="그렇다면, 현재 귀하가 재직중인 직장은 어떻습니까? 조직, 문화, 규정 등 전반적으로 흡연 권장 사업장이라고 생각하십니까, 금연 권장 사업장이라고 생각하십니까?",
         choices=Constants.L11_WORKPLACE_CHOICES,
         widget=widgets.RadioSelect,
+    )
+
+    health_status_today = models.IntegerField(
+        label="",
     )
 
     """

@@ -5,10 +5,7 @@ from otree.api import (
     BaseSubsession,
     BaseGroup,
     BasePlayer,
-    Currency as c,
-    currency_range,
 )
-from Global_Constants import GlobalConstants
 
 author = 'Namun Cho <mailto:dr.strangelove@kberi.re.kr>'
 
@@ -22,7 +19,6 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 1
 
-    L7_NUMS = GlobalConstants.L7_NUMS
 
 class Subsession(BaseSubsession):
     pass
@@ -33,90 +29,8 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-
-    future_sm_1 = models.IntegerField(        
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    future_sm_2 = models.IntegerField(        
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    acceptance_1 = models.IntegerField(        
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    acceptance_2 = models.IntegerField(        
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    acceptance_3 = models.IntegerField(        
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    acceptance_4 = models.IntegerField(        
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    acceptance_5 = models.IntegerField(        
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    acceptance_6 = models.IntegerField(        
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    acceptance_7 = models.IntegerField(        
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    acceptance_8 = models.IntegerField(        
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    acceptance_9 = models.IntegerField(        
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    acceptance_10 = models.IntegerField(        
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    acceptance_11 = models.IntegerField(        
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
     package_choice = models.IntegerField(
-        choices=range(1,5),
+        choices=range(1, 5),
         widget=widgets.RadioSelectHorizontal,
         label="다음 중 담뱃값 표지디자인 구성으로 귀하가 가장 선호하는 것은 무엇입니까?",
     )
-
-
-

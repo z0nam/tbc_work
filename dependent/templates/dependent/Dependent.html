@@ -1,0 +1,102 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    흡연 관련 인식 조사
+{% endblock %}
+
+{% block styles %}
+   <style>
+      .center-align {
+        padding: 10px;
+        border: 1px dashed gray;
+        display: table-cell;
+        vertical-align: middle;
+      }
+   </style>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row alert border">
+            <p>귀하께서는 향후 귀하가 흡연자일 것이라고 생각하십니까?</p>
+
+                    <table class="table-bordered">
+                        <tr>
+                            <th></th>
+                            <th style="text-align:center">① 전혀 동의하지 않음  ② 대체로 동의하지 않음  ③ 약간 동의하지 않음  ④ 중간  ⑤ 약간 동의함  ⑥ 대체로 동의함  ⑦ 전적으로 동의함</th>
+                        </tr>
+                        <tr>
+                            <td>1년 뒤의 나는 흡연자일 것이다.</td>
+                            <td>{% formfield player.future_sm_1 %}</td>
+                        </tr>
+                        <tr>
+                            <td>10년 뒤의 나는 흡연자일 것이다.</td>
+                            <td>{% formfield player.future_sm_2 %}</td>
+                        </tr>
+                    </table>
+        </div>
+
+
+        <div class="row alert border">
+            <p>귀하와 다음의 인적 관계에 있는 인물이 흡연자인 경우에 대해 어떻게 생각하시는지 각 문항에 호감 또는 비호감의 정도에 따라서 ①~⑦ 사이의 숫자를 선택해주세요.</p>
+            <div class="row alert-info">
+           ※실제 해당 관계나 사례가 없더라도, 그러한 인물을 가정하고 응답해주십시오.
+            </div>
+                <div class="center-align">
+                    <table class="table-bordered" style="border:3px solid grey; padding-left: 5px; padding-right: 5px">
+                        <tr>
+                            <th></th>
+                            <th style="text-align:center; border: 3px solid grey">① 매우 비호감  ② 대체로 비호감  ③ 약간 비호감  ④ 중간  ⑤ 약간 호감  ⑥ 대체로 호감  ⑦ 매우 호감</th>
+                        </tr>
+                        <tr>
+                            <td style="background-color: lightgrey">흡연자인 배우자</td>
+                            <td style="background-color: lightgrey">{% formfield player.acceptance_1 %}</td>
+                        </tr>
+                        <tr>
+                            <td>흡연자인 아버지</td>
+                            <td>{% formfield player.acceptance_2 %}</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: lightgrey">흡연자인 어머니</td>
+                            <td style="background-color: lightgrey">{% formfield player.acceptance_3 %}</td>
+                        </tr>
+                        <tr>
+                            <td>흡연자인 남자형제</td>
+                            <td>{% formfield player.acceptance_4 %}</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: lightgrey">흡연자인 여자형제</td>
+                            <td style="background-color: lightgrey">{% formfield player.acceptance_5 %}</td>
+                        </tr>
+                        <tr>
+                            <td>흡연자인 자녀</td>
+                            <td>{% formfield player.acceptance_6 %}</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: lightgrey">흡연자인 가장 가까운 친구들</td>
+                            <td style="background-color: lightgrey">{% formfield player.acceptance_7 %}</td>
+                        </tr>
+                        <tr>
+                            <td>흡연자인 거주지 이웃(예: 같은 동 아파트 주민 등)</td>
+                            <td>{% formfield player.acceptance_8 %}</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: lightgrey">흡연자인 직장 동료나 동기</td>
+                            <td style="background-color: lightgrey">{% formfield player.acceptance_9 %}</td>
+                        </tr>
+                        <tr>
+                            <td>흡연자인 직장 상사나 선배</td>
+                            <td>{% formfield player.acceptance_10 %}</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: lightgrey">흡연자인 직장 후배</td>
+                            <td style="background-color: lightgrey">{% formfield player.acceptance_11 %}</td>
+                        </tr>
+                    </table>
+                </div>
+        </div>
+    </div>
+    {% next_button %}
+
+{% endblock %}

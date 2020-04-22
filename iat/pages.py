@@ -114,7 +114,7 @@ class IAT(Page):
             vars_for_return['left_sub_category'] = category_names_for_block['left_sub_category']
             vars_for_return['right_sub_category'] = category_names_for_block['right_sub_category']
 
-        # vars_for_return['seed_for_refresh_js_cache'] = random.random() #todo: delete after production
+        # vars_for_return['seed_for_refresh_js_cache'] = random.random()
         vars_for_return['seed_for_refresh_js_cache'] = 0
         return vars_for_return
 
