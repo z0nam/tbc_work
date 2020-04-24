@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block app_scripts %}
-    <script src="{% static 'jquery-ui-1.12.1/jquery-ui.js' %}"></script>
+{#    <script src="{% static "jquery-ui-1.12.1/jquery-ui.js" %}"></script>#}
 
 
     <script>
@@ -30,18 +30,13 @@
     </script>
 {% endblock %}
 
-{% block styles %}
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-{% endblock %}
+{#{% block styles %}#}
+{#    <link rel="stylesheet" href="{% static "jquery-ui-1.12.1/jquery-ui.css" %}">#}
+{#{% endblock %}#}
 
 {% block content %}
     <h2>아래의 질문들에 답해주시기 바랍니다.</h2>
     <div class="container">
-        <div class="row">
-{#            <p class="emph">전부 답해주셔야 다음으로 넘어갈 수 있습니다.</p>#}
-{#            <p>이 페이지부터는  타이머가 작동하지 않으므로 충분히 시간을 들여서 답변하셔도 상관없습니다.</p>#}
-        </div>
-
         <div class="row alert border">
             <p><b>다음은 질환력(과거력)에 대한 문항입니다.다음과 같은 진단을 받았거나, 현재 약물 치료 중이십니까? (진단, 약물치료쪽 모두에 답해야 합니다)</b></p>
 

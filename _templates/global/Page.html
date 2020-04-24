@@ -2,6 +2,9 @@
 {% load otree static %}
 
 {% block global_styles  %}
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
     <style>
 {#        experimental: SJ modification #}
 {#        input[type=radio] {#}
@@ -133,6 +136,7 @@
 
 {% block global_scripts  %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
 {# function for conditional op#}
     const op_checker = (radio_id, op_id) => {
