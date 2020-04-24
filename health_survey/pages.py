@@ -156,11 +156,6 @@ class ProductivitySurvey(Page):
         vars_to_return['L11'] = [i[1] for i in Constants.L11_PRODUCTIVITY_CHOICES]
         return vars_to_return
 
-    # def get_form_fields(self):
-    #     return [
-    #         "pq_"+str(i) for i in range(1,7)
-    #     ]
-
 
 page_sequence = [
     HealthSurvey, EnvironmentSurvey, ProductivitySurvey,
