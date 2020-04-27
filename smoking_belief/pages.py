@@ -14,18 +14,6 @@ class SmokingBelief(Page):
         'workplace_restriction_1',
         'workplace_restriction_2',
 
-        'sm1_1',
-        'sm1_2',
-        'sm1_3',
-        'sm1_4',
-        'sm1_5',
-        'sm1_6',
-        'sm1_7',
-        'sm1_8',
-        'sm1_9',
-
-        'sm_3',
-
         'cessation_education',
 
         'cessation_program_1',
@@ -34,7 +22,23 @@ class SmokingBelief(Page):
 
         'paid_leave4program',
 
+        'sm1_1',  #12
+        'sm1_2',
+        'sm1_3',
+        'sm1_4',
+        'sm1_5',
+        'sm1_6',
+        'sm1_7',
+        'sm1_8',
+        'sm1_9',  #20
+
+        'sm_3',
     ]
 
+    def vars_for_template(self) -> dict:
+        return {
+            'L7_CHOICES': [i[1] for i in Constants.L7_CHOICES]
+        }
 
-page_sequence = [SmokingBelief,]
+
+page_sequence = [SmokingBelief, ]

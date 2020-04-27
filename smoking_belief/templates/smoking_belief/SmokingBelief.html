@@ -90,49 +90,73 @@
 
         <div class="row alert border">
             <b>다음은 흡연속성에 대한 귀하의 신념을 묻는 문항입니다.</b> 각 문항에 동의 또는 반대하는 정도에 따라서 ①~⑦ 사이의 숫자를 선택해 주세요. 자유롭고 솔직하게 응답해주시기 바랍니다.
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th></th>
+                {% for L7_CHOICE in L7_CHOICES %}
+                    <th>{{ L7_CHOICE }}</th>
+                {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
+            {% for bq in form %}
+                {% if forloop.counter > 11 and forloop.counter < 21 %}
+                    <tr>
+                    <th>{{ bq.label }}</th>
+                    {% for choice in bq %}
+                        <td class="text-center align-middle">{{ choice.tag }}</td>
+                    {% endfor %}
 
-                    <table class="table-bordered" style="border:3px solid grey; padding-left: 5px; padding-right: 5px">
-                        <tr>
-                            <th></th>
-                            <th style="text-align:center; border: 3px solid grey">① 전혀 아니다  ② 아니다  ③ 약간 아니다  ④ 중간이다  ⑤ 약간 그렇다  ⑥ 그렇다  ⑦ 매우 그렇다</th>
-                        </tr>
-                        <tr>
-                            <td style="background-color: lightgrey">흡연은 수명을 단축시킨다.</td>
-                            <td style="background-color: lightgrey">{% formfield player.sm1_1 %}</td>
-                        </tr>
-                        <tr>
-                            <td>흡연은 타인에게 혐오감을 주는 지저분한 습관이다.</td>
-                            <td>{% formfield player.sm1_2 %}</td>
-                        </tr>
-                        <tr>
-                            <td style="background-color: lightgrey">흡연은 체력을 저하시킨다.</td>
-                            <td style="background-color: lightgrey">{% formfield player.sm1_3 %}</td>
-                        </tr>
-                        <tr>
-                            <td>흡연은 건강에 치명적인 영향을 끼친다.</td>
-                            <td>{% formfield player.sm1_4 %}</td>
-                        </tr>
-                        <tr>
-                            <td style="background-color: lightgrey">흡연은 타인에게 피해를 주는 이기적인 행위이다.</td>
-                            <td style="background-color: lightgrey">{% formfield player.sm1_5 %}</td>
-                        </tr>
-                        <tr>
-                            <td>흡연은 각종 질병의 심각한 원인이다.</td>
-                            <td>{% formfield player.sm1_6 %}</td>
-                        </tr>
-                        <tr>
-                            <td style="background-color: lightgrey">흡연은 대인관계에 지장을 준다.</td>
-                            <td style="background-color: lightgrey">{% formfield player.sm1_7 %}</td>
-                        </tr>
-                        <tr>
-                            <td>흡연은 사회적으로 바람직하지 못한 행위이다.</td>
-                            <td>{% formfield player.sm1_8 %}</td>
-                        </tr>
-                        <tr>
-                            <td style="background-color: lightgrey">흡연은 근로자의 노동생산성을 저하시킨다.</td>
-                            <td style="background-color: lightgrey">{% formfield player.sm1_9 %}</td>
-                        </tr>
-                    </table>
+                    </tr>
+                
+                {% endif %}             
+            {% endfor %}
+            
+            </tbody>
+        </table>
+{#                    <table class="table-bordered" style="border:3px solid grey; padding-left: 5px; padding-right: 5px">#}
+{#                        <tr>#}
+{#                            <th></th>#}
+{#                            <th style="text-align:center; border: 3px solid grey">① 전혀 아니다  ② 아니다  ③ 약간 아니다  ④ 중간이다  ⑤ 약간 그렇다  ⑥ 그렇다  ⑦ 매우 그렇다</th>#}
+{#                        </tr>#}
+{#                        <tr>#}
+{#                            <td style="background-color: lightgrey">흡연은 수명을 단축시킨다.</td>#}
+{#                            <td style="background-color: lightgrey">{% formfield player.sm1_1 %}</td>#}
+{#                        </tr>#}
+{#                        <tr>#}
+{#                            <td>흡연은 타인에게 혐오감을 주는 지저분한 습관이다.</td>#}
+{#                            <td>{% formfield player.sm1_2 %}</td>#}
+{#                        </tr>#}
+{#                        <tr>#}
+{#                            <td style="background-color: lightgrey">흡연은 체력을 저하시킨다.</td>#}
+{#                            <td style="background-color: lightgrey">{% formfield player.sm1_3 %}</td>#}
+{#                        </tr>#}
+{#                        <tr>#}
+{#                            <td>흡연은 건강에 치명적인 영향을 끼친다.</td>#}
+{#                            <td>{% formfield player.sm1_4 %}</td>#}
+{#                        </tr>#}
+{#                        <tr>#}
+{#                            <td style="background-color: lightgrey">흡연은 타인에게 피해를 주는 이기적인 행위이다.</td>#}
+{#                            <td style="background-color: lightgrey">{% formfield player.sm1_5 %}</td>#}
+{#                        </tr>#}
+{#                        <tr>#}
+{#                            <td>흡연은 각종 질병의 심각한 원인이다.</td>#}
+{#                            <td>{% formfield player.sm1_6 %}</td>#}
+{#                        </tr>#}
+{#                        <tr>#}
+{#                            <td style="background-color: lightgrey">흡연은 대인관계에 지장을 준다.</td>#}
+{#                            <td style="background-color: lightgrey">{% formfield player.sm1_7 %}</td>#}
+{#                        </tr>#}
+{#                        <tr>#}
+{#                            <td>흡연은 사회적으로 바람직하지 못한 행위이다.</td>#}
+{#                            <td>{% formfield player.sm1_8 %}</td>#}
+{#                        </tr>#}
+{#                        <tr>#}
+{#                            <td style="background-color: lightgrey">흡연은 근로자의 노동생산성을 저하시킨다.</td>#}
+{#                            <td style="background-color: lightgrey">{% formfield player.sm1_9 %}</td>#}
+{#                        </tr>#}
+{#                    </table>#}
             </div>
 
             <div class="row alert border">

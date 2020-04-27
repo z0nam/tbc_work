@@ -5,6 +5,20 @@
     설문조사
 {% endblock %}
 
+{% block styles %}
+    <style>
+        .form-check-input{
+            margin-left:-0.5rem;
+        }
+        .ui-slider-range{
+            background: red;
+        }
+        .ui-slider-handle{
+            background: #4f4f4f;
+        }
+    </style>
+{% endblock %}
+
 {% block app_scripts %}
 {#    <script src="{% static "jquery-ui-1.12.1/jquery-ui.js" %}"></script>#}
 
@@ -36,60 +50,58 @@
 
 {% block content %}
     <h2>아래의 질문들에 답해주시기 바랍니다.</h2>
-    <div class="container">
-        <div class="row alert border">
-            <p><b>다음은 질환력(과거력)에 대한 문항입니다.다음과 같은 진단을 받았거나, 현재 약물 치료 중이십니까? (진단, 약물치료쪽 모두에 답해야 합니다)</b></p>
+    <div class="row alert border">
+        <p><b>다음은 질환력(과거력)에 대한 문항입니다.다음과 같은 진단을 받았거나, 현재 약물 치료 중이십니까? (진단, 약물치료쪽 모두에 답해야 합니다)</b></p>
 
-                    <table class="table-bordered">
-                        <tr>
-                            <th></th>
-                            <th style="text-align:center">진단</th>
-                            <th style="text-align:center">약물치료</th>
-                        </tr>
-                        <tr>
-                            <td>뇌졸증 (중풍)</td>
-                            <td>{% formfield player.hq1_1_1 %}</td>
-                            <td>{% formfield player.hqnow1_1_1 %}</td>
-                        </tr>
-                        <tr>
-                            <td>심근경색/협심증</td>
-                            <td>{% formfield player.hq1_1_2 %}</td>
-                            <td>{% formfield player.hqnow1_1_2 %}</td>
-                        </tr>
-                        <tr>
-                            <td>고혈압</td>
-                            <td>{% formfield player.hq1_1_3 %}</td>
-                            <td>{% formfield player.hqnow1_1_3 %}</td>
-                        </tr>
-                        <tr>
-                            <td>당뇨병</td>
-                            <td>{% formfield player.hq1_1_4 %}</td>
-                            <td>{% formfield player.hqnow1_1_4 %}</td>
-                        </tr>
-                        <tr>
-                            <td>이상지질혈증</td>
-                            <td>{% formfield player.hq1_1_5 %}</td>
-                            <td>{% formfield player.hqnow1_1_5 %}</td>
-                        </tr>
-                        <tr>
-                            <td>폐결핵</td>
-                            <td>{% formfield player.hq1_1_6 %}</td>
-                            <td>{% formfield player.hqnow1_1_6 %}</td>
-                        </tr>
-                        <tr>
-                            <td>천식</td>
-                            <td>{% formfield player.hq1_1_7 %}</td>
-                            <td>{% formfield player.hqnow1_1_7 %}</td>
-                        </tr>
-                        <tr>
-                            <td>기타(암 포함)</td>
-                            <td>{% formfield player.hq1_1_8 %}</td>
-                            <td>{% formfield player.hqnow1_1_8 %}</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
+        <table class="table-bordered">
+            <tr>
+                <th></th>
+                <th style="text-align:center">진단</th>
+                <th style="text-align:center">약물치료</th>
+            </tr>
+            <tr>
+                <td>뇌졸증 (중풍)</td>
+                <td>{% formfield player.hq1_1_1 %}</td>
+                <td>{% formfield player.hqnow1_1_1 %}</td>
+            </tr>
+            <tr>
+                <td>심근경색/협심증</td>
+                <td>{% formfield player.hq1_1_2 %}</td>
+                <td>{% formfield player.hqnow1_1_2 %}</td>
+            </tr>
+            <tr>
+                <td>고혈압</td>
+                <td>{% formfield player.hq1_1_3 %}</td>
+                <td>{% formfield player.hqnow1_1_3 %}</td>
+            </tr>
+            <tr>
+                <td>당뇨병</td>
+                <td>{% formfield player.hq1_1_4 %}</td>
+                <td>{% formfield player.hqnow1_1_4 %}</td>
+            </tr>
+            <tr>
+                <td>이상지질혈증</td>
+                <td>{% formfield player.hq1_1_5 %}</td>
+                <td>{% formfield player.hqnow1_1_5 %}</td>
+            </tr>
+            <tr>
+                <td>폐결핵</td>
+                <td>{% formfield player.hq1_1_6 %}</td>
+                <td>{% formfield player.hqnow1_1_6 %}</td>
+            </tr>
+            <tr>
+                <td>천식</td>
+                <td>{% formfield player.hq1_1_7 %}</td>
+                <td>{% formfield player.hqnow1_1_7 %}</td>
+            </tr>
+            <tr>
+                <td>기타(암 포함)</td>
+                <td>{% formfield player.hq1_1_8 %}</td>
+                <td>{% formfield player.hqnow1_1_8 %}</td>
+            </tr>
+        </table>
+    </div>
+
 
         <div class="row alert border">
             <div class="alert"><b>다음은 음주에 대한 문항입니다. 자신의 현재 상태에 해당되는 내용을 선택해 주십시오.</b>
@@ -161,7 +173,7 @@
         <div class="row alert border">
             <b>다음은 신체활동(운동)에 대한 문항입니다. 자신의 현재 상태에 해당되는 내용을 선택해주십시오.</b>
 
-              <body>
+
                 <div style="border:3px solid skyblue; padding-left: 5px; padding-right: 5px">
                   <div class="d-block">
                     평소 <b>1주일간</b>, 숨이 많이 차게 만드는 <u>고강도</u> 신체활동을 며칠 하십니까? 주당 <div class="d-inline-block">{% formfield player.high_act_day %}</div> 일
@@ -172,7 +184,7 @@
 
                     평소 <b>하루에</b> 숨이 많이 차게 만드는 <u>고강도</u> 신체활동을 몇 시간 하십니까? 하루에 <div class="d-inline-block">{% formfield player.high_act_hour %}</div>시간 <div class="d-inline-block">{% formfield player.high_act_min %}</div>분
                   </div>
-              </body>
+
 
                 <div style="border:3px solid skyblue; padding-left: 5px; padding-right: 5px">
                 <div class="d-block">
@@ -238,51 +250,69 @@
     </div>
     </div>
 
-        <div class="alert row border">
-            <b>다음은 삶의 만족도에 대한 문항입니다.</b>
-            <p>아래에는 귀하가 동의할 수도 그렇지 않을 수도 있는 다섯 문항이 제시되어 있습니다. 각 문항에 동의 또는 반대하는 정도에 따라서 ①~⑦의 번호 중에서 선택해주세요. 자유롭고 솔직하게 응답해주시기 바랍니다.</p>
+    <b>다음은 삶의 만족도에 대한 문항입니다.</b>
+    <p>아래에는 귀하가 동의할 수도 그렇지 않을 수도 있는 다섯 문항이 제시되어 있습니다. 각 문항에 동의 또는 반대하는 정도에 따라서 ①~⑦의 번호 중에서 선택해주세요. 자유롭고 솔직하게 응답해주시기 바랍니다.</p>
 
-                <table class="table-bordered">
-                  <table style="border: 3px solid grey">
-                        <tr>
-                            <th></th>
-                            <th style="text-align:center; border: 3px solid grey">① 전혀 아니다  ② 아니다  ③ 약간 아니다  ④ 중간이다  ⑤ 약간 그렇다  ⑥ 그렇다  ⑦ 매우 그렇다</th>
-                        </tr>
-                        <tr>
-                            <td style="background-color: lightgrey">전반적으로 나의 인생은 내가 이상적으로 여기는 모습에 가깝다.</td>
-                            <td style="background-color: lightgrey">{% formfield player.sq1 %}</td>
-                        </tr>
-                        <tr>
-                            <td>내 인생의 여건은 아주 좋은 편이다.</td>
-                            <td>{% formfield player.sq2 %}</td>
-                        </tr>
-                        <tr>
-                            <td style="background-color: lightgrey">나는 나의 삶에 만족한다.</td>
-                            <td style="background-color: lightgrey">{% formfield player.sq3 %}</td>
-                        </tr>
-                        <tr>
-                            <td>지금까지 나는 내 인생에서 원하는 중요한 것들을 이루어냈다.</td>
-                            <td>{% formfield player.sq4 %}</td>
-                        </tr>
-                        <tr>
-                            <td style="background-color: lightgrey">다시 태어난다 해도, 나는 지금처럼 살아갈 것이다.</td>
-                            <td style="background-color: lightgrey">{% formfield player.sq5 %}</td>
-                        </tr>
-                    </table>
+    <div class="center-align">
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th></th>
+            {% for sq_choices in L7 %}
+            <th>{{ sq_choices }}</th>
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for sq in form %}
+            {% if forloop.counter > 51 %}
+                <tr>
+                <th>{{ sq.label }}</th>
+                {% for choice in sq %}
+                <td class="text-center align-middle">{{ choice.tag }}</td>
+                {% endfor %}
 
-<!--             <div class="alert row border">
-                {% formfield player.sq1 %}
-                {% formfield player.sq2 %}
-                {% formfield player.sq3 %}
-                {% formfield player.sq4 %}
-                {% formfield player.sq5 %}
-            </div> -->
-
-        </div>
+                </tr>
+            {% endif %}         
+        {% endfor %}
+        
+        </tbody>
+    </table>
+    </div>
 
 
+{#    <table class="table-bordered" style="border: 3px solid grey">#}
+{#        <tr>#}
+{#            <th></th>#}
+{#            <th style="text-align:center; border: 3px solid grey">① 전혀 아니다  ② 아니다  ③ 약간 아니다  ④ 중간이다  ⑤ 약간 그렇다  ⑥ 그렇다  ⑦ 매우 그렇다</th>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <td style="background-color: lightgrey">전반적으로 나의 인생은 내가 이상적으로 여기는 모습에 가깝다.</td>#}
+{#            <td style="background-color: lightgrey">{% formfield player.sq1 %}</td>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <td>내 인생의 여건은 아주 좋은 편이다.</td>#}
+{#            <td>{% formfield player.sq2 %}</td>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <td style="background-color: lightgrey">나는 나의 삶에 만족한다.</td>#}
+{#            <td style="background-color: lightgrey">{% formfield player.sq3 %}</td>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <td>지금까지 나는 내 인생에서 원하는 중요한 것들을 이루어냈다.</td>#}
+{#            <td>{% formfield player.sq4 %}</td>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <td style="background-color: lightgrey">다시 태어난다 해도, 나는 지금처럼 살아갈 것이다.</td>#}
+{#            <td style="background-color: lightgrey">{% formfield player.sq5 %}</td>#}
+{#        </tr>#}
+{#    </table>#}
 
-        <button class="btn btn-primary btn-large active">모든 질문에 답하셨으면 이 버튼을 클릭하여 다음 페이지로 진행해주시기 바랍니다</button>
+</div>
+
+
+    <button class="btn btn-primary btn-large active">모든 질문에 답하셨으면 이 버튼을 클릭하여 다음 페이지로 진행해주시기 바랍니다</button>
+
 
 
 {% endblock %}

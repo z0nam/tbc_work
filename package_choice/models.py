@@ -32,5 +32,5 @@ class Player(BasePlayer):
     package_choice = models.IntegerField(
         choices=range(1, 5),
         widget=widgets.RadioSelectHorizontal,
-        label="다음 중 담뱃값 표지디자인 구성으로 귀하가 가장 선호하는 것은 무엇입니까?",
+        label="다음 중 담뱃갑 표지디자인 구성으로 귀하가 가장 선호하는 것은 무엇입니까?",
     )

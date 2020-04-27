@@ -22,5 +22,10 @@ class Dependent(Page):
         'acceptance_11',
     ]
 
+    def vars_for_template(self) -> dict:
+        vars_to_return = {'L7_future': [i[1] for i in Constants.L7_CHOICES_2],
+                          'L7_acceptance': [i[1] for i in Constants.L7_CHOICES_4]}
+        return vars_to_return
+
 
 page_sequence = [Dependent]

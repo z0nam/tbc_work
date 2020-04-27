@@ -46,7 +46,6 @@ class Constants(BaseConstants):
         [2, "반대한다."],
      ]
 
-
     smoker_size_question_1 = questions.smoker_size_question_1
     smoker_size_question_2 = questions.smoker_size_question_2
     smoker_neighbor_question = questions.smoker_neighbor_question
@@ -63,14 +62,14 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
     pass
 
-"""
+
 def make_field_sm(index):
     return models.IntegerField(
         label=Constants.sm1_list[index-1],
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L7_NUMS,
     )
-"""
+
 
 class Player(BasePlayer):
     transfer_will = models.IntegerField(
@@ -116,71 +115,15 @@ class Player(BasePlayer):
         choices=Constants.YNU_CHOICES,
     )
 
-    """
-    sm_1_1 = make_field_sm(1)
-    sm_1_2 = make_field_sm(2)
-    sm_1_3 = make_field_sm(3)
-    sm_1_4 = make_field_sm(4)
-    sm_1_5 = make_field_sm(5)
-    sm_1_6 = make_field_sm(6)
-    sm_1_7 = make_field_sm(7)
-    sm_1_8 = make_field_sm(8)
-    sm_1_9 = make_field_sm(9)
-    """
-
-    sm1_1 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    sm1_2 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    sm1_3 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    sm1_4 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    sm1_5 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    sm1_6 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    sm1_7 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    sm1_8 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    sm1_9 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
+    sm1_1 = make_field_sm(1)
+    sm1_2 = make_field_sm(2)
+    sm1_3 = make_field_sm(3)
+    sm1_4 = make_field_sm(4)
+    sm1_5 = make_field_sm(5)
+    sm1_6 = make_field_sm(6)
+    sm1_7 = make_field_sm(7)
+    sm1_8 = make_field_sm(8)
+    sm1_9 = make_field_sm(9)
 
     sm_3 = models.IntegerField(
         label="",

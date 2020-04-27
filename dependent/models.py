@@ -22,6 +22,8 @@ class Constants(BaseConstants):
     num_rounds = 1
 
     L7_NUMS = GlobalConstants.L7_NUMS
+    L7_CHOICES_2 = GlobalConstants.L7_CHOICES_2
+    L7_CHOICES_4 = GlobalConstants.L7_CHOICES_4
 
 
 class Subsession(BaseSubsession):
@@ -32,81 +34,35 @@ class Group(BaseGroup):
     pass
 
 
+def make_relationship_field(index):
+    return models.IntegerField(
+        label=GlobalConstants.relationship_list[index-1],
+        choices=GlobalConstants.L7_CHOICES_4,
+        widget=widgets.RadioSelectHorizontal,
+    )
+
+
 class Player(BasePlayer):
     future_sm_1 = models.IntegerField(
-        label="",
+        label="1년 뒤의 나는 흡연자일 것이다.",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L7_NUMS,
     )
 
     future_sm_2 = models.IntegerField(
-        label="",
+        label="10년 뒤의 나는 흡연자일 것이다. ",
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L7_NUMS,
     )
 
-    acceptance_1 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    acceptance_2 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    acceptance_3 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    acceptance_4 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    acceptance_5 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    acceptance_6 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    acceptance_7 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    acceptance_8 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    acceptance_9 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    acceptance_10 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    acceptance_11 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
+    acceptance_1 = make_relationship_field(1)
+    acceptance_2 = make_relationship_field(2)
+    acceptance_3 = make_relationship_field(3)
+    acceptance_4 = make_relationship_field(4)
+    acceptance_5 = make_relationship_field(5)
+    acceptance_6 = make_relationship_field(6)
+    acceptance_7 = make_relationship_field(7)
+    acceptance_8 = make_relationship_field(8)
+    acceptance_9 = make_relationship_field(9)
+    acceptance_10 = make_relationship_field(10)
+    acceptance_11 = make_relationship_field(11)

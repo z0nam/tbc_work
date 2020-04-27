@@ -130,8 +130,10 @@ class Constants(BaseConstants):
         [11, "(10)보통 정도"],
     ]
 
-    HEALTH_STATUS_MINMAX = ["상상할 수 있는 최저의 건강상태",
-    "상상할 수 있는 최고의 건강상태"]
+    HEALTH_STATUS_MINMAX = [
+        "상상할 수 있는 최저의 건강상태",
+        "상상할 수 있는 최고의 건강상태",
+    ]
 
 
 class Subsession(BaseSubsession):
@@ -142,7 +144,6 @@ class Group(BaseGroup):
     pass
 
 
-"""
 def make_field_satisfaction(index):
     return models.IntegerField(
         label=Constants.satisfaction_list[index],
@@ -157,7 +158,7 @@ def make_field_environment(index):
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L4_CHOICES,
     )
-"""
+
 
 def make_field_productivity(index):
     return models.IntegerField(
@@ -275,19 +276,19 @@ class Player(BasePlayer):
 
     drink_freq_1 = models.IntegerField(
         label="일주일에 (__)번",
-        choices=range(1,8),
+        choices=range(1, 8),
         blank=True,
     )
 
     drink_freq_2 = models.IntegerField(
         label="한 달에 (__)번",
-        choices=range(1,31),
+        choices=range(1, 31),
         blank=True,
     )
 
     drink_freq_3 = models.IntegerField(
         label="1년에 (__)번",
-        choices=range(1,13),
+        choices=range(1, 13),
         blank=True,
     )
 
@@ -468,226 +469,36 @@ class Player(BasePlayer):
         label="",
     )
 
-    """
-    health_status_today = models.IntegerField(
-        min=0,
-        max=100,
-        initial=0,
-        label="",
-        widget=widgets.Slider(),
-        blank=True,
-    )
-
     sq1 = make_field_satisfaction(0)
     sq2 = make_field_satisfaction(1)
     sq3 = make_field_satisfaction(2)
     sq4 = make_field_satisfaction(3)
     sq5 = make_field_satisfaction(4)
-    """
 
-    sq1 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    sq2 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    sq3 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    sq4 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-    sq5 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L7_NUMS,
-    )
-
-
-    """
-    eq_1 = make_field_environment(1)
-    eq_2 = make_field_environment(2)
-    eq_3 = make_field_environment(3)
-    eq_4 = make_field_environment(4)
-    eq_5 = make_field_environment(5)
-    eq_6 = make_field_environment(6)
-    eq_7 = make_field_environment(7)
-    eq_8 = make_field_environment(8)
-    eq_9 = make_field_environment(9)
-    eq_10 = make_field_environment(10)
-    eq_11 = make_field_environment(11)
-    eq_12 = make_field_environment(12)
-    eq_13 = make_field_environment(13)
-    eq_14 = make_field_environment(14)
-    eq_15 = make_field_environment(15)
-    eq_16 = make_field_environment(16)
-    eq_17 = make_field_environment(17)
-    eq_18 = make_field_environment(18)
-    eq_19 = make_field_environment(19)
-    eq_20 = make_field_environment(20)
-    eq_21 = make_field_environment(21)
-    eq_22 = make_field_environment(22)
-    eq_23 = make_field_environment(23)
-    eq_24 = make_field_environment(24)
-    """
-
-    eq1 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L4_NUMS,
-    )
-
-    eq2 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L4_NUMS,
-    )
-
-    eq3 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L4_NUMS,
-    )
-
-    eq4 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L4_NUMS,
-    )
-
-    eq5 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L4_NUMS,
-    )
-
-    eq6 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L4_NUMS,
-    )
-
-    eq7 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L4_NUMS,
-    )
-
-    eq8 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L4_NUMS,
-    )
-
-    eq9 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L4_NUMS,
-    )
-
-    eq10 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L4_NUMS,
-    )
-
-    eq11 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L4_NUMS,
-    )
-
-    eq12 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L4_NUMS,
-    )
-
-    eq13 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L4_NUMS,
-    )
-
-    eq14 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L4_NUMS,
-    )
-
-    eq15 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L4_NUMS,
-    )
-
-    eq16 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L4_NUMS,
-    )
-
-    eq17 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L4_NUMS,
-    )
-
-    eq18 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L4_NUMS,
-    )
-
-    eq19 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L4_NUMS,
-    )
-
-    eq20 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L4_NUMS,
-    )
-
-    eq21 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L4_NUMS,
-    )
-
-    eq22 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L4_NUMS,
-    )
-
-    eq23 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L4_NUMS,
-    )
-
-    eq24 = models.IntegerField(
-        label="",
-        widget=widgets.RadioSelectHorizontal,
-        choices=Constants.L4_NUMS,
-    )
-
-
+    eq1 = make_field_environment(1)
+    eq2 = make_field_environment(2)
+    eq3 = make_field_environment(3)
+    eq4 = make_field_environment(4)
+    eq5 = make_field_environment(5)
+    eq6 = make_field_environment(6)
+    eq7 = make_field_environment(7)
+    eq8 = make_field_environment(8)
+    eq9 = make_field_environment(9)
+    eq10 = make_field_environment(10)
+    eq11 = make_field_environment(11)
+    eq12 = make_field_environment(12)
+    eq13 = make_field_environment(13)
+    eq14 = make_field_environment(14)
+    eq15 = make_field_environment(15)
+    eq16 = make_field_environment(16)
+    eq17 = make_field_environment(17)
+    eq18 = make_field_environment(18)
+    eq19 = make_field_environment(19)
+    eq20 = make_field_environment(20)
+    eq21 = make_field_environment(21)
+    eq22 = make_field_environment(22)
+    eq23 = make_field_environment(23)
+    eq24 = make_field_environment(24)
 
     work_ability_index_1 = models.IntegerField(
         label="1. 귀하의 생애 최상의 직무 능력 수준을 10이라고 가정할 때, 현재 귀하의 직무 능력은 어느 정도입니까?",

@@ -35,13 +35,6 @@ class Group(BaseGroup):
     pass
 
 
-# def make_relationship_field(index):
-#     return models.IntegerField(
-#         label=GlobalConstants.relationship_list[index-1],
-#         choices=GlobalConstants.L7_CHOICES_3,
-#         widget=widgets.RadioSelectHorizontal,
-#     )
-
 
 class Player(BasePlayer):
     treatment = models.IntegerField(initial=1)

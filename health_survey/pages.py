@@ -72,6 +72,10 @@ class HealthSurvey(Page):
         'sq4',
         'sq5',
     ]
+    def vars_for_template(self) -> dict:
+        vars_to_return = {}
+        vars_to_return['L7'] = [i[1] for i in Constants.L7_CHOICES]
+        return vars_to_return
     # def is_displayed(self):
     #     return not self.participant.vars['is_timeout']
     # def is_displayed(self):
@@ -113,7 +117,10 @@ class EnvironmentSurvey(Page):
         'eq24',
 
     ]
-
+    def vars_for_template(self) -> dict:
+        vars_to_return = {}
+        vars_to_return['L4'] = [i[1] for i in Constants.L4_CHOICES]
+        return vars_to_return
 
     """
     def get_form_field(self):
@@ -154,6 +161,7 @@ class ProductivitySurvey(Page):
             'pq_6',
         ]
         vars_to_return['L11'] = [i[1] for i in Constants.L11_PRODUCTIVITY_CHOICES]
+
         return vars_to_return
 
 
