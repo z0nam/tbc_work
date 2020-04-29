@@ -6,14 +6,6 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     <style>
-{#        experimental: SJ modification #}
-{#        input[type=radio] {#}
-{#            transform: scale(1.5);#}
-{#        }#}
-
-        {#input[type=checkbox] {#}
-        {#    transform: scale(1.5);#}
-        {#}#}
 
         .center-align {
             padding: 10px;
@@ -29,6 +21,13 @@
             display: none;
         }
 
+        .tableFixedHead {
+            overflow-y: auto;
+        }
+        .tableFixedHead thead th {
+            position: sticky;
+            top:0;
+        }
 
 {#logical questions: end#}
         .table > thead > tr > th {
