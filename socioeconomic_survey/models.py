@@ -245,7 +245,7 @@ class Player(BasePlayer):
     education = models.IntegerField(
         choices=Constants.EDUCATION_CHOICES,
         widget=widgets.RadioSelect,
-        label="귀하의 최종학력을 선택해주세요",
+        label="귀하의 최종학력을 선택해주세요.",
     )
 
     family_members = models.IntegerField(

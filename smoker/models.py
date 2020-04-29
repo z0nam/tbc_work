@@ -188,6 +188,7 @@ class Player(BasePlayer):
         label="현재까지 한 번도 금연을 시도하지 않은 가장 큰 이유는 무엇입니까?",
         choices=Constants.sm_4_6_choices,
         widget=widgets.RadioSelect,
+        blank=True,
     )
 
     sm_4_6_op = models.StringField(

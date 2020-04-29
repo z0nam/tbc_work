@@ -116,7 +116,7 @@ def make_field_05(index):
 
 def make_field_cq(index):
     return models.IntegerField(
-        label="자신의 생각과 더 가까운 쪽을 선택해주세요",
+        label="자신의 생각과 더 가까운 쪽을 선택해주세요.",
         widget=widgets.RadioSelect,
         choices=[
             [1, Constants.value_choice_questions_list[index][0]],

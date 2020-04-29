@@ -28,21 +28,25 @@
             </div>
         </div>
         <div class="alert row border d-block">
-            <div>
-                <b>귀하께서 금연에 대해 그렇게 응답하신 이유는 무엇입니까?</b>
-            </div>
             <div class="alert row border d-block">
                 <div>
                     <div class="optional" id="smd_2_1">
+                        <div>
+                            <b>귀하께서 금연에 대해 아래와 같이 응답하신 이유는 무엇입니까?</b>
+                        </div>
                         {% formfield player.smd_2_1 %}
                     </div>
                     <div class="optional" id="smd_2_2">
+                        <div>
+                            <b>귀하께서 금연에 대해 아래와 같이 응답하신 이유는 무엇입니까?</b>
+                        </div>
                         {% formfield player.smd_2_2 %}
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     {% next_button %}
 
 {% endblock %}

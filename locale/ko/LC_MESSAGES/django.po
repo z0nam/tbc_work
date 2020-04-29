@@ -125,7 +125,7 @@ msgstr "화면 종료까지 남은 시간:"
 #. Translators: the default title of a wait page
 #: .\views\abstract.py:961 .\views\participant.py:291
 msgid "Please wait"
-msgstr "기다려 주세요"
+msgstr "기다려 주세요."
 
 #: .\views\abstract.py:1403
 msgid "Waiting for the other participants."

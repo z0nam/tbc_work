@@ -10,7 +10,11 @@
 
     $(document).keydown(function(event){
         if (event.which === {{ Constants.META_KEYCODE }}){
-            $("#form").submit();
+            if(confirm("이제 테스트를 시작합니다. 완전히 이해가 되셨으면 확인(OK)을, 아니라면 취소(Cancel)를 눌러 다시 한번 테스트 방법을 확인해 주세요.")){
+                $("#form").submit();
+            }else{
+                return false;
+            }
         }
     });
 
