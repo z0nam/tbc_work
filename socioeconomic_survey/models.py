@@ -232,7 +232,7 @@ class Player(BasePlayer):
         blank=True,
     )   
 
-    union_type2_op = models.StringField(
+    union_type2_op = models.IntegerField(
         label="사내 가입률(%)",
         choices=range(1, 101),
         blank=True,
