@@ -1,0 +1,25 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    아래 메시지가 약 {{ Constants.WAITING_SECONDS }} 초 동안 나타납니다. 가능한한 꼼꼼히 읽어보시고 설문을 진행해 주시기 바랍니다.
+{% endblock %}
+
+{% block app_scripts %}
+    <script>
+        show_after("next_button", {{ Constants.WAITING_SECONDS }})
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid align-center">
+        <div class="alert-danger border row h1 align-center" style="line-height: 160%">
+            <p>많은 사람들은 정부가 <b>흡연규제정책</b>을 펴는 한편, '한국담배인삼공사'를 통해 <b>담배판매사업</b>을 하고 있다고 <b>잘못 알고 있습니다.</b> 하지만, KT&amp;G는 2002년 일반 <b>사기업</b>으로 전환되었습니다.</p>
+
+        </div>
+    </div>
+    <div class="optional" id="next_button">
+        {% next_button %}
+    </div>
+
+{% endblock %}

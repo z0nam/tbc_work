@@ -61,6 +61,11 @@ class HealthSurvey(Page):
         'muscle_act_days',
 
         'overall_health_evaluation',
+
+        'num_days_outpatient',
+        'num_counts_hospitalized',
+        'num_days_hospitalized',
+
         'overall_society_evaluation',
         'overall_workplace_evaluation',
 

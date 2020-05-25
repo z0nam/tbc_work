@@ -453,6 +453,21 @@ class Player(BasePlayer):
         widget=widgets.RadioSelectHorizontal,
     )
 
+    num_days_outpatient = models.IntegerField(
+        label="최근 1년간 총 외래진료횟수",
+        choices=range(0, 366),
+    )
+
+    num_counts_hospitalized = models.IntegerField(
+        label="최근 1년간 총 입원횟수",
+        choices=range(0,101),
+    )
+
+    num_days_hospitalized = models.IntegerField(
+        label="최근 1년간 총 입원일수",
+        choices=range(0, 366),
+    )
+
     overall_society_evaluation = models.IntegerField(
         label="귀하는 우리나라가 사회, 문화, 제도적 측면 등 전반적으로 흡연 권장 사회라고 생각하십니까, 금연 권장 사회라고 생각하십니까?",
         choices=Constants.L11_SOCIETY_CHOICES,

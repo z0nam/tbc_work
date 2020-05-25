@@ -210,6 +210,17 @@
         </div>
     </div>
 
+    <div class="alert row border d-inline-block">
+    최근1년간 의료기관을 이용하신 현황은 어떠합니까?
+        <div>
+            {% formfield player.num_days_outpatient %}
+
+            {% formfield player.num_counts_hospitalized %}
+
+            {% formfield player.num_days_hospitalized %}
+        </div>
+    </div>
+
 
         <div class="alert row border">
           <b>다음은 흡연 및 금연 문화에 대한 문항입니다.</b>
@@ -262,7 +273,7 @@
         </thead>
         <tbody>
         {% for sq in form %}
-            {% if forloop.counter > 51 %}
+            {% if forloop.counter > 54 %}
                 <tr>
                 <th>{{ sq.label }}</th>
                 {% for choice in sq %}
@@ -276,34 +287,6 @@
         </tbody>
     </table>
     </div>
-
-
-{#    <table class="table-bordered" style="border: 3px solid grey">#}
-{#        <tr>#}
-{#            <th></th>#}
-{#            <th style="text-align:center; border: 3px solid grey">① 전혀 아니다  ② 아니다  ③ 약간 아니다  ④ 중간이다  ⑤ 약간 그렇다  ⑥ 그렇다  ⑦ 매우 그렇다</th>#}
-{#        </tr>#}
-{#        <tr>#}
-{#            <td style="background-color: lightgrey">전반적으로 나의 인생은 내가 이상적으로 여기는 모습에 가깝다.</td>#}
-{#            <td style="background-color: lightgrey">{% formfield player.sq1 %}</td>#}
-{#        </tr>#}
-{#        <tr>#}
-{#            <td>내 인생의 여건은 아주 좋은 편이다.</td>#}
-{#            <td>{% formfield player.sq2 %}</td>#}
-{#        </tr>#}
-{#        <tr>#}
-{#            <td style="background-color: lightgrey">나는 나의 삶에 만족한다.</td>#}
-{#            <td style="background-color: lightgrey">{% formfield player.sq3 %}</td>#}
-{#        </tr>#}
-{#        <tr>#}
-{#            <td>지금까지 나는 내 인생에서 원하는 중요한 것들을 이루어냈다.</td>#}
-{#            <td>{% formfield player.sq4 %}</td>#}
-{#        </tr>#}
-{#        <tr>#}
-{#            <td style="background-color: lightgrey">다시 태어난다 해도, 나는 지금처럼 살아갈 것이다.</td>#}
-{#            <td style="background-color: lightgrey">{% formfield player.sq5 %}</td>#}
-{#        </tr>#}
-{#    </table>#}
 
 </div>
 
