@@ -7,7 +7,6 @@ SESSION_CONFIGS = [
         "display_name": "전체_비흡연자_1",
         "num_demo_participants": 1,
         "app_sequence": [
-            "basic_survey",
             "introduction",
             "health_survey",
             "nonsmoker",
@@ -26,7 +25,6 @@ SESSION_CONFIGS = [
         "display_name": "전체_비흡연자_2",
         "num_demo_participants": 1,
         "app_sequence": [
-            "basic_survey",
             "introduction",
             "health_survey",
             "nonsmoker",
@@ -45,7 +43,6 @@ SESSION_CONFIGS = [
         "display_name": "전체_비흡연자_3",
         "num_demo_participants": 1,
         "app_sequence": [
-            "basic_survey",
             "introduction",
             "health_survey",
             "nonsmoker",
@@ -64,7 +61,6 @@ SESSION_CONFIGS = [
         "display_name": "전체_비흡연자_4",
         "num_demo_participants": 1,
         "app_sequence": [
-            "basic_survey",
             "introduction",
             "health_survey",
             "nonsmoker",
@@ -83,7 +79,6 @@ SESSION_CONFIGS = [
         "display_name": "전체_비흡연자_5",
         "num_demo_participants": 1,
         "app_sequence": [
-            "basic_survey",
             "introduction",
             "health_survey",
             "nonsmoker",
@@ -102,7 +97,6 @@ SESSION_CONFIGS = [
         "display_name": "전체_흡연자_1",
         "num_demo_participants": 1,
         "app_sequence": [
-            "basic_survey",
             "introduction",
             "health_survey",
             "smoker",
@@ -121,7 +115,6 @@ SESSION_CONFIGS = [
         "display_name": "전체_흡연자_2",
         "num_demo_participants": 1,
         "app_sequence": [
-            "basic_survey",
             "introduction",
             "health_survey",
             "smoker",
@@ -140,7 +133,6 @@ SESSION_CONFIGS = [
         "display_name": "전체_흡연자_3",
         "num_demo_participants": 1,
         "app_sequence": [
-            "basic_survey",
             "introduction",
             "health_survey",
             "smoker",
@@ -159,7 +151,6 @@ SESSION_CONFIGS = [
         "display_name": "전체_흡연자_4",
         "num_demo_participants": 1,
         "app_sequence": [
-            "basic_survey",
             "introduction",
             "health_survey",
             "smoker",
@@ -178,7 +169,6 @@ SESSION_CONFIGS = [
         "display_name": "전체_흡연자_5",
         "num_demo_participants": 1,
         "app_sequence": [
-            "basic_survey",
             "introduction",
             "health_survey",
             "smoker",
