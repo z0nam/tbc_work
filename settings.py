@@ -293,7 +293,7 @@ SESSION_CONFIGS = [
         "name": "iat",
         "display_name": "내재적 연관 검사",
         "num_demo_participants": 2,
-        "app_sequence": ["introduction", "iat"],
+        "app_sequence": ["introduction", "iat", "ending"],
     },
 ]
 LANGUAGE_CODE = "ko"

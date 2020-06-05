@@ -8,7 +8,7 @@ from Global_Constants import GlobalConstants
 author = 'Namun Cho <mailto:dr.strangelove@kberi.re.kr>'
 
 doc = """
-부모협동형 대안교육기관의 현황과 제도적 개선방안
+흡연이 노동력 상실에 미치는 영향과 정책방향 연구
 """
 
 

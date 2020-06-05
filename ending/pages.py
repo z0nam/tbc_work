@@ -11,8 +11,8 @@ class Thanks(Page):
         return True
 
     def get(self):
-        url = GlobalConstants.EXTERNAL_URL + "?panel_id=" \
-              + self.participant.vars['panel_id']+"&elapsed_time_sec="+str(self.player.elapsed_time_seconds)
+        url = GlobalConstants.EXTERNAL_URL + "?g_id=" \
+              + self.participant.vars['panel_id']+"&status=001"
         print("return url:", url)
         return HttpResponseRedirect(url)
 
