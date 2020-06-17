@@ -15,16 +15,23 @@
         op_checker("id_sm_4_6_6", "sm_4_6")
 
         {#sm_3_1_1 대답에 기반하여 select가 3_1_1 답을 넘지 않도록 select values 를 조정. #}
-        $("#id_sm_3_1_1").change(
-            function(){
-                var x = $("#id_sm_3_1_1").val();
+        var show_under_value = function show_under_value(){
+            var x = $("#id_sm_3_1_1").val();
                 {#console.log("#id_sm_3_1_1 changed to "+$("#id_sm_3_1_1").val());#}
                 $("#sm_3_1_2").show();
                 var option_html =""
-                for (i=0; i<= x; i++){
+                for (i=1; i<= x; i++){
                     option_html+="<option value='"+i+"'>"+i+"</option>";
                 }
                 $("#id_sm_3_1_2").html(option_html);
+        };
+
+        show_under_value();
+
+
+        $("#id_sm_3_1_1").change(
+            function(){
+                show_under_value();
             }
         )
 

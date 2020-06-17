@@ -9,7 +9,6 @@
 
 <script>
 
-    console.log("딸기영농: "+$("#id_nsm_1_7").is(":checked"));
     {#alert("test")#}
     $(document).ready(function(){
         op_checker("id_nsm_1_7", 'nsm_1');
@@ -17,17 +16,23 @@
         op_checker("id_nsm_2_1_4", 'nsm_2_1_op');
         op_checker("id_nsm_2_2_4", 'nsm_2_2_op');
 
+        var show_under_value = function show_under_value() {
+            var x = $("#id_nsm_3_1_1").val();
+            {#console.log("#id_nsm_3_1_1 changed to "+$("#id_nsm_3_1_1").val());#}
+            $("#nsm_3_1_2").show();
+            var option_html = ""
+            for (i = 0; i <= x; i++) {
+                option_html += "<option value='" + i + "'>" + i + "</option>";
+            }
+            $("#id_nsm_3_1_2").html(option_html);
+    };
+
+    show_under_value();
+
                     {#sm_3_1_1 대답에 기반하여 select가 3_1_1 답을 넘지 않도록 select values 를 조정. #}
         $("#id_nsm_3_1_1").change(
             function(){
-                var x = $("#id_nsm_3_1_1").val();
-                {#console.log("#id_nsm_3_1_1 changed to "+$("#id_nsm_3_1_1").val());#}
-                $("#nsm_3_1_2").show();
-                var option_html =""
-                for (i=0; i<= x; i++){
-                    option_html+="<option value='"+i+"'>"+i+"</option>";
-                }
-                $("#id_nsm_3_1_2").html(option_html);
+                show_under_value();
             }
         )
     })
