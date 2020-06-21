@@ -183,6 +183,74 @@ SESSION_CONFIGS = [
         ]
     },
     {
+        "name": "behavioral_total_nsm_sequence_1",
+        "display_name": "행동전체_비흡연자_1",
+        "num_demo_participants": 1,
+        "app_sequence": [
+            "introduction_behavioral",
+            "health_survey",
+            "nonsmoker",
+            "smoking_belief",
+            "experimental_survey_1",
+            "dependent",
+            "nonsmoker_dependent",
+            "package_choice",
+            "socioeconomic_survey",
+            "ending",
+        ]
+    },
+    {
+        "name": "behavioral_total_nsm_sequence_5",
+        "display_name": "행동전체_비흡연자_5",
+        "num_demo_participants": 1,
+        "app_sequence": [
+            "introduction_behavioral",
+            "health_survey",
+            "nonsmoker",
+            "smoking_belief",
+            "experimental_survey_5",
+            "dependent",
+            "nonsmoker_dependent",
+            "package_choice",
+            "socioeconomic_survey",
+            "ending",
+        ]
+    },
+    {
+        "name": "behavioral_total_sm_sequence_1",
+        "display_name": "행동전체_흡연자_1",
+        "num_demo_participants": 1,
+        "app_sequence": [
+            "introduction_behavioral",
+            "health_survey",
+            "smoker",
+            "smoking_belief",
+            "experimental_survey_1",
+            "dependent",
+            "smoker_dependent",
+            "package_choice",
+            "socioeconomic_survey",
+            "ending",
+        ]
+    },
+    {
+        "name": "behavioral_total_sm_sequence_5",
+        "display_name": "행동전체_흡연자_5",
+        "num_demo_participants": 1,
+        "app_sequence": [
+            "introduction_behavioral",
+            "health_survey",
+            "smoker",
+            "smoking_belief",
+            "experimental_survey_5",
+            "dependent",
+            "smoker_dependent",
+            "package_choice",
+            "socioeconomic_survey",
+            "ending",
+        ]
+    },
+    {
         "name": "basic_survey",
         "display_name": "기초설문",
         "num_demo_participants": 1,
