@@ -196,7 +196,7 @@ SESSION_CONFIGS = [
             "nonsmoker_dependent",
             "package_choice",
             "socioeconomic_survey",
-            "ending",
+            "ending_behavioral",
         ]
     },
     {
@@ -213,7 +213,7 @@ SESSION_CONFIGS = [
             "nonsmoker_dependent",
             "package_choice",
             "socioeconomic_survey",
-            "ending",
+            "ending_behavioral",
         ]
     },
     {
@@ -230,7 +230,7 @@ SESSION_CONFIGS = [
             "smoker_dependent",
             "package_choice",
             "socioeconomic_survey",
-            "ending",
+            "ending_behavioral",
         ]
     },
     {
@@ -247,7 +247,7 @@ SESSION_CONFIGS = [
             "smoker_dependent",
             "package_choice",
             "socioeconomic_survey",
-            "ending",
+            "ending_behavioral",
         ]
     },
     {
@@ -352,6 +352,12 @@ SESSION_CONFIGS = [
         "display_name": "내재적 연관 검사",
         "num_demo_participants": 2,
         "app_sequence": ["introduction", "iat", "ending"],
+    },
+    {
+        "name": "behavioral_intro_ending",
+        "display_name": "행동실험 도입부/최종부",
+        "num_demo_participants": 1,
+        "app_sequence": ["introduction_behavioral", "ending_behavioral"],
     },
 ]
 LANGUAGE_CODE = "ko"
