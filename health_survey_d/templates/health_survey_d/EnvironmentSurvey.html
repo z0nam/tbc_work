@@ -1,0 +1,58 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+설문조사
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="container">
+        <div class="alert row border d-block">
+            <div>
+                <b>다음은 직무 환경에 대한 문항입니다.</b>
+            </div>
+            <div>
+                현재 일하면서 귀하의 생각이나 느낌에 가장 가까운 곳에 체크해 주세요.
+            </div>
+
+        <div>
+            <table class="tableFixedHead table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th></th>
+                    {% for choice in L4 %}
+                        <th>{{ choice }}</th>
+                    {% endfor %}
+                </tr>
+                </thead>
+                <tbody>
+                    {% for eq in form %}
+                    <tr>
+                    <th>
+                        {{ eq.label }}
+                    </th>
+                    {% for choice in eq %}
+                        <td class="text-center align-middle">
+                            {{ choice.tag }}
+                        </td>
+                    {% endfor %}
+                    
+                    </tr>
+                    {% endfor %}
+                    
+                    
+                </tbody>
+            </table>
+        </div>
+
+    <div>
+        <button class="btn btn-primary btn-large active">
+            모든 질문에 답하셨으면 이 버튼을 클릭하여 다음 페이지로 진행해주시기 바랍니다
+        </button>
+    </div>
+        </div>
+    </div>
+
+{% endblock %}

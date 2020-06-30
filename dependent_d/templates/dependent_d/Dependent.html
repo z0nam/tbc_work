@@ -1,0 +1,90 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    흡연 관련 인식 조사
+{% endblock %}
+
+{% block styles %}
+   <style>
+      .center-align {
+        padding: 10px;
+        border: 1px dashed gray;
+        display: table-cell;
+        vertical-align: middle;
+      }
+   </style>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row alert border">
+            <p>귀하께서는 향후 귀하가 흡연자일 것이라고 생각하십니까?</p>
+
+            <table class="tableFixedHead table table-striped table-bordered">
+            <style>
+        .form-check-input{
+            margin-left:-0.5rem;
+        }
+            </style>
+                <thead>
+                <tr>
+                    <th></th>
+                    {% for choice in L7_future %}
+                        <th>{{ choice }}</th>
+                    {% endfor %}
+                </tr>
+                </thead>
+                <tbody>
+                    {% for fq in form %}
+                        {% if forloop.counter < 3 %}
+                            <tr>
+                            <th>{{ fq.label }}</th>
+                            {% for choice in fq %}
+                                <td class="text-center align-middle">{{ choice.tag }}</td>
+                            {% endfor %}
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="row alert border">
+            <p>귀하와 다음의 인적 관계에 있는 인물이 흡연자인 경우에 대해 어떻게 생각하시는지 각 문항에 호감 또는 비호감의 정도에 따라서 ①~⑦ 사이의 숫자를 선택해주세요.</p>
+            <div class="row alert-info">
+           ※실제 해당 관계나 사례가 없더라도, 그러한 인물을 가정하고 응답해주십시오.
+            </div>
+                <div class="center-align">
+                    <table class="tableFixedHead table table-striped table-bordered">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            {% for choice in L7_acceptance %}
+                                <th>{{ choice }}</th>
+                            {% endfor %}
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for aq in form %}
+                            {% if forloop.counter > 2 %}
+                            <tr>
+                            <th>{{ aq.label }}</th>
+                            {% for choice in aq %}
+                                <td class="text-center align-middle">{{ choice.tag }}</td>
+                            {% endfor %}
+
+                            </tr>
+                            {% endif %}
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+    </div>
+    {% next_button %}
+
+{% endblock %}

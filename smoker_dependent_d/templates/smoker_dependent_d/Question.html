@@ -1,0 +1,52 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    설문조사
+{% endblock %}
+
+{% block app_scripts %}
+    <script>
+    $(document).ready(function(){
+        op_checker("id_smd_1_1_0", "smd_2_1");
+        op_checker("id_smd_1_2_0", "smd_2_2");
+    })
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="alert row border d-block">
+            <div>
+                <b>귀하는 금연에 대한 의향이 얼마나 있으십니까?</b>
+            </div>
+            <div class="alert row border d-block">
+                <div>
+                    {% formfield player.smd_1_1 %}
+                    {% formfield player.smd_1_2 %}
+                </div>
+            </div>
+        </div>
+        <div class="alert row border d-block">
+            <div class="alert row border d-block">
+                <div>
+                    <div class="optional" id="smd_2_1">
+                        <div>
+                            <b>귀하께서 금연에 대해 아래와 같이 응답하신 이유는 무엇입니까?</b>
+                        </div>
+                        {% formfield player.smd_2_1 %}
+                    </div>
+                    <div class="optional" id="smd_2_2">
+                        <div>
+                            <b>귀하께서 금연에 대해 아래와 같이 응답하신 이유는 무엇입니까?</b>
+                        </div>
+                        {% formfield player.smd_2_2 %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% next_button %}
+
+{% endblock %}

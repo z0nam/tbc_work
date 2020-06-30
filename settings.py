@@ -188,6 +188,7 @@ SESSION_CONFIGS = [
         "num_demo_participants": 1,
         "app_sequence": [
             "introduction_behavioral",
+            "basic_survey",
             "health_survey",
             "nonsmoker",
             "smoking_belief",
@@ -205,6 +206,7 @@ SESSION_CONFIGS = [
         "num_demo_participants": 1,
         "app_sequence": [
             "introduction_behavioral",
+            "basic_survey",
             "health_survey",
             "nonsmoker",
             "smoking_belief",
@@ -222,6 +224,7 @@ SESSION_CONFIGS = [
         "num_demo_participants": 1,
         "app_sequence": [
             "introduction_behavioral",
+            "basic_survey",
             "health_survey",
             "smoker",
             "smoking_belief",
@@ -239,6 +242,7 @@ SESSION_CONFIGS = [
         "num_demo_participants": 1,
         "app_sequence": [
             "introduction_behavioral",
+            "basic_survey",
             "health_survey",
             "smoker",
             "smoking_belief",
@@ -247,6 +251,78 @@ SESSION_CONFIGS = [
             "smoker_dependent",
             "package_choice",
             "socioeconomic_survey",
+            "ending_behavioral",
+        ]
+    },
+    {
+        "name": "behavioral_total_nsm_sequence_1_d",
+        "display_name": "행동전체_비흡연자_1_직접입력",
+        "num_demo_participants": 1,
+        "app_sequence": [
+            "introduction_behavioral_d",
+            "basic_survey_d",
+            "health_survey_d",
+            "nonsmoker_d",
+            "smoking_belief_d",
+            "experimental_survey_1",
+            "dependent_d",
+            "nonsmoker_dependent_d",
+            "package_choice_d",
+            "socioeconomic_survey_d",
+            "ending_behavioral",
+        ]
+    },
+    {
+        "name": "behavioral_total_nsm_sequence_5_d",
+        "display_name": "행동전체_비흡연자_5_직접입력",
+        "num_demo_participants": 1,
+        "app_sequence": [
+            "introduction_behavioral_d",
+            "basic_survey_d",
+            "health_survey_d",
+            "nonsmoker_d",
+            "smoking_belief_d",
+            "experimental_survey_5",
+            "dependent_d",
+            "nonsmoker_dependent_d",
+            "package_choice_d",
+            "socioeconomic_survey_d",
+            "ending_behavioral",
+        ]
+    },
+    {
+        "name": "behavioral_total_sm_sequence_1_d",
+        "display_name": "행동전체_흡연자_1_직접입력",
+        "num_demo_participants": 1,
+        "app_sequence": [
+            "introduction_behavioral_d",
+            "basic_survey_d",
+            "health_survey_d",
+            "smoker_d",
+            "smoking_belief_d",
+            "experimental_survey_1",
+            "dependent_d",
+            "smoker_dependent_d",
+            "package_choice_d",
+            "socioeconomic_survey_d",
+            "ending_behavioral",
+        ]
+    },
+    {
+        "name": "behavioral_total_sm_sequence_5_d",
+        "display_name": "행동전체_흡연자_5_직접입력",
+        "num_demo_participants": 1,
+        "app_sequence": [
+            "introduction_behavioral_d",
+            "basic_survey_d",
+            "health_survey_d",
+            "smoker_d",
+            "smoking_belief_d",
+            "experimental_survey_5",
+            "dependent_d",
+            "smoker_dependent_d",
+            "package_choice_d",
+            "socioeconomic_survey_d",
             "ending_behavioral",
         ]
     },

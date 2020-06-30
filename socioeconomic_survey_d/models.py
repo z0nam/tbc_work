@@ -19,7 +19,7 @@ doc = """
 
 
 class Constants(BaseConstants):
-    name_in_url = 'socioeconomic_survey'
+    name_in_url = 'socioeconomic_survey_d'
     players_per_group = None
     num_rounds = 1
 
@@ -178,6 +178,7 @@ def make_field_union(index):
         label=Constants.union_list[index-1],
         widget=widgets.RadioSelectHorizontal,
         choices=Constants.L5_CHOICES_2,
+        blank=True,
     )
 
 class Player(BasePlayer):
@@ -185,6 +186,7 @@ class Player(BasePlayer):
         choices=Constants.JOB_CHOICES,
         widget=widgets.RadioSelect,
         label="현재 근무하시는 기업의 업종은 다음 중 무엇입니까?",
+        blank=True,
     )
     job_classification_op = models.StringField(
         label="기타, 또는 잘 모르겠는 경우 (회사명이나 업종 직접 입력)",
@@ -194,6 +196,7 @@ class Player(BasePlayer):
     union_type1_1 = models.BooleanField(
         label="조직 유무",
         widget=widgets.RadioSelectHorizontal,
+        blank=True,
     )
 
     union_type1_2 = models.BooleanField(
@@ -246,17 +249,20 @@ class Player(BasePlayer):
         choices=Constants.EDUCATION_CHOICES,
         widget=widgets.RadioSelect,
         label="귀하의 최종학력을 선택해주세요.",
+        blank=True,
     )
 
     family_members = models.IntegerField(
         choices=range(1,15),
         label="현재 귀하의 가구구성원은 귀하를 포함해서 모두 몇 명입니까?",
+        blank=True,
     )
 
     marriage_state = models.IntegerField(
         choices=Constants.MARRIAGE_CHOICES,
         label="귀하의 혼인상태를 선택해주십시오",
         widget=widgets.RadioSelectHorizontal,
+        blank=True,
     )
 
     living_with_1 = models.BooleanField(
@@ -346,16 +352,19 @@ class Player(BasePlayer):
         label="귀하는 가구주이십니까?",
         choices=Constants.BINARY_CHOICES,
         widget=widgets.RadioSelectHorizontal,
+        blank=True,
     )
 
     family_income = models.IntegerField(
         label="최근 6개월 평균 가구소득액(즉, 가족구성원 전체의 수입 합산액)은 어떻게 되십니까? 월별 세후 수령액 기준으로 선택해 주십시오. ",
         choices=Constants.INCOME_CHOICES,
         widget=widgets.RadioSelect,
+        blank=True,
     )
 
     individual_income = models.IntegerField(
         label="최근 6개월 평균 개인(본인) 소득액은 어떻게 되십니까? 월별 세후 수령액 기준으로 선택해 주십시오. ",
         choices=Constants.INCOME_CHOICES,
         widget=widgets.RadioSelect,
+        blank=True,
     )

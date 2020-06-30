@@ -14,7 +14,7 @@ doc = """
 
 
 class Constants(BaseConstants):
-    name_in_url = 'basic_survey'
+    name_in_url = 'basic_survey_d'
     players_per_group = None
     num_rounds = 1
 
@@ -172,23 +172,27 @@ class Player(BasePlayer):
         label="귀하의 성별은 무엇입니까?",
         choices=Constants.GENDER_CHOICE,
         widget=widgets.RadioSelectHorizontal,
+        blank=True,
     )
 
     born_year = models.IntegerField(
         label="귀하의 출생년도를 기입해주세요. (대상자: 만20세~59세:2000년생부터 1960년생까지)",
         choices=range(Constants.BORN_YEAR_MAX, Constants.BORN_YEAR_MIN, -1),
+        blank=True,
     )
 
     work_type = models.IntegerField(
         label="직장(일)에서 귀하의 지위는 무엇입니까.",
         choices=Constants.WORK_TYPE,
         widget=widgets.RadioSelect,
+        blank=True,
     )
 
     firm_type = models.IntegerField(
         label="귀하께서 현재 근무하시는 기업의 유형은 다음 중 무엇입니까?",
         choices=Constants.FIRM_TYPE,
         widget=widgets.RadioSelect,
+        blank=True,
     )
 
     firm_type_op = models.StringField(
@@ -200,16 +204,19 @@ class Player(BasePlayer):
         label="현재 근무하시는 사업장 규모를 다음 중 선택해주십시오.",
         choices=Constants.FIRM_SIZE,
         widget=widgets.RadioSelect,
+        blank=True,
     )
 
     work_year = models.IntegerField(
         label="현재까지 귀하의 근무경력년수는 얼마나 되십니까? (1년 미만일 경우 0)",
         choices=range(0, 40),
+        blank=True,
     )
 
     num_move = models.IntegerField(
         label="현재까지 귀하의 이직횟수는 얼마나 되십니까? (없을 경우 0)",
         choices=range(0, 100),
+        blank=True,
     )
 
     '''
@@ -234,12 +241,14 @@ class Player(BasePlayer):
         label="귀하의 거주지의 지역규모를 선택해주세요.",
         choices=Constants.REGION_SIZE_CHOICE,
         widget=widgets.RadioSelect,
+        blank=True,
     )
 
     residence_type = models.IntegerField(
         label="귀하의 거주 형태를 선택해주세요.",
         choices=Constants.RESIDENCE_TYPE_CHOICE,
         widget=widgets.RadioSelect,
+        blank=True,
     )
 
     residence_type_op = models.StringField(
@@ -253,6 +262,7 @@ class Player(BasePlayer):
         label="귀하께서는 지금까지 평생 총 (궐련형으로 환산시) 5갑(100개비) 이상의 담배를 피운 적이 있습니까?",
         choices=Constants.TOBACCO_EXPERIENCE_CHOICE,
         widget=widgets.RadioSelect,
+        blank=True,
     )
 
     is_smoker = models.BooleanField(

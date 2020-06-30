@@ -1,0 +1,78 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+설문조사
+{% endblock %}
+
+{% block styles %}
+    <style>
+        .form-check-input{
+            margin-left:-0.5rem;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="alert row border">
+            <b>다음은 직무 능력에 대한 문항입니다. 현재 일하면서 귀하의 생각이나 느낌에 가장 가까운 곳에 체크해 주세요.</b>
+            <div>
+            {% formfield player.work_ability_index_1 %}
+            {% formfield player.work_ability_index_2 %}
+            {% formfield player.diagnosed_diseases %}
+            {% formfield player.work_impairment %}
+            {% formfield player.sick_leaves %}
+            {% formfield player.work_prognosis %}
+            {% formfield player.mental_resources %}
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="alert row border">
+            <b>다음은 업무 생산성에 대한 문항입니다. 현재 일하면서 귀하의 생각이나 느낌에 가장 가까운 곳에 체크해 주세요.</b>
+            <div class="row alert-info">
+                ※기준 시점 당시 휴가나 휴직 등으로 근무 중이 아니었을 경우, 그와 가까운 보통의 근무일을 떠올리고 비교하여 답해주세요.
+            </div>
+            <div>
+              <table class="tableFixedHead table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                    <th></th>
+                        {% for foo in L11 %}
+                            <th>{{ foo }}</th>
+                        {% endfor %}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for pq in form %}
+                        {% if forloop.counter > 7 %}
+                            <tr>
+                            <th>
+                                {{ pq.label }}
+                            </th>
+                            {% for choice in pq %}
+                                <td class="text-center align-middle">
+                                    {{ choice.tag }}
+                                </td>
+                            {% endfor %}
+
+                            </tr>
+                        {% endif %} 
+                    {% endfor %}
+
+                  </tbody>
+              </table>
+            </div>        
+        </div>
+    </div>
+
+        <button class="btn btn-primary btn-large active">
+            모든 질문에 답하셨으면 이 버튼을 클릭하여 다음 페이지로 진행해주시기 바랍니다
+        </button>
+
+
+{% endblock %}

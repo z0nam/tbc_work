@@ -1,0 +1,171 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    설문조사
+{% endblock %}
+
+{% block styles %}
+    <script>
+    $(document).ready(function(){
+        op_checker("id_sm_2_9", "sm_2");
+        op_checker("id_sm_4_1_0", "ceased_case")
+        op_checker("id_sm_4_1_1", "not_ceased_case")
+        op_checker("id_sm_4_4_10", "sm_4_4")
+        op_checker("id_sm_4_6_6", "sm_4_6")
+
+        {#sm_3_1_1 대답에 기반하여 select가 3_1_1 답을 넘지 않도록 select values 를 조정. #}
+        var show_under_value = function show_under_value(){
+            var x = $("#id_sm_3_1_1").val();
+                {#console.log("#id_sm_3_1_1 changed to "+$("#id_sm_3_1_1").val());#}
+                $("#sm_3_1_2").show();
+                var option_html =""
+                for (i=1; i<= x; i++){
+                    option_html+="<option value='"+i+"'>"+i+"</option>";
+                }
+                $("#id_sm_3_1_2").html(option_html);
+        };
+
+        show_under_value();
+
+
+        $("#id_sm_3_1_1").change(
+            function(){
+                show_under_value();
+            }
+        )
+
+    })
+    </script>
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="alert row border d-block">
+              <p>
+               <b>언제 처음 흡연을 시작하셨습니까?</b>
+              </p>
+
+           <div class="alert row">
+            만 &nbsp <span> {% formfield player.sm_1 %}</span> &nbsp세
+           </div>
+
+
+        </div>
+        <div class="alert row border d-block">
+            {% formfield player.sm_2 %}
+            <div id="sm_2" class="optional">
+                {% formfield player.sm_2_op %}
+            </div>
+        </div>
+        <div class="alert row border d-block">
+            <p>
+                <b>귀하는 근무 중 (하루) 평균 흡연휴게 횟수가 몇 번이며, 평균 흡연시간은 몇 분입니까?</b>
+                <br>
+                <p class="alert-info">&nbsp;&nbsp; ※ 흡연휴게 : 흡연을 위한 목적으로 사업장 밖, 또는 흡연장소로 나갔다 오는 휴게시간</p>
+            </p>
+            <div class="alert row d-block">
+
+            <div class="row">
+                &nbsp;&nbsp;&nbsp;하루 근무 중  흡연휴게 평균 &nbsp;<span>{% formfield player.sm_3_times %}</span>&nbsp;회
+            </div>
+            <div class="row">
+                &nbsp;&nbsp;&nbsp;평균 흡연시간 &nbsp;<span>{% formfield player.sm_3_mins %}</span>&nbsp;분
+            </div>
+
+        </div>
+
+        <div class="row alert border d-block">
+            <div><b>다음은 금연 경험에 대한 문항입니다.</b></div>
+            <div class="row alert border">
+                {% formfield player.sm_4_1 %}
+            </div>
+            <div class="optional" id="ceased_case">
+                <div class="row alert border  d-block">
+                    <div>
+                        <b>귀하께서는 현재 흡연자이며, 과거에 금연을 시도한 적이 있다고 응답하셨습니다.</b> <br>금연시도 횟수는 몇 번입니까?
+                    </div>
+                    <div class="row alert">
+                        <span>{% formfield player.sm_4_2 %}</span> &nbsp;번
+                    </div>
+                </div>
+                <div class="row alert border d-block">
+                    <div>
+                        가장 오랫동안 금연을 한 기간이 1개월 이상이었습니까?
+                    </div>
+                    <div class="row alert">
+                        예, 1개월 이상: <span>{% formfield player.sm_4_3_years %}</span>년 <span>{% formfield player.sm_4_3_months %}</span>개월
+                    </div>
+                    <div class="row alert">
+                        아니요, 1개월 미만: <span>{% formfield player.sm_4_3_days %}</span>일
+                    </div>
+                </div>
+                <div class="row alert border d-block">
+                    {% formfield player.sm_4_4 %}
+                    <div class="optional" id="sm_4_4">
+                        {% formfield player.sm_4_4_op %}
+                    </div>
+                </div>
+                <div class="row alert d-block border">
+                    <p>
+                        금연 시도 이후 재흡연을 하게 된 동기는 무엇이었습니까?
+                        <br><br>&nbsp;직접입력:
+                    </p>
+                    {% formfield player.sm_4_5 %}
+                </div>
+            </div>
+            <div class="row alert border optional" id="not_ceased_case">
+                {% formfield player.sm_4_6 %}
+                <div class="optional" id="sm_4_6">
+                    {% formfield player.sm_4_6_op %}
+                </div>
+            </div>
+        </div>
+        <div class="row alert border d-block">
+                <p>
+                    <b>다음은 니코틴 의존도를 측정하기 위한 문항입니다. 각 질문에 모두 답해주세요.</b>
+                </p>
+                <div>
+                    {% formfield player.sm_5_1 %}
+                    {% formfield player.sm_5_2 %}
+                    {% formfield player.sm_5_3 %}
+                    {% formfield player.sm_5_4 %}
+                    {% formfield player.sm_5_5 %}
+                    {% formfield player.sm_5_6 %}
+                </div>
+        </div>
+        <div class="row border alert d-block">
+                <b>{{ Constants.smoker_size_question_1 }}</b>
+            <div>
+                {{ Constants.smoker_size_question_2 }}
+            </div>
+            <div>
+                <p class="alert-info">{{ Constants.smoker_size_question_3 }}</p>
+            </div>
+
+            <div class="row alert">
+               근무부서(팀) 총 <span>{% formfield player.sm_3_1_1 %}</span>명 중 흡연자 총 <span class="optional" id="sm_3_1_2">{% formfield player.sm_3_1_2 %}</span>명
+            </div>
+            <div class="row alert">
+
+            </div>
+        </div>
+            <div class="row border alert">
+                {{ Constants.smoker_neighbor_question }}
+                {% formfield player.sm_6_2_1 %}
+                {% formfield player.sm_6_2_2 %}
+                {% formfield player.sm_6_2_3 %}
+            </div>
+            <div class="row border alert">
+                {% formfield player.sm_6_3 %}
+            </div>
+        </div>
+    </div>
+
+
+    <button class="btn btn-primary btn-large active">
+        모든 질문에 답하셨으면 이 버튼을 클릭하여 다음 페이지로 진행해주시기 바랍니다
+    </button>
+
+{% endblock %}

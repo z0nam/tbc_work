@@ -1,0 +1,69 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    기초 설문조사
+{% endblock %}
+
+{% block app_scripts %}
+    <script>
+
+        $(document).ready(function(){
+            op_checker("id_firm_type_7","firm_type_op")
+            op_checker("id_residence_type_5", "residence_type_op")
+            op_checker("id_tobacco_experience_2", "smoking_case")
+            op_checker("id_e_tobacco_experience_0", "e_tobacco_type")
+        })
+
+    </script>
+{% endblock %}
+
+{% block content %}
+
+    <div class="alert border">{% formfield player.gender %}</div>
+    <div class="alert border">{% formfield player.born_year %}</div>
+    <p class="col-form-label">
+        직장(일)에서 귀하의 지위는 무엇입니까?
+    </p>
+    <div class="alert border">
+        <p>고용 계약기간에 따라 구분합니다.</p>
+        <p>▣ 상용 : 1년 이상</p>
+        <p>▣ 임시 : 1개월 이상 ~ 1년 미만</p>
+        <p>▣ 일용 : 1개월 미만</p>
+    </div>
+    {% formfield player.work_type label=""%}
+
+    <div class="alert border" id="firm_type">{% formfield player.firm_type %}
+    <div class="optional" id="firm_type_op">{% formfield player.firm_type_op %}</div></div>
+    <div class="alert border">{% formfield player.firm_size %}</div>
+    <div class="alert border">{% formfield player.work_year %}</div>
+    <div class="alert border">{% formfield player.num_move %}</div>
+    <div class="alert border">{% formfield player.region %}</div>
+    <div class="alert border">{% formfield player.region_size %}</div>
+    <div class="alert border">{% formfield player.residence_type %}
+    <div class="optional" id="residence_type_op">{% formfield player.residence_type_op %}</div></div>
+
+    <div class="alert border">{% formfield player.tobacco_experience %}</div>
+
+    <div class="optional" id="smoking_case">
+            <div class="alert border">{% formfield player.is_smoker %}</div>
+    <div class="alert border">{% formfield player.smoke_year %}</div>
+    <div class="alert border">{% formfield player.smoke_quantity %}</div>
+    <div class="alert border">{% formfield player.e_tobacco_experience %}</div>
+        <div class="optional" id="e_tobacco_type">
+            <div class="alert border">{% formfield player.e_tobacco_frequency %}</div>
+    <div class="alert border"><p>현재 사용하시는 담배의 유형은 무엇입니까? (복수응답 가능)</p>
+        {% formfield player.tobacco_type_1 %}
+        {% formfield player.tobacco_type_2 %}
+        {% formfield player.tobacco_type_3 %}
+        {% formfield player.tobacco_type_4 %}
+    </div>
+        </div>
+
+    </div>
+
+    <button class="btn btn-primary btn-large active">
+    모든 질문에 답하셨으면 이 버튼을 클릭하여 다음 화면으로 이동해 주세요.
+    </button>
+
+{% endblock %}
