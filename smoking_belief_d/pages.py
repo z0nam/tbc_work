@@ -23,11 +23,11 @@ class SmokingBelief(Page):
         'paid_leave4program',
 
         'sm1_1',  #12
-        'sm1_2',
+        'sm1_6',
         'sm1_3',
         'sm1_4',
         'sm1_5',
-        'sm1_6',
+        'sm1_2',
         'sm1_7',
         'sm1_8',
         'sm1_9',  #20
