@@ -28,6 +28,11 @@ class Constants(BaseConstants):
     MARRIAGE_CHOICES = basicConstants.MARRIAGE_CHOICE
     INCOME_CHOICES = basicConstants.INCOME_LEVEL_CHOICE
 
+    FIRM_TYPE = basicConstants.FIRM_TYPE
+    FIRM_SIZE = basicConstants.FIRM_SIZE
+
+    RESIDENCE_TYPE_CHOICE = basicConstants.RESIDENCE_TYPE_CHOICE
+
     L5_CHOICES_2 = [
         [1, "전혀 그렇지 않다"],
         [2, "대체로 그렇지 않다"],
@@ -188,10 +193,43 @@ class Player(BasePlayer):
         label="현재 근무하시는 기업의 업종은 다음 중 무엇입니까?",
         blank=True,
     )
+
     job_classification_op = models.StringField(
         label="기타, 또는 잘 모르겠는 경우 (회사명이나 업종 직접 입력)",
         blank=True,
     )
+
+    firm_type = models.IntegerField(
+        label="귀하께서 현재 근무하시는 기업의 유형은 다음 중 무엇입니까?",
+        choices=Constants.FIRM_TYPE,
+        widget=widgets.RadioSelect,
+        blank=True,
+    )
+
+    firm_type_op = models.StringField(
+        label="근무기업 유형 직접입력:",
+        blank=True,
+    )
+
+    firm_size = models.IntegerField(
+        label="현재 근무하시는 사업장 규모를 다음 중 선택해주십시오.",
+        choices=Constants.FIRM_SIZE,
+        widget=widgets.RadioSelect,
+        blank=True,
+    )
+
+    work_year = models.IntegerField(
+        label="현재까지 귀하의 근무경력년수는 얼마나 되십니까? (1년 미만일 경우 0)",
+        choices=range(0, 40),
+        blank=True,
+    )
+
+    num_move = models.IntegerField(
+        label="현재까지 귀하의 이직횟수는 얼마나 되십니까? (없을 경우 0)",
+        choices=range(0, 100),
+        blank=True,
+    )
+
 
     union_type1_1 = models.BooleanField(
         label="조직 유무",
@@ -352,6 +390,18 @@ class Player(BasePlayer):
         label="귀하는 가구주이십니까?",
         choices=Constants.BINARY_CHOICES,
         widget=widgets.RadioSelectHorizontal,
+        blank=True,
+    )
+
+    residence_type = models.IntegerField(
+        label="귀하의 거주 형태를 선택해주세요.",
+        choices=Constants.RESIDENCE_TYPE_CHOICE,
+        widget=widgets.RadioSelect,
+        blank=True,
+    )
+
+    residence_type_op = models.StringField(
+        label="기타(직접입력:)",
         blank=True,
     )
 

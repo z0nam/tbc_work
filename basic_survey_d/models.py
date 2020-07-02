@@ -188,36 +188,36 @@ class Player(BasePlayer):
         blank=True,
     )
 
-    firm_type = models.IntegerField(
-        label="귀하께서 현재 근무하시는 기업의 유형은 다음 중 무엇입니까?",
-        choices=Constants.FIRM_TYPE,
-        widget=widgets.RadioSelect,
-        blank=True,
-    )
+    # firm_type = models.IntegerField(
+    #     label="귀하께서 현재 근무하시는 기업의 유형은 다음 중 무엇입니까?",
+    #     choices=Constants.FIRM_TYPE,
+    #     widget=widgets.RadioSelect,
+    #     blank=True,
+    # )
+    #
+    # firm_type_op = models.StringField(
+    #     label="근무기업 유형 직접입력:",
+    #     blank=True,
+    # )
 
-    firm_type_op = models.StringField(
-        label="근무기업 유형 직접입력:",
-        blank=True,
-    )
-
-    firm_size = models.IntegerField(
-        label="현재 근무하시는 사업장 규모를 다음 중 선택해주십시오.",
-        choices=Constants.FIRM_SIZE,
-        widget=widgets.RadioSelect,
-        blank=True,
-    )
-
-    work_year = models.IntegerField(
-        label="현재까지 귀하의 근무경력년수는 얼마나 되십니까? (1년 미만일 경우 0)",
-        choices=range(0, 40),
-        blank=True,
-    )
-
-    num_move = models.IntegerField(
-        label="현재까지 귀하의 이직횟수는 얼마나 되십니까? (없을 경우 0)",
-        choices=range(0, 100),
-        blank=True,
-    )
+    # firm_size = models.IntegerField(
+    #     label="현재 근무하시는 사업장 규모를 다음 중 선택해주십시오.",
+    #     choices=Constants.FIRM_SIZE,
+    #     widget=widgets.RadioSelect,
+    #     blank=True,
+    # )
+    #
+    # work_year = models.IntegerField(
+    #     label="현재까지 귀하의 근무경력년수는 얼마나 되십니까? (1년 미만일 경우 0)",
+    #     choices=range(0, 40),
+    #     blank=True,
+    # )
+    #
+    # num_move = models.IntegerField(
+    #     label="현재까지 귀하의 이직횟수는 얼마나 되십니까? (없을 경우 0)",
+    #     choices=range(0, 100),
+    #     blank=True,
+    # )
 
     '''
     work_history = models.IntegerField(
@@ -274,17 +274,17 @@ class Player(BasePlayer):
         blank=True,
     )
 
-    residence_type = models.IntegerField(
-        label="귀하의 거주 형태를 선택해주세요.",
-        choices=Constants.RESIDENCE_TYPE_CHOICE,
-        widget=widgets.RadioSelect,
-        blank=True,
-    )
-
-    residence_type_op = models.StringField(
-        label="기타(직접입력:)",
-        blank=True,
-    )
+    # residence_type = models.IntegerField(
+    #     label="귀하의 거주 형태를 선택해주세요.",
+    #     choices=Constants.RESIDENCE_TYPE_CHOICE,
+    #     widget=widgets.RadioSelect,
+    #     blank=True,
+    # )
+    #
+    # residence_type_op = models.StringField(
+    #     label="기타(직접입력:)",
+    #     blank=True,
+    # )
 
     # <참여자 선별문항2>
 

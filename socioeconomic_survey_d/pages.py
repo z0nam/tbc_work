@@ -7,6 +7,11 @@ class Job(Page):
     form_fields = [
         'job_classification',
         'job_classification_op',
+        'firm_type',
+        'firm_type_op',
+        'firm_size',
+        'work_year',
+        'num_move',
     ]
 
 class SocioEconomics(Page):
@@ -41,6 +46,8 @@ class SocioEconomics(Page):
         'num_child_high',
         'num_child_over19',
         'is_family_owner',
+        'residence_type',
+        'residence_type_op',
         'family_income',
         'individual_income',
     ]
