@@ -40,10 +40,10 @@ class BasicSurvey(Page):
     #     if (value > Constants.BORN_YEAR_MAX or value < Constants.BORN_YEAR_MIN):
     #         return str.format("태어나신 해는 유효한 네자리 숫자 (가령 {} - {} 사이의 숫자) 로 입력하셔야 합니다.", Constants.BORN_YEAR_MIN, Constants.BORN_YEAR_MAX)
 
-    def gender_choices(self):
-        choices = Constants.GENDER_CHOICE.copy()
-        random.shuffle(choices)
-        return choices
+    # def gender_choices(self):
+    #     choices = Constants.GENDER_CHOICE.copy()
+    #     random.shuffle(choices)
+    #     return choices
 
     # def living_year_error_message(self, value):
     #     if (value > Constants.BORN_YEAR_MAX or value < Constants.BORN_YEAR_MIN):
