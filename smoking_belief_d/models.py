@@ -74,11 +74,7 @@ def make_field_sm(index):
 
 class Player(BasePlayer):
     transfer_will = models.IntegerField(
-        min=2500,
-        max=5000,
-        initial=0,
         label=questions.transfer_message,
-        widget=widgets.Slider(),
         blank=True,
     )
 
@@ -90,11 +86,7 @@ class Player(BasePlayer):
     )
 
     transfer_will_alt = models.IntegerField(
-        min=5000,
-        max=10000,
-        initial=0,
         label=questions.transfer_message_alt,
-        widget=widgets.Slider(),
         blank=True,
     )
 
