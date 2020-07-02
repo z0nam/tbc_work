@@ -9,6 +9,9 @@ class BasicSurvey(Page):
     form_fields = [
         'gender',
         'born_year',
+        'sq4',
+        'sq5',
+        'sq61',
         'work_type',
         'firm_type',
         'firm_type_op',

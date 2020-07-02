@@ -244,6 +244,36 @@ class Player(BasePlayer):
         blank=True,
     )
 
+    sq4 = models.IntegerField(
+        label="귀하께서는 최근 6개월 이내 수입을 얻기 위한 경제 활동을 하셨습니까?",
+        choices=[
+            [1, "최근 6개월 이내 근무한 경험이 있다",],
+            [2, "최근 6개월 이내 근무한 경험이 없다 (조사중단)"],
+        ],
+        widget=widgets.RadioSelect,
+        blank=True,
+    )
+
+    sq5 = models.IntegerField(
+        label="귀하께서는 어떤 직군에 종사하고 계십니까? 제시된 표에 해당하는 직군을 선택해주십시오.",
+        choices=[
+            [1, "관리자 및 사무 종사자"],
+            [2, "전문가 및 관련 종사자"],
+            [3, "서비스 및 판매 종사자"],
+            [4, "기능원, 장치, 기계 조작 및 조립 종사자"],
+            [5, "기타"],
+        ],
+        widget=widgets.RadioSelect,
+        blank=True,
+    )
+
+    sq61 = models.BooleanField(
+        label="현재 흡연중이십니까?",
+        choices=Constants.BINARY_CHOICES,
+        widget=widgets.RadioSelect,
+        blank=True,
+    )
+
     residence_type = models.IntegerField(
         label="귀하의 거주 형태를 선택해주세요.",
         choices=Constants.RESIDENCE_TYPE_CHOICE,
