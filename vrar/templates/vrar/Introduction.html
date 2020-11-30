@@ -1,0 +1,14 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    아이디 입력 화면
+{% endblock %}
+
+{% block content %}
+{% formfield player.vrar_id %}
+    <button class="btn btn-primary btn-large active">
+        이 버튼을 눌러 다음으로 진행해 주시기 바랍니다.
+    </button>
+
+{% endblock %}

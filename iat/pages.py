@@ -22,7 +22,7 @@ class Instruction(Page):
         return self.participant.vars['expiry'] - time.time()
 
     def vars_for_template(self):
-        vars_to_return = {}
+        vars_to_return = dict()
         main_category_keys = list(word_bundle['main_category'].keys())
         sub_category_keys = list(word_bundle['sub_category'].keys())
 
@@ -126,6 +126,13 @@ class IAT(Page):
         'iat_table',
     ]
 
+class Thanks(Page):
+    def is_displayed(self) -> bool:
+        if (self.round_number == 6):
+            return True
+        else:
+            return False
+
 
 def get_category_names_from_block(self):
     category_names = self.participant.vars['blocks'].iat_block_list[self.round_number-1].get_category_names()
@@ -136,4 +143,5 @@ page_sequence = [
     Instruction,
     Introduction,
     IAT,
+    # Thanks,
 ]

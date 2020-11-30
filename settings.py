@@ -2,6 +2,16 @@ from os import environ
 
 SESSION_CONFIG_DEFAULTS = {"real_world_currency_per_point": 67, "participation_fee": 1}
 SESSION_CONFIGS = [
+{
+        "name": "VR_AR",
+        "display_name": "신SW인식조사",
+        "num_demo_participants": 1,
+        "app_sequence": [
+            "vrar",
+            "iat",
+            "ending",
+        ]
+    },
     {
         "name": "total_nsm_sequence_1",
         "display_name": "전체_비흡연자_1",

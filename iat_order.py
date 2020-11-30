@@ -3,7 +3,7 @@
 from category_words import word_bundle
 import random
 
-DEFAULT_BLOCK_NUMBER = 10
+DEFAULT_BLOCK_NUMBER = 30
 FIRST, SECOND = 0, 1
 LEFT, RIGHT = 99, 100
 

@@ -31,7 +31,7 @@ class GlobalConstants:
         [4, "④"],
      ]
 
-    L4_CHOICES  = [
+    L4_CHOICES = [
         [1, "① 전혀 그렇지 않다"],
         [2, "② 그렇지 않다"],
         [3, "③ 그렇다"],

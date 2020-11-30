@@ -13,7 +13,7 @@ class Category {
                 }
 }
 
-class Item {
+class Item { //오류인듯. 확인해볼 것. 인풋이 리스트임. 아마도 첫 element만 들어가 있을 듯. 쓰지 않는 테이블이니 문제는 없음.
     constructor(iat_item, correct_side) {
         this.iat_item = iat_item;
         this.correct_side = correct_side;
