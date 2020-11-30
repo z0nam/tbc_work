@@ -2,7 +2,7 @@
 
 word_bundle = {
     'main_category': {
-        'AI': [
+        'AR,VR': [
             '증강현실',
             '가상현실',
             '홀로그램',
