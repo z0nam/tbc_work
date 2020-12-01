@@ -11,4 +11,4 @@ __pycache__/
 *.py[cod]
 .DS_Store
 *.otreezip
-node_modules
+_static/node_modules

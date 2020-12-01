@@ -10,17 +10,17 @@ class Thanks(Page):
     def is_displayed(self):
         return True
 
-    # def get(self):
-    #     url = GlobalConstants.EXTERNAL_URL + "?g_id=" \
-    #           + self.participant.vars['panel_id']+"&status=001"
-    #     print("return url:", url)
-    #     return HttpResponseRedirect(url)
-    #
-    # def vars_for_template(self):
-    #     return {
-    #         'URL': GlobalConstants.EXTERNAL_URL,
-    #         'PANEL_ID': self.participant.vars['panel_id']
-    #     }
+    def get(self):
+        url = GlobalConstants.EXTERNAL_URL + "?id=[" \
+              + self.participant.vars['panel_id']+"]"
+        print("return url:", url)
+        return HttpResponseRedirect(url)
+
+    def vars_for_template(self):
+        return {
+            'URL': GlobalConstants.EXTERNAL_URL,
+            'PANEL_ID': self.participant.vars['panel_id']
+        }
 
 
 page_sequence = [
