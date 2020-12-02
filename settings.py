@@ -18,7 +18,7 @@ SESSION_CONFIGS = [
         "num_demo_participants": 1,
         "app_sequence": [
             "vrar_embrain",
-            "iat",
+            "iat_mono",
             "ending",
         ]
     },
