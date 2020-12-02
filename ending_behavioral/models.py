@@ -8,7 +8,7 @@ import time
 author = 'Namun Cho <mailto:dr.strangelove@kberi.re.kr'
 
 doc = """
-부모협동형 대안교육의 현황과 제도적 개선방안 연구 를 위한 일반인 대상 인식조사
+AR, VR과 관련된 인식조사 IAT
 """
 
 
