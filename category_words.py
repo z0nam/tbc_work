@@ -34,3 +34,20 @@ word_bundle = {
         ],
     }
 }
+
+
+word_bundle_embrain = {
+    'main_category': {
+        'AR,VR': [
+            '증강현실',
+            '가상현실',
+            '홀로그램',
+            '실감콘텐츠',
+            '시뮬레이션',
+            '스마트글래스',
+        ],
+        '': [   # pair, peer, partner
+
+        ],
+    },
+}
