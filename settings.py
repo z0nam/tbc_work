@@ -12,16 +12,7 @@ SESSION_CONFIGS = [
             "ending_behavioral",
         ]
     },
-    {
-        "name": "VR_AR_embrain",
-        "display_name": "신SW인식조사(엠브레인)",
-        "num_demo_participants": 1,
-        "app_sequence": [
-            "vrar_embrain",
-            "iat_mono",
-            "ending",
-        ]
-    },
+
 ]
 LANGUAGE_CODE = "ko"
 REAL_WORLD_CURRENCY_CODE = "KRW"
